@@ -1,13 +1,21 @@
 import { useEffect, useRef } from 'react'
 
+// Smoothstep: silky ease-in-out
+function smoothstep(t) {
+  t = Math.max(0, Math.min(1, t))
+  return t * t * (3 - 2 * t)
+}
+
 export default function PerfilReveal() {
   const wrapperRef = useRef(null)
   const imageRef = useRef(null)
+  const firmaRef = useRef(null)
   const rafRef = useRef(null)
 
   useEffect(() => {
     const wrapper = wrapperRef.current
     const image = imageRef.current
+    const firma = firmaRef.current
     if (!wrapper || !image) return
 
     const updateProgress = () => {
@@ -20,33 +28,28 @@ export default function PerfilReveal() {
 
       const isMobile = window.innerWidth < 768
 
-      // ========== IMAGE ==========
-      // Everything is one continuous motion — no separate phases.
-      // The image appears, descends, and shrinks all at once, smoothly.
+      // ========== IMAGE — gentle emergence ==========
+      // Opacity: soft fade-in over the first 30% — no jarring pop
+      const opacityRaw = Math.min(1, p / 0.3)
+      const opacity = smoothstep(opacityRaw)
 
-      // Opacity: quick fade-in at the start
-      const opacity = Math.min(1, p / 0.18)
-      // Soft ease: fast entry, gentle landing
-
-      // TranslateY: from above viewport down to centered
-      // Starts at -50vh, reaches 0 around 60% of progress
-      const startY = isMobile ? -55 : -45
-      let slide = Math.min(p / 0.65, 1)
-      slide = 1 - Math.pow(1 - slide, 3) // ease-out cubic — swift arrival
+      // TranslateY: gentle descent from above — not a dramatic drop
+      const startY = isMobile ? -28 : -20
+      let slide = Math.min(p / 0.75, 1)
+      slide = 1 - Math.pow(1 - slide, 3) // ease-out cubic
       const translateY = startY * (1 - slide)
 
-      // Scale: continuous shrink from 1.1 to final size over the entire progress
-      const startScale = isMobile ? 1.1 : 1.06
+      // Scale: continuous gradual shrink from slightly-large to final size
+      const startScale = isMobile ? 1.15 : 1.10
       const endScale = isMobile ? 0.38 : 0.25
-      // Ease-in-out for natural deceleration at both ends
       let shrink = p
       shrink = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2
       const scale = startScale + (endScale - startScale) * shrink
 
-      // Grayscale: kicks in after image has settled, from progress 0.65 → 1
+      // Grayscale: subtle kick-in after image mostly settled (0.70 → 1)
       let grayscale = 0
-      if (p > 0.65) {
-        grayscale = (p - 0.65) / 0.35 // 0 → 1
+      if (p > 0.70) {
+        grayscale = (p - 0.70) / 0.30
         grayscale = grayscale < 0.5
           ? 2 * grayscale * grayscale
           : 1 - Math.pow(-2 * grayscale + 2, 2) / 2
@@ -55,6 +58,18 @@ export default function PerfilReveal() {
       image.style.opacity = opacity
       image.style.transform = `translateY(${translateY}vh) scale(${scale})`
       image.style.filter = `grayscale(${grayscale})`
+
+      // ========== SIGNATURE — progressive reveal ==========
+      if (firma) {
+        // Reveal from progress 0.55 → 0.95 (left-to-right clip)
+        let firmaP = (p - 0.55) / 0.40
+        firmaP = Math.max(0, Math.min(1, firmaP))
+        firmaP = smoothstep(firmaP)
+
+        const clipRight = ((1 - firmaP) * 100).toFixed(1)
+        firma.style.clipPath = `inset(0 ${clipRight}% 0 0)`
+        firma.style.opacity = firmaP < 0.02 ? 0 : 1
+      }
 
       rafRef.current = null
     }
@@ -175,6 +190,25 @@ export default function PerfilReveal() {
         @keyframes marquee-ltr {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
+        }
+        .perfil-firma {
+          position: absolute;
+          bottom: 8%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: clamp(200px, 50vw, 360px);
+          opacity: 0;
+          z-index: 3;
+          pointer-events: none;
+          will-change: clip-path, opacity;
+          filter: brightness(0) invert(1);
+          transition: none;
+        }
+        @media (min-width: 768px) {
+          .perfil-firma {
+            bottom: 10%;
+            width: clamp(240px, 28vw, 400px);
+          }
         }
         @keyframes marquee-rtl {
           0% { transform: translateX(0); }
@@ -329,7 +363,18 @@ export default function PerfilReveal() {
           />
         </div>
 
-        {/* Signature placeholder — will be replaced with new stroke-based SVG */}
+        {/* Signature — scroll-driven left-to-right reveal */}
+        <img
+          ref={firmaRef}
+          src="/firma2.svg"
+          alt="Firma Alan Ampudia"
+          draggable="false"
+          className="perfil-firma"
+          style={{
+            opacity: 0,
+            clipPath: 'inset(0 100% 0 0)',
+          }}
+        />
       </div>
     </div>
   )
