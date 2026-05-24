@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import PerfilReveal from '../components/PerfilReveal';
 import ProximaCarrera from '../components/ProximaCarrera';
 import MensajePersonal from '../components/MensajePersonal';
 import GaleriaNarrativa from '../components/GaleriaNarrativa';
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <PerfilReveal />
       <ProximaCarrera />
       <MensajePersonal />
       <GaleriaNarrativa />
