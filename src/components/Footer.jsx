@@ -28,7 +28,7 @@ export default function Footer() {
           }}>// SIEMPRE AL FRENTE</div>
           <h2 style={{
             fontFamily: 'Anton, sans-serif',
-            fontSize: 'clamp(3rem, 7vw, 6.5rem)', lineHeight: 0.9,
+            fontSize: 'clamp(3rem, 7vw, 6.5rem)', lineHeight: 1.05,
             color: 'var(--white)',
           }}>
             EL DESIERTO ESPERA.<br />

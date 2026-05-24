@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const productos = [
-  { code: 'TS.001', name: 'Playera Oficial #1', tagline: 'Team Papas / Negra', price: '$650', img: '/images/hero-person.png', tag: 'NEW' },
-  { code: 'CP.002', name: 'Gorra Monster Black', tagline: 'Snapback ajustable', price: '$450', img: '/images/01-alan-portrait.png', tag: 'TOP' },
-  { code: 'HD.003', name: 'Hoodie Champion 2024', tagline: 'Edición Campeón Mundial', price: '$890', img: '/images/07-alan-with-craft.png', tag: 'LIMITED' },
-  { code: 'AC.004', name: 'Sticker Pack Ampudia', tagline: 'Set de 6 — Team Papas', price: '$120', img: '/images/10-victory-flag.png', tag: 'NEW' },
+  { code: 'TS.001', name: 'Playera Oficial #1', tagline: 'Team Papas / Negra', price: '$650', img: '/images/hero-person.webp', tag: 'NEW' },
+  { code: 'CP.002', name: 'Gorra Monster Black', tagline: 'Snapback ajustable', price: '$450', img: '/images/01-alan-portrait.webp', tag: 'TOP' },
+  { code: 'HD.003', name: 'Hoodie Champion 2024', tagline: 'Edición Campeón Mundial', price: '$890', img: '/images/07-alan-with-craft.webp', tag: 'LIMITED' },
+  { code: 'AC.004', name: 'Sticker Pack Ampudia', tagline: 'Set de 6 — Team Papas', price: '$120', img: '/images/10-victory-flag.webp', tag: 'NEW' },
 ];
 
 const tagColor = { 'NEW': 'var(--magenta)', 'TOP': 'var(--monster-green)', 'LIMITED': 'var(--white)' };
@@ -37,7 +37,7 @@ export default function ProductosDestacados() {
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
               10 / MERCH
             </div>
-            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
               PRODUCTOS<br /><span style={{ color: 'var(--magenta)' }}>DESTACADOS.</span>
             </h2>
           </div>

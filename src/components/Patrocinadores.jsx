@@ -36,7 +36,7 @@ export default function Patrocinadores() {
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
               11 / PARTNERS
             </div>
-            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
               MARCAS QUE<br /><span style={{ color: 'var(--magenta)' }}>RESPALDAN</span> EL #1.
             </h2>
           </div>

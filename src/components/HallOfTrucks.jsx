@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const trucks = [
-  { num: '#1', year: '2025', name: 'Ford Raptor AWD', subtitle: 'Nuevos colores — Temporada Campeón', img: '/images/04-truck-action-front.png', specs: { engine: 'V8 / Mason', drive: 'AWD', tires: 'Toyo', lights: 'Baja Designs' } },
-  { num: '#1', year: '2025', name: 'Ford Raptor AWD', subtitle: 'Acción lateral — Polvo y velocidad', img: '/images/02-truck-action-side.png', specs: { engine: 'V8 / Mason', drive: 'AWD', tires: 'Toyo', lights: 'Baja Designs' } },
-  { num: '#1', year: '2025', name: 'Ford Raptor AWD', subtitle: 'Pit stop — La precisión del Team Papas', img: '/images/06-pit-stop.png', specs: { engine: 'V8 / Mason', drive: 'AWD', tires: 'Toyo', lights: 'Baja Designs' } },
+  { num: '#1', year: '2025', name: 'Ford Raptor AWD', subtitle: 'Nuevos colores — Temporada Campeón', img: '/images/04-truck-action-front.webp', specs: { engine: 'V8 / Mason', drive: 'AWD', tires: 'Toyo', lights: 'Baja Designs' } },
+  { num: '#1', year: '2025', name: 'Ford Raptor AWD', subtitle: 'Acción lateral — Polvo y velocidad', img: '/images/02-truck-action-side.webp', specs: { engine: 'V8 / Mason', drive: 'AWD', tires: 'Toyo', lights: 'Baja Designs' } },
+  { num: '#1', year: '2025', name: 'Ford Raptor AWD', subtitle: 'Pit stop — La precisión del Team Papas', img: '/images/06-pit-stop.webp', specs: { engine: 'V8 / Mason', drive: 'AWD', tires: 'Toyo', lights: 'Baja Designs' } },
 ];
 
 export default function HallOfTrucks() {
@@ -31,7 +31,7 @@ export default function HallOfTrucks() {
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
             07 / GARAGE
           </div>
-          <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+          <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             HALL OF<br /><span style={{ color: 'var(--magenta)' }}>TRUCKS.</span>
           </h2>
         </div>

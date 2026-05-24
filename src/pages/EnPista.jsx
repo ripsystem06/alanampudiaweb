@@ -80,7 +80,7 @@ export default function EnPista() {
           }}>Historial de Competencia</div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
-            fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 0.9, color: 'var(--white)',
+            fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.05, color: 'var(--white)',
             opacity: headerVisible ? 1 : 0,
             transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'all 0.8s ease 0.1s',

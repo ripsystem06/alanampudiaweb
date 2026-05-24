@@ -91,7 +91,7 @@ export default function ProximaCarrera() {
             <h2 style={{
               fontFamily: 'Anton, sans-serif',
               fontSize: 'clamp(3.5rem, 7vw, 6rem)',
-              lineHeight: 0.88, color: 'var(--white)',
+              lineHeight: 1.05, color: 'var(--white)',
               marginBottom: '1.5rem',
               textShadow: '0 4px 20px rgba(0,0,0,0.3)',
             }}>

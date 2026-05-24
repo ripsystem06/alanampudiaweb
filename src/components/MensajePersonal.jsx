@@ -42,7 +42,7 @@ export default function MensajePersonal() {
             aspectRatio: '4/5', position: 'relative', overflow: 'hidden',
             border: '1px solid rgba(233,30,99,0.3)',
           }}>
-            <img src="/images/08-helmet.png" alt="Alan con casco"
+            <img src="/images/08-helmet.webp" alt="Alan con casco"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
 
             {[
@@ -88,7 +88,7 @@ export default function MensajePersonal() {
 
           <h2 style={{
             fontFamily: 'Anton, sans-serif',
-            fontSize: 'clamp(3rem, 6vw, 5.5rem)', lineHeight: 0.95,
+            fontSize: 'clamp(3rem, 6vw, 5.5rem)', lineHeight: 1.055,
             color: 'var(--white)', marginBottom: '1.5rem',
           }}>
             "TIENES QUE SER<br />

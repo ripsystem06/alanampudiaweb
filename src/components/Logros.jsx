@@ -35,7 +35,7 @@ export default function Logros() {
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
               08 / TROPHIES
             </div>
-            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
               LEGADO EN<br /><span style={{ color: 'var(--magenta)' }}>NÚMEROS.</span>
             </h2>
           </div>
@@ -80,7 +80,7 @@ export default function Logros() {
                 <div style={{
                   fontFamily: 'Anton, sans-serif',
                   fontSize: logro.highlight ? '5rem' : '3.5rem',
-                  color: 'var(--white)', lineHeight: 0.9,
+                  color: 'var(--white)', lineHeight: 1.05,
                 }}>{logro.num}</div>
                 {logro.unit && (
                   <div style={{

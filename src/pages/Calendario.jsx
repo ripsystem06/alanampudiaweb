@@ -31,7 +31,7 @@ export default function Calendario() {
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             Temporada SCORE 2025
           </div>
-          <h1 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+          <h1 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             CALEN<span style={{ color: 'var(--magenta)' }}>DARIO</span>
           </h1>
           <p style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)', lineHeight: 1.6, marginTop: '1.5rem', maxWidth: '500px' }}>

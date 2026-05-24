@@ -50,7 +50,7 @@ export default function FueraDePista() {
           }}>El Hombre detrás del #1</div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
-            fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 0.9, color: 'var(--white)',
+            fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.05, color: 'var(--white)',
             opacity: headerVisible ? 1 : 0,
             transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'all 0.8s ease 0.1s',
@@ -170,7 +170,7 @@ export default function FueraDePista() {
               border: '1px solid rgba(233,30,99,0.3)',
               position: 'relative', overflow: 'hidden',
             }}>
-              <img src="/images/03-cockpit-prep.png" alt="Preparación"
+              <img src="/images/03-cockpit-prep.webp" alt="Preparación"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', top: 0, left: 0, width: '30px', height: '30px', borderTop: '2px solid var(--magenta)', borderLeft: '2px solid var(--magenta)' }} />
               <div style={{ position: 'absolute', bottom: 0, right: 0, width: '30px', height: '30px', borderBottom: '2px solid var(--magenta)', borderRight: '2px solid var(--magenta)' }} />

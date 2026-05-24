@@ -7,11 +7,11 @@ const navLinks = [
   { label: 'Fuera de Pista', to: '/fuera-de-pista', num: '03' },
   { label: 'Calendario', to: '/calendario', num: '04' },
   { label: 'Equipo', to: '/equipo', num: '05' },
-  { label: 'Tienda', to: '/tienda', num: '06' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,112 +20,229 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
     <>
-      <div style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001,
-        height: '28px',
-        background: 'var(--magenta)',
-        color: 'var(--white)',
-        overflow: 'hidden',
-        display: 'flex', alignItems: 'center',
-        borderBottom: '1px solid var(--black)',
-      }}>
-        <div style={{
-          display: 'flex', whiteSpace: 'nowrap',
-          animation: 'ticker 40s linear infinite',
-          fontFamily: 'JetBrains Mono, monospace',
-          fontSize: '0.72rem', fontWeight: 700,
-          letterSpacing: '0.15em', textTransform: 'uppercase',
-        }}>
-          {[...Array(2)].map((_, i) => (
-            <div key={i} style={{ display: 'flex' }}>
-              <span style={{ padding: '0 1.5rem' }}>● CAMPEÓN MUNDIAL 2024</span>
-              <span style={{ padding: '0 1.5rem' }}>● TROPHY TRUCK #1</span>
-              <span style={{ padding: '0 1.5rem' }}>● TRIPLE CORONA BAJA</span>
-              <span style={{ padding: '0 1.5rem' }}>● PRÓXIMA: BAJA 1000 NOV 2025</span>
-              <span style={{ padding: '0 1.5rem' }}>● RECORD SF250: 70.71 MPH</span>
-              <span style={{ padding: '0 1.5rem' }}>● TEAM PAPAS</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      {/* Main navbar — always transparent */}
       <nav style={{
-        position: 'fixed', top: '28px', left: 0, right: 0, zIndex: 1000,
-        padding: '0 2rem', height: '70px',
+        position: 'fixed', top: '15px', left: 0, right: 0, zIndex: 1001,
+        padding: '0 2rem', height: '80px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: scrolled ? 'rgba(5,5,5,0.92)' : 'rgba(5,5,5,0.4)',
-        borderBottom: scrolled ? '1px solid rgba(233,30,99,0.25)' : '1px solid transparent',
-        backdropFilter: 'blur(16px)',
-        transition: 'all 0.3s ease',
+        background: 'transparent',
+        borderBottom: '1px solid transparent',
+        transition: 'all 0.4s ease',
       }}>
-        <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-          <div style={{
-            width: '38px', height: '38px',
-            background: 'var(--magenta)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transform: 'skewX(-12deg)',
-          }}>
-            <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.5rem', color: 'var(--white)', transform: 'skewX(12deg)' }}>A</span>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-            <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.15rem', letterSpacing: '0.04em', color: 'var(--white)' }}>AMPUDIA</span>
-            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--magenta-bright)', marginTop: '2px' }}>OFFROAD #1</span>
-          </div>
+        {/* Left — Name */}
+        <Link
+          to="/"
+          style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
+          onMouseEnter={e => { e.currentTarget.children[0].style.color = 'var(--magenta-bright)'; e.currentTarget.children[0].style.textShadow = '0 0 20px var(--magenta-glow)'; }}
+          onMouseLeave={e => { e.currentTarget.children[0].style.color = '#ffffff'; e.currentTarget.children[0].style.textShadow = 'none'; }}
+        >
+          <span style={{
+            fontFamily: 'Anton, sans-serif',
+            fontSize: '1.68rem',
+            lineHeight: 1.05,
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase',
+            color: '#ffffff',
+            transition: 'color 0.2s, text-shadow 0.2s',
+          }}>ALAN</span>
+          <span style={{
+            fontFamily: 'Anton, sans-serif',
+            fontSize: '1.68rem',
+            lineHeight: 1.05,
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase',
+            color: '#ffffff',
+            textShadow: '0 0 12px var(--magenta-glow)',
+            transition: 'color 0.2s, text-shadow 0.2s',
+          }}>AMPUDIA</span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          {navLinks.map(link => {
+        {/* Center — Logo (hides on scroll) */}
+        <Link to="/" style={{
+          position: 'absolute', left: '50%', transform: 'translateX(-50%)',
+          display: 'flex', alignItems: 'center',
+          opacity: scrolled ? 0 : 1,
+          pointerEvents: scrolled ? 'none' : 'auto',
+          transition: 'opacity 0.4s ease',
+        }}>
+          <img
+            src="/logo2calavera.svg"
+            alt="Logo"
+            style={{ height: '86px', width: 'auto' }}
+          />
+        </Link>
+
+        {/* Right — Store button + Menu toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
+          <a
+            href="https://alanampudia.store"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: '0.77rem 1.68rem',
+              background: 'var(--magenta)',
+              color: 'var(--white)',
+              fontFamily: 'Anton, sans-serif',
+              fontSize: '1.15rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              display: 'flex', alignItems: 'center', gap: '0.5rem',
+              transform: 'skewX(-8deg)',
+              transition: 'all 0.2s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = 'var(--magenta-bright)'}
+            onMouseLeave={e => e.currentTarget.style.background = 'var(--magenta)'}
+          >
+            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>TIENDA</span>
+          </a>
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '0.5rem',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '6px',
+              width: '44px',
+              height: '44px',
+              position: 'relative',
+            }}
+            aria-label="Menu"
+          >
+            <span style={{
+              display: 'block',
+              width: '28px', height: '2px',
+              background: '#ffffff',
+              borderRadius: '1px',
+              transition: 'all 0.3s ease',
+              transform: menuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none',
+            }} />
+            <span style={{
+              display: 'block',
+              width: '28px', height: '2px',
+              background: '#ffffff',
+              borderRadius: '1px',
+              transition: 'all 0.3s ease',
+              opacity: menuOpen ? 0 : 1,
+            }} />
+            <span style={{
+              display: 'block',
+              width: '28px', height: '2px',
+              background: '#ffffff',
+              borderRadius: '1px',
+              transition: 'all 0.3s ease',
+              transform: menuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
+            }} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Fullscreen menu overlay */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed', inset: 0,
+          zIndex: 1000,
+          background: 'rgba(0,0,0,0.95)',
+          backdropFilter: 'blur(20px)',
+          display: 'flex', flexDirection: 'column',
+          justifyContent: 'center', alignItems: 'flex-start',
+          padding: '0 4rem',
+          animation: 'menuFadeIn 0.3s ease-out',
+        }}>
+          <style>{`
+            @keyframes menuFadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            @keyframes menuLinkIn {
+              from { opacity: 0; transform: translateX(-20px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+          `}</style>
+
+          {navLinks.map((link, i) => {
             const isActive = location.pathname === link.to;
             return (
-              <Link key={link.label} to={link.to} style={{
-                position: 'relative',
-                display: 'flex', alignItems: 'baseline', gap: '0.4rem',
-                textDecoration: 'none', padding: '0.5rem 0',
-              }}>
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: 'flex', alignItems: 'baseline', gap: '1.2rem',
+                  textDecoration: 'none', marginBottom: '1.8rem',
+                  animation: `menuLinkIn 0.3s ease-out ${0.05 + i * 0.06}s both`,
+                }}
+              >
                 <span style={{
-                  fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem',
-                  color: isActive ? 'var(--magenta-bright)' : 'rgba(255,255,255,0.3)',
-                  transition: 'color 0.2s',
+                  fontFamily: 'JetBrains Mono, monospace', fontSize: '1.05rem',
+                  color: 'var(--magenta-bright)', letterSpacing: '0.1em',
                 }}>{link.num}</span>
                 <span style={{
-                  fontFamily: 'Anton, sans-serif', fontSize: '0.9rem',
-                  letterSpacing: '0.05em', textTransform: 'uppercase',
+                  fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.8rem, 7vw, 4.9rem)',
+                  letterSpacing: '0.04em', textTransform: 'uppercase',
                   color: isActive ? 'var(--white)' : 'var(--white-dim)',
                   transition: 'color 0.2s',
+                  lineHeight: 1.05,
                 }}
                 onMouseEnter={e => e.target.style.color = 'var(--magenta-bright)'}
                 onMouseLeave={e => e.target.style.color = isActive ? 'var(--white)' : 'var(--white-dim)'}
                 >{link.label}</span>
                 {isActive && (
                   <span style={{
-                    position: 'absolute', bottom: 0, left: 0, right: 0,
-                    height: '2px', background: 'var(--magenta)',
+                    width: '3px', height: '2.8rem',
+                    background: 'var(--magenta)',
                     boxShadow: '0 0 10px var(--magenta)',
+                    marginLeft: '0.5rem',
                   }} />
                 )}
               </Link>
             );
           })}
-        </div>
 
-        <a href="mailto:contacto@alanampudia.com" style={{
-          padding: '0.7rem 1.4rem',
-          background: 'var(--magenta)', color: 'var(--white)',
-          fontFamily: 'Anton, sans-serif', fontSize: '0.85rem',
-          letterSpacing: '0.1em', textTransform: 'uppercase',
-          textDecoration: 'none',
-          display: 'flex', alignItems: 'center', gap: '0.5rem',
-          transform: 'skewX(-8deg)',
-          transition: 'all 0.2s',
-        }}
-        onMouseEnter={e => e.currentTarget.style.background = 'var(--magenta-bright)'}
-        onMouseLeave={e => e.currentTarget.style.background = 'var(--magenta)'}
-        >
-          <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>→ Contacto</span>
-        </a>
-      </nav>
+          <a
+            href="https://alanampudia.store"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              marginTop: '2rem',
+              padding: '1.12rem 2.8rem',
+              background: 'var(--magenta)',
+              color: 'var(--white)',
+              fontFamily: 'Anton, sans-serif',
+              fontSize: '1.4rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              transform: 'skewX(-8deg)',
+              animation: `menuLinkIn 0.3s ease-out ${0.05 + navLinks.length * 0.06}s both`,
+            }}
+          >
+            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>IR A LA TIENDA ↗</span>
+          </a>
+        </div>
+      )}
     </>
   );
 }

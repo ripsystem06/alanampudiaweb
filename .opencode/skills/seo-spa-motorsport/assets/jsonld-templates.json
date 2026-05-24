@@ -1,0 +1,157 @@
+{
+  "_note": "Schema.org JSON-LD templates for motorsport athlete portfolio. Replace {{PLACEHOLDERS}} with real data per route.",
+
+  "person": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alan Ampudia",
+    "alternateName": "El Rey Mexicano del Off-Road",
+    "url": "{{BASE_URL}}",
+    "image": "{{BASE_URL}}/images/alan-ampudia-profile.jpg",
+    "description": "Piloto mexicano de off-road. Campeón Mundial SCORE 2024. Trophy Truck #1.",
+    "nationality": {
+      "@type": "Country",
+      "name": "MX"
+    },
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Ensenada, Baja California, México"
+    },
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Professional Off-Road Racing Driver",
+      "occupationLocation": {
+        "@type": "City",
+        "name": "Ensenada"
+      }
+    },
+    "sameAs": [
+      "https://www.instagram.com/alanampudia/",
+      "https://www.facebook.com/AlanAmpudiaOficial",
+      "https://twitter.com/alanampudia"
+    ],
+    "knowsAbout": [
+      "SCORE International",
+      "Baja 1000",
+      "Baja 500",
+      "Trophy Truck",
+      "Off-Road Racing"
+    ]
+  },
+
+  "athlete": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alan Ampudia",
+    "description": "Campeón Mundial SCORE 2024. Piloto de Trophy Truck #1 compitiendo en SCORE International.",
+    "url": "{{BASE_URL}}",
+    "image": "{{BASE_URL}}/images/alan-ampudia-action.jpg",
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Professional Motorsport Athlete",
+      "description": "Off-Road Racing Driver",
+      "skills": "Off-Road Racing, Trophy Truck, Desert Racing, Baja Racing"
+    },
+    "alumniOf": {
+      "@type": "SportsOrganization",
+      "name": "Ampudia Racing"
+    },
+    "award": [
+      "Campeón Mundial SCORE 2024",
+      "Campeón SCORE Baja 1000",
+      "Campeón SCORE Baja 500"
+    ],
+    "memberOf": {
+      "@type": "SportsTeam",
+      "name": "Ampudia Racing",
+      "url": "{{BASE_URL}}/equipo"
+    }
+  },
+
+  "sportsTeam": {
+    "@context": "https://schema.org",
+    "@type": "SportsTeam",
+    "name": "Ampudia Racing",
+    "url": "{{BASE_URL}}/equipo",
+    "description": "Equipo profesional de off-road racing compitiendo en el SCORE World Desert Championship con el icónico Trophy Truck #1.",
+    "image": "{{BASE_URL}}/images/equipo/ampudia-racing-team.jpg",
+    "sport": "Off-Road Racing",
+    "member": {
+      "@type": "Person",
+      "name": "Alan Ampudia",
+      "url": "{{BASE_URL}}"
+    },
+    "coach": {
+      "@type": "Person",
+      "name": "{{COACH_NAME}}"
+    }
+  },
+
+  "event": {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "{{EVENT_NAME}}",
+    "sport": "Off-Road Racing",
+    "startDate": "{{EVENT_START_DATE}}",
+    "endDate": "{{EVENT_END_DATE}}",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "{{LOCATION_NAME}}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{LOCALITY}}",
+        "addressRegion": "{{REGION}}",
+        "addressCountry": "MX"
+      }
+    },
+    "organizer": {
+      "@type": "SportsOrganization",
+      "name": "SCORE International",
+      "url": "https://score-international.com"
+    },
+    "performer": {
+      "@type": "Person",
+      "name": "Alan Ampudia",
+      "url": "{{BASE_URL}}"
+    }
+  },
+
+  "website": {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Alan Ampudia - Sitio Oficial",
+    "alternateName": "El Rey Mexicano del Off-Road",
+    "url": "{{BASE_URL}}",
+    "description": "Sitio oficial de Alan Ampudia. Campeón Mundial SCORE 2024. Trophy Truck #1.",
+    "inLanguage": "es-MX",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{BASE_URL}}/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  },
+
+  "breadcrumb": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "{{BASE_URL}}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{PAGE_NAME}}",
+        "item": "{{PAGE_URL}}"
+      }
+    ]
+  }
+}

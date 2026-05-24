@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 const productos = [
-  { code: 'TS.001', name: 'Playera Oficial #1', tagline: 'Team Papas / Negra', price: '$650', cat: 'Playeras', img: '/images/hero-person.png', tag: 'NEW' },
-  { code: 'CP.002', name: 'Gorra Monster Black', tagline: 'Snapback ajustable', price: '$450', cat: 'Gorras', img: '/images/01-alan-portrait.png', tag: 'TOP' },
-  { code: 'HD.003', name: 'Hoodie Champion 2024', tagline: 'Edición Campeón Mundial', price: '$890', cat: 'Sudaderas', img: '/images/07-alan-with-craft.png', tag: 'LIMITED' },
-  { code: 'AC.004', name: 'Sticker Pack Ampudia', tagline: 'Set de 6 — Team Papas', price: '$120', cat: 'Accesorios', img: '/images/10-victory-flag.png', tag: 'NEW' },
-  { code: 'TS.005', name: 'Playera Racing Pink', tagline: 'Edición magenta', price: '$650', cat: 'Playeras', img: '/images/02-truck-action-side.png', tag: 'NEW' },
-  { code: 'CP.006', name: 'Gorra Trucker White', tagline: 'Estilo retro 5-panel', price: '$420', cat: 'Gorras', img: '/images/08-helmet.png', tag: null },
-  { code: 'HD.007', name: 'Sudadera Crewneck Negra', tagline: 'Logo bordado Team Papas', price: '$780', cat: 'Sudaderas', img: '/images/06-pit-stop.png', tag: null },
-  { code: 'AC.008', name: 'Llavero Metálico #1', tagline: 'Edición coleccionable', price: '$180', cat: 'Accesorios', img: '/images/04-truck-action-front.png', tag: 'TOP' },
+  { code: 'TS.001', name: 'Playera Oficial #1', tagline: 'Team Papas / Negra', price: '$650', cat: 'Playeras', img: '/images/hero-person.webp', tag: 'NEW' },
+  { code: 'CP.002', name: 'Gorra Monster Black', tagline: 'Snapback ajustable', price: '$450', cat: 'Gorras', img: '/images/01-alan-portrait.webp', tag: 'TOP' },
+  { code: 'HD.003', name: 'Hoodie Champion 2024', tagline: 'Edición Campeón Mundial', price: '$890', cat: 'Sudaderas', img: '/images/07-alan-with-craft.webp', tag: 'LIMITED' },
+  { code: 'AC.004', name: 'Sticker Pack Ampudia', tagline: 'Set de 6 — Team Papas', price: '$120', cat: 'Accesorios', img: '/images/10-victory-flag.webp', tag: 'NEW' },
+  { code: 'TS.005', name: 'Playera Racing Pink', tagline: 'Edición magenta', price: '$650', cat: 'Playeras', img: '/images/02-truck-action-side.webp', tag: 'NEW' },
+  { code: 'CP.006', name: 'Gorra Trucker White', tagline: 'Estilo retro 5-panel', price: '$420', cat: 'Gorras', img: '/images/08-helmet.webp', tag: null },
+  { code: 'HD.007', name: 'Sudadera Crewneck Negra', tagline: 'Logo bordado Team Papas', price: '$780', cat: 'Sudaderas', img: '/images/06-pit-stop.webp', tag: null },
+  { code: 'AC.008', name: 'Llavero Metálico #1', tagline: 'Edición coleccionable', price: '$180', cat: 'Accesorios', img: '/images/04-truck-action-front.webp', tag: 'TOP' },
 ];
 
 const categorias = ['Todos', 'Playeras', 'Gorras', 'Sudaderas', 'Accesorios'];
@@ -46,7 +46,7 @@ export default function Tienda() {
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             Productos Oficiales
           </div>
-          <h1 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+          <h1 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             <span style={{ color: 'var(--magenta)' }}>TIENDA</span> #1
           </h1>
           <p style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)', lineHeight: 1.6, marginTop: '1.5rem', maxWidth: '500px' }}>

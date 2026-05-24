@@ -30,7 +30,7 @@ export default function ElEquipo() {
           </div>
           <h2 style={{
             fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
-            lineHeight: 0.85, color: 'var(--white)',
+            lineHeight: 1.05, color: 'var(--white)',
           }}>
             TEAM <span style={{
               background: 'var(--magenta)', color: 'var(--white)',
@@ -50,7 +50,7 @@ export default function ElEquipo() {
             border: '1px solid rgba(233,30,99,0.3)',
             position: 'relative', overflow: 'hidden',
           }}>
-            <img src="/images/05-team-group.png" alt="Team Papas grupo"
+            <img src="/images/05-team-group.webp" alt="Team Papas grupo"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             <div style={{
               position: 'absolute', bottom: 0, left: 0, right: 0,

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 const photos = [
-  { code: 'SF250-24', label: 'San Felipe 250', year: '2024', stat: '70.71 MPH', caption: 'Récord de velocidad promedio. Carrera completa en solitario.', img: '/images/02-truck-action-side.png', big: true },
-  { code: 'B500-24', label: 'Baja 500', year: '2024', stat: '1° ABS', caption: 'Acción en el desierto — polvo, velocidad, agresividad.', img: '/images/04-truck-action-front.png' },
-  { code: 'PIT-24', label: 'Pit Stop', year: '2024', stat: '< 60s', caption: 'El equipo trabaja con precisión militar.', img: '/images/06-pit-stop.png' },
-  { code: 'WC-24', label: 'Campeonato Mundial', year: '2024', stat: '+1 PT', caption: 'Primer ensenadense en lograr el título absoluto.', img: '/images/10-victory-flag.png', quote: '"Si no piensas que eres el mejor, ¿cómo vas a salir a ganarles?"' },
-  { code: 'PREP-25', label: 'Preparación', year: '2025', stat: 'COCKPIT', caption: 'Configuración técnica antes de la carrera.', img: '/images/03-cockpit-prep.png' },
-  { code: 'TEAM-25', label: 'Con Kyle Craft', year: '2025', stat: 'CO-PILOT', caption: 'El #1 y su co-piloto listos para la batalla.', img: '/images/07-alan-with-craft.png' },
+  { code: 'SF250-24', label: 'San Felipe 250', year: '2024', stat: '70.71 MPH', caption: 'Récord de velocidad promedio. Carrera completa en solitario.', img: '/images/02-truck-action-side.webp', big: true },
+  { code: 'B500-24', label: 'Baja 500', year: '2024', stat: '1° ABS', caption: 'Acción en el desierto — polvo, velocidad, agresividad.', img: '/images/04-truck-action-front.webp' },
+  { code: 'PIT-24', label: 'Pit Stop', year: '2024', stat: '< 60s', caption: 'El equipo trabaja con precisión militar.', img: '/images/06-pit-stop.webp' },
+  { code: 'WC-24', label: 'Campeonato Mundial', year: '2024', stat: '+1 PT', caption: 'Primer ensenadense en lograr el título absoluto.', img: '/images/10-victory-flag.webp', quote: '"Si no piensas que eres el mejor, ¿cómo vas a salir a ganarles?"' },
+  { code: 'PREP-25', label: 'Preparación', year: '2025', stat: 'COCKPIT', caption: 'Configuración técnica antes de la carrera.', img: '/images/03-cockpit-prep.webp' },
+  { code: 'TEAM-25', label: 'Con Kyle Craft', year: '2025', stat: 'CO-PILOT', caption: 'El #1 y su co-piloto listos para la batalla.', img: '/images/07-alan-with-craft.webp' },
 ];
 
 export default function GaleriaNarrativa() {
@@ -23,7 +23,7 @@ export default function GaleriaNarrativa() {
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
             04 / ARCHIVE
           </div>
-          <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 6rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+          <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 6rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             MOMENTOS<br /><span style={{ color: 'var(--magenta)' }}>DEFINITIVOS.</span>
           </h2>
         </div>

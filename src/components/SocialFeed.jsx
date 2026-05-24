@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 const posts = [
-  { img: '/images/04-truck-action-front.png', label: 'San Felipe 250 — Acción frontal', tag: 'TRACK', code: 'IG.001' },
-  { img: '/images/05-team-group.png', label: 'Team Papas — Pre-carrera', tag: 'CREW', code: 'YT.002' },
-  { img: '/images/01-alan-portrait.png', label: 'El #1 — Ensenada B.C.', tag: 'LIFE', code: 'TT.003' },
-  { img: '/images/10-victory-flag.png', label: 'Bandera de meta 2024', tag: 'TRACK', code: 'IG.004' },
-  { img: '/images/07-alan-with-craft.png', label: 'Con Kyle Craft, co-piloto', tag: 'CREW', code: 'IG.005' },
-  { img: '/images/02-truck-action-side.png', label: 'Polvo y velocidad', tag: 'TRACK', code: 'YT.006' },
-  { img: '/images/06-pit-stop.png', label: 'Pit stop precision', tag: 'CREW', code: 'IG.007' },
-  { img: '/images/09-alan-cockpit.png', label: 'Listo para arrancar', tag: 'LIFE', code: 'TT.008' },
+  { img: '/images/04-truck-action-front.webp', label: 'San Felipe 250 — Acción frontal', tag: 'TRACK', code: 'IG.001' },
+  { img: '/images/05-team-group.webp', label: 'Team Papas — Pre-carrera', tag: 'CREW', code: 'YT.002' },
+  { img: '/images/01-alan-portrait.webp', label: 'El #1 — Ensenada B.C.', tag: 'LIFE', code: 'TT.003' },
+  { img: '/images/10-victory-flag.webp', label: 'Bandera de meta 2024', tag: 'TRACK', code: 'IG.004' },
+  { img: '/images/07-alan-with-craft.webp', label: 'Con Kyle Craft, co-piloto', tag: 'CREW', code: 'IG.005' },
+  { img: '/images/02-truck-action-side.webp', label: 'Polvo y velocidad', tag: 'TRACK', code: 'YT.006' },
+  { img: '/images/06-pit-stop.webp', label: 'Pit stop precision', tag: 'CREW', code: 'IG.007' },
+  { img: '/images/09-alan-cockpit.webp', label: 'Listo para arrancar', tag: 'LIFE', code: 'TT.008' },
 ];
 
 const tagColor = { 'TRACK': 'var(--magenta-bright)', 'CREW': 'var(--white)', 'LIFE': 'var(--monster-green)' };
@@ -39,7 +39,7 @@ export default function SocialFeed() {
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
               12 / SOCIAL
             </div>
-            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+            <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
               ÚLTIMAS<br /><span style={{ color: 'var(--magenta)' }}>TRANSMISIONES.</span>
             </h2>
           </div>

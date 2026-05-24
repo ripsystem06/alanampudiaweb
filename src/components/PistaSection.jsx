@@ -10,14 +10,14 @@ export default function PistaSection() {
       title: 'EN\nPISTA', tag: 'TRACK',
       description: 'Resultados, estadísticas, victorias y momentos desde el desierto.',
       tags: ['RESULTADOS', 'STATS', 'CARRERAS'],
-      img: '/images/02-truck-action-side.png',
+      img: '/images/02-truck-action-side.webp',
     },
     {
       id: 'fuera-pista', to: '/fuera-de-pista', num: '06',
       title: 'FUERA\nDE PISTA', tag: 'OFF-TRACK',
       description: 'El piloto, el hombre, la familia. Lo que sucede cuando se apaga el motor.',
       tags: ['VIDA', 'FAMILIA', 'CAMPAÑAS'],
-      img: '/images/09-alan-cockpit.png',
+      img: '/images/09-alan-cockpit.webp',
     },
   ];
 
@@ -62,7 +62,7 @@ export default function PistaSection() {
 
               <h2 style={{
                 fontFamily: 'Anton, sans-serif',
-                fontSize: 'clamp(4rem, 9vw, 8rem)', lineHeight: 0.85,
+                fontSize: 'clamp(4rem, 9vw, 8rem)', lineHeight: 1.05,
                 color: 'var(--white)', whiteSpace: 'pre-line',
                 marginBottom: '2rem', marginTop: '4rem',
                 transition: 'all 0.4s ease',

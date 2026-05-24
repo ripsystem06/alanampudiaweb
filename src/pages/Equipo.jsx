@@ -1,8 +1,8 @@
 const miembros = [
-  { rol: 'PILOTO #1', nombre: 'Alan Ampudia', detail: '35 años — Ensenada, B.C.', bio: 'Campeón Mundial SCORE Trophy Truck 2024. El primer ensenadense en lograr el título absoluto. Lleva las riendas del Ford Raptor #1.', code: 'P.001', img: '/images/01-alan-portrait.png' },
-  { rol: 'TEAM PRINCIPAL', nombre: 'Rodrigo Ampudia Sr.', detail: 'Cerebro técnico — Padre', bio: 'Responsable del programa técnico, la confiabilidad del vehículo y la estrategia de carrera. La obsesión por la perfección viene de él.', code: 'T.002', img: '/images/05-team-group.png' },
-  { rol: 'CO-PILOTO', nombre: 'Aaron Ampudia', detail: 'Hermano', bio: 'Parte esencial de la dinastía familiar. Su sincronía con Alan en cabina es producto de toda una vida compartiendo el desierto.', code: 'C.003', img: '/images/07-alan-with-craft.png' },
-  { rol: 'CO-PILOTO', nombre: 'Rodrigo Ampudia Jr.', detail: 'Hermano', bio: 'El automovilismo corre en la sangre. Co-piloto rotativo, garantía de continuidad en la familia.', code: 'C.004', img: '/images/09-alan-cockpit.png' },
+  { rol: 'PILOTO #1', nombre: 'Alan Ampudia', detail: '35 años — Ensenada, B.C.', bio: 'Campeón Mundial SCORE Trophy Truck 2024. El primer ensenadense en lograr el título absoluto. Lleva las riendas del Ford Raptor #1.', code: 'P.001', img: '/images/01-alan-portrait.webp' },
+  { rol: 'TEAM PRINCIPAL', nombre: 'Rodrigo Ampudia Sr.', detail: 'Cerebro técnico — Padre', bio: 'Responsable del programa técnico, la confiabilidad del vehículo y la estrategia de carrera. La obsesión por la perfección viene de él.', code: 'T.002', img: '/images/05-team-group.webp' },
+  { rol: 'CO-PILOTO', nombre: 'Aaron Ampudia', detail: 'Hermano', bio: 'Parte esencial de la dinastía familiar. Su sincronía con Alan en cabina es producto de toda una vida compartiendo el desierto.', code: 'C.003', img: '/images/07-alan-with-craft.webp' },
+  { rol: 'CO-PILOTO', nombre: 'Rodrigo Ampudia Jr.', detail: 'Hermano', bio: 'El automovilismo corre en la sangre. Co-piloto rotativo, garantía de continuidad en la familia.', code: 'C.004', img: '/images/09-alan-cockpit.webp' },
 ];
 
 export default function Equipo() {
@@ -28,7 +28,7 @@ export default function Equipo() {
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             Escudería Familiar
           </div>
-          <h1 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 0.9, color: 'var(--white)' }}>
+          <h1 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             EL <span style={{ color: 'var(--magenta)' }}>EQUIPO</span>
           </h1>
           <p style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)', lineHeight: 1.6, marginTop: '1.5rem', maxWidth: '520px' }}>
@@ -44,7 +44,7 @@ export default function Equipo() {
           border: '1px solid rgba(233,30,99,0.3)',
           position: 'relative', overflow: 'hidden',
         }}>
-          <img src="/images/05-team-group.png" alt="Team Papas"
+          <img src="/images/05-team-group.webp" alt="Team Papas"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem',
