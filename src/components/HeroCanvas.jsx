@@ -95,8 +95,8 @@ function loadTex(gl, img, unit) {
   return tex
 }
 
-const DISP_W = 512
-const DISP_H = 512
+const DISP_W = 1024
+const DISP_H = 1024
 
 export default function HeroCanvas({ className }) {
   const canvasRef    = useRef(null)
@@ -108,7 +108,7 @@ export default function HeroCanvas({ className }) {
   const isHoveringRef  = useRef(false)
   const needsUploadRef = useRef(false)
 
-  const paint = useCallback((normX, normY, radius = 55, strength = 0.92) => {
+  const paint = useCallback((normX, normY, radius = 90, strength = 0.88) => {
     const data = dispDataRef.current
     const cx   = Math.round(normX  * DISP_W)
     const cy   = Math.round(normY  * DISP_H)
@@ -229,7 +229,7 @@ export default function HeroCanvas({ className }) {
           // Spiral-like path across the canvas
           const cx = 0.5 + 0.3 * Math.cos(autoAngle) * Math.sin(autoAngle * 0.7)
           const cy = 0.5 + 0.3 * Math.sin(autoAngle) * Math.cos(autoAngle * 0.5)
-          paint(cx, cy, 45, 0.7)
+          paint(cx, cy, 75, 0.6)
         }
       }
 
