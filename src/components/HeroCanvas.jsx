@@ -47,6 +47,11 @@ void main() {
   vec4 base   = texture2D(u_base,   texUV);
   vec4 reveal = texture2D(u_reveal, texUV);
 
+  // White background for areas outside the image
+  float inBounds = step(0.0, texUV.x) * step(texUV.x, 1.0) * step(0.0, texUV.y) * step(texUV.y, 1.0);
+  base.rgb   = mix(vec3(1.0), base.rgb,   inBounds);
+  reveal.rgb = mix(vec3(1.0), reveal.rgb, inBounds);
+
   float mixFactor = smoothstep(0.05, 0.80, ink);
 
   // Subtle animated shimmer at the edge of the brush stroke — magenta
