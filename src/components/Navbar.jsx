@@ -42,7 +42,7 @@ export default function Navbar() {
         position: 'fixed', top: '15px', left: 0, right: 0, zIndex: 1001,
         padding: '0 2rem', height: '80px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: 'transparent',
+        background: inHero ? 'rgba(255,255,255,0.95)' : 'transparent',
         borderBottom: '1px solid transparent',
         transition: 'all 0.4s ease',
       }}>
