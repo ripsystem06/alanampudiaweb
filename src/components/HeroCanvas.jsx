@@ -51,15 +51,7 @@ void main() {
   base.rgb   = mix(vec3(1.0), base.rgb,   base.a);
   reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
 
-  // Silhouette-aware glow — 6 directional alpha samples (cardinal at 2 distances)
-  float nearbyAlpha = 0.0;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.01,  0.0)).a;
-  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.01,  0.0)).a;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,   0.01)).a;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,  -0.01)).a;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.025,  0.0)).a * 0.4;
-  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.025,  0.0)).a * 0.4;
-  float silhouetteGlow = (1.0 - base.a) * smoothstep(0.0, 0.5, nearbyAlpha);
+  // Silhouette-aware glow removed — only alpha compositing now
 
   float mixFactor = smoothstep(0.05, 0.80, ink);
 
@@ -70,8 +62,6 @@ void main() {
 
   vec4 blended = mix(base, reveal, mixFactor);
   blended.rgb  = mix(blended.rgb, glowColor, edge * 0.28);
-  // Apply silhouette glow
-  blended.rgb  = mix(blended.rgb, vec3(0.91, 0.12, 0.38), silhouetteGlow * 0.6);
 
   gl_FragColor = blended;
 }
@@ -252,23 +242,9 @@ export default function HeroCanvas({ className }) {
     function startRender() {
       const uTime = gl.getUniformLocation(prog, 'u_time')
 
-      // Auto-reveal: paint a moving circle when not hovering — throttled
-      let autoAngle = 0
-      let autoFrame = 0
-      function autoPaint() {
-        if (!isHoveringRef.current) {
-          autoFrame++
-          if (autoFrame % 3 !== 0) return // throttle: only paint every 3rd frame
-          autoAngle += 0.015
-          const cx = 0.5 + 0.3 * Math.cos(autoAngle) * Math.sin(autoAngle * 0.7)
-          const cy = 0.5 + 0.3 * Math.sin(autoAngle) * Math.cos(autoAngle * 0.5)
-          stamp(cx, cy, 40, 0.5)
-        }
-      }
-
       function decayBuffer() {
         const data = dispDataRef.current
-        const decayAmount = isHoveringRef.current ? 3 : 10
+        const decayAmount = 6
         const len = data.length
         let changed = false
         for (let i = 0; i < len; i += 4) {
@@ -285,7 +261,6 @@ export default function HeroCanvas({ className }) {
       function frame() {
         if (!gl || !prog) return
 
-        autoPaint()
         decayBuffer()
 
         if (needsUploadRef.current) {
