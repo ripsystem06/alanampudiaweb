@@ -208,12 +208,12 @@ export default function HeroCanvas({ className }) {
 
     const imgBase = new Image()
     imgBase.crossOrigin = 'anonymous'
-    imgBase.src = '/images/hero-helmet.webp'
+    imgBase.src = '/hero1.webp'
     imgBase.onload = () => { loadTex(gl, imgBase, 0); tryStart(imgBase) }
 
     const imgReveal = new Image()
     imgReveal.crossOrigin = 'anonymous'
-    imgReveal.src = '/images/hero-person.webp'
+    imgReveal.src = '/hero2.webp'
     imgReveal.onload = () => { loadTex(gl, imgReveal, 1); tryStart(imgReveal) }
 
     const startTime = performance.now()
@@ -221,9 +221,21 @@ export default function HeroCanvas({ className }) {
     function startRender() {
       const uTime = gl.getUniformLocation(prog, 'u_time')
 
+      // Auto-reveal: paint a moving circle when not hovering
+      let autoAngle = 0
+      function autoPaint() {
+        if (!isHoveringRef.current) {
+          autoAngle += 0.012
+          // Spiral-like path across the canvas
+          const cx = 0.5 + 0.3 * Math.cos(autoAngle) * Math.sin(autoAngle * 0.7)
+          const cy = 0.5 + 0.3 * Math.sin(autoAngle) * Math.cos(autoAngle * 0.5)
+          paint(cx, cy, 45, 0.7)
+        }
+      }
+
       function decayBuffer() {
         const data = dispDataRef.current
-        const decayAmount = isHoveringRef.current ? 2 : 8
+        const decayAmount = isHoveringRef.current ? 2 : 5
         const len = data.length
         let changed = false
         for (let i = 0; i < len; i += 4) {
@@ -240,6 +252,7 @@ export default function HeroCanvas({ className }) {
       function frame() {
         if (!gl || !prog) return
 
+        autoPaint()
         decayBuffer()
 
         if (needsUploadRef.current) {
