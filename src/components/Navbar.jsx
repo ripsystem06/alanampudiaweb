@@ -31,8 +31,8 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  // Text always white — navbar is always on dark background
-  const textColor = '#fff'
+  // In hero (white bg): dark text/icons. After hero (dark bg): light text/icons.
+  const textColor = inHero ? '#111' : '#fff'
   const hoverColor = 'var(--magenta-bright)'
   const barBg = menuOpen ? '#111' : textColor
 
@@ -42,7 +42,7 @@ export default function Navbar() {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001,
         padding: '0 2rem', height: '95px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: inHero ? 'rgba(17,17,17,0.92)' : 'transparent',
+        background: inHero ? '#fff' : 'transparent',
         borderBottom: '1px solid transparent',
         transition: 'all 0.4s ease',
       }}>
@@ -52,7 +52,7 @@ export default function Navbar() {
           style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
           onMouseEnter={e => {
             e.currentTarget.children[0].style.color = hoverColor
-            e.currentTarget.children[0].style.textShadow = '0 0 20px var(--magenta-glow)'
+            e.currentTarget.children[0].style.textShadow = inHero ? 'none' : '0 0 20px var(--magenta-glow)'
             e.currentTarget.children[1].style.color = hoverColor
           }}
           onMouseLeave={e => {
@@ -77,7 +77,7 @@ export default function Navbar() {
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
             color: textColor,
-            textShadow: '0 0 12px var(--magenta-glow)',
+            textShadow: inHero ? 'none' : '0 0 12px var(--magenta-glow)',
             transition: 'color 0.4s ease, text-shadow 0.4s ease',
           }}>AMPUDIA</span>
         </Link>
@@ -92,9 +92,9 @@ export default function Navbar() {
           filter: 'none',
         }}>
           <img
-            src="/logo2calavera.svg"
+            src={inHero ? '/logo2calavera-dark.svg' : '/logo2calavera.svg'}
             alt="Logo"
-            style={{ height: '86px', width: 'auto', transition: 'filter 0.4s ease' }}
+            style={{ height: '86px', width: 'auto', transition: 'opacity 0.4s ease' }}
           />
         </Link>
 
