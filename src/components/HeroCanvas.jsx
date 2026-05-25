@@ -47,20 +47,24 @@ void main() {
   vec4 base   = texture2D(u_base,   texUV);
   vec4 reveal = texture2D(u_reveal, texUV);
 
-  // Soft edge feather — sample neighboring alphas to create visible blur
-  float sp = 0.006;
-  float alphaBlur = base.a;
-  alphaBlur += texture2D(u_base, texUV + vec2( sp,  0.0)).a;
-  alphaBlur += texture2D(u_base, texUV + vec2(-sp,  0.0)).a;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp)).a;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp)).a;
-  alphaBlur += texture2D(u_base, texUV + vec2( sp,  sp)).a * 0.707;
-  alphaBlur += texture2D(u_base, texUV + vec2(-sp,  sp)).a * 0.707;
-  alphaBlur += texture2D(u_base, texUV + vec2( sp, -sp)).a * 0.707;
-  alphaBlur += texture2D(u_base, texUV + vec2(-sp, -sp)).a * 0.707;
-  alphaBlur /= 6.828; // normalize: 1 + 4 + 4*0.707
+  // Multi-pass feather — sample alpha at increasing distances for a wide soft edge
+  float sp1 = 0.008;
+  float sp2 = 0.018;
+  float sp3 = 0.035;
+  float alphaBlur = base.a * 0.22;
+  alphaBlur += texture2D(u_base, texUV + vec2( sp1,  0.0)).a * 0.12;
+  alphaBlur += texture2D(u_base, texUV + vec2(-sp1,  0.0)).a * 0.12;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp1)).a * 0.12;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp1)).a * 0.12;
+  alphaBlur += texture2D(u_base, texUV + vec2( sp2,  0.0)).a * 0.06;
+  alphaBlur += texture2D(u_base, texUV + vec2(-sp2,  0.0)).a * 0.06;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp2)).a * 0.06;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp2)).a * 0.06;
+  alphaBlur += texture2D(u_base, texUV + vec2( sp3,  0.0)).a * 0.02;
+  alphaBlur += texture2D(u_base, texUV + vec2(-sp3,  0.0)).a * 0.02;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp3)).a * 0.02;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp3)).a * 0.02;
 
-  // Composite over white using blurred alpha for soft edges
   base.rgb   = mix(vec3(1.0), base.rgb,   alphaBlur);
   reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
 
