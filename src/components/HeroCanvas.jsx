@@ -51,20 +51,14 @@ void main() {
   base.rgb   = mix(vec3(1.0), base.rgb,   base.a);
   reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
 
-  // Silhouette-aware glow — 12 directional alpha samples
+  // Silhouette-aware glow — 6 directional alpha samples (cardinal at 2 distances)
   float nearbyAlpha = 0.0;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.008,  0.0  )).a / 0.008;
-  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.008,  0.0  )).a / 0.008;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,    0.008)).a / 0.008;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,   -0.008)).a / 0.008;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.02,   0.0  )).a / 0.02;
-  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.02,   0.0  )).a / 0.02;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,    0.02 )).a / 0.02;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,   -0.02 )).a / 0.02;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.01,   0.01 )).a / 0.014142;
-  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.01,   0.01 )).a / 0.014142;
-  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.01,  -0.01 )).a / 0.014142;
-  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.01,  -0.01 )).a / 0.014142;
+  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.01,  0.0)).a;
+  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.01,  0.0)).a;
+  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,   0.01)).a;
+  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.0,  -0.01)).a;
+  nearbyAlpha += texture2D(u_base, texUV + vec2( 0.025,  0.0)).a * 0.4;
+  nearbyAlpha += texture2D(u_base, texUV + vec2(-0.025,  0.0)).a * 0.4;
   float silhouetteGlow = (1.0 - base.a) * smoothstep(0.0, 0.5, nearbyAlpha);
 
   float mixFactor = smoothstep(0.05, 0.80, ink);
@@ -118,8 +112,8 @@ function loadTex(gl, img, unit) {
   return tex
 }
 
-const DISP_W = 1024
-const DISP_H = 1024
+const DISP_W = 512
+const DISP_H = 512
 
 export default function HeroCanvas({ className }) {
   const canvasRef    = useRef(null)
@@ -131,7 +125,7 @@ export default function HeroCanvas({ className }) {
   const isHoveringRef  = useRef(false)
   const needsUploadRef = useRef(false)
 
-  const stamp = useCallback((normX, normY, radius = 90, strength = 0.88) => {
+  const stamp = useCallback((normX, normY, radius = 55, strength = 0.85) => {
     const data = dispDataRef.current
     const cx   = Math.round(normX  * DISP_W)
     const cy   = Math.round(normY  * DISP_H)
@@ -157,16 +151,16 @@ export default function HeroCanvas({ className }) {
     needsUploadRef.current = true
   }, [])
 
-  const paint = useCallback((normX, normY, radius = 90, strength = 0.88) => {
+  const paint = useCallback((normX, normY, radius = 55, strength = 0.85) => {
     stamp(normX, normY, radius, strength)
-    const count = 3 + Math.floor(Math.random() * 5)
+    const count = 2 + Math.floor(Math.random() * 3)
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2
-      const dist = Math.random() * radius * 0.6
+      const dist = Math.random() * radius * 0.5
       const sx = normX + (dist / DISP_W) * Math.cos(angle)
       const sy = normY + (dist / DISP_H) * Math.sin(angle)
-      const sr = radius * (0.3 + Math.random() * 0.4)
-      const ss = strength * (0.4 + Math.random() * 0.4)
+      const sr = radius * (0.3 + Math.random() * 0.3)
+      const ss = strength * (0.3 + Math.random() * 0.4)
       stamp(sx, sy, sr, ss)
     }
   }, [stamp])
@@ -258,21 +252,23 @@ export default function HeroCanvas({ className }) {
     function startRender() {
       const uTime = gl.getUniformLocation(prog, 'u_time')
 
-      // Auto-reveal: paint a moving circle when not hovering
+      // Auto-reveal: paint a moving circle when not hovering — throttled
       let autoAngle = 0
+      let autoFrame = 0
       function autoPaint() {
         if (!isHoveringRef.current) {
-          autoAngle += 0.012
-          // Spiral-like path across the canvas
+          autoFrame++
+          if (autoFrame % 3 !== 0) return // throttle: only paint every 3rd frame
+          autoAngle += 0.015
           const cx = 0.5 + 0.3 * Math.cos(autoAngle) * Math.sin(autoAngle * 0.7)
           const cy = 0.5 + 0.3 * Math.sin(autoAngle) * Math.cos(autoAngle * 0.5)
-          paint(cx, cy, 75, 0.6)
+          stamp(cx, cy, 40, 0.5)
         }
       }
 
       function decayBuffer() {
         const data = dispDataRef.current
-        const decayAmount = isHoveringRef.current ? 2 : 5
+        const decayAmount = isHoveringRef.current ? 3 : 10
         const len = data.length
         let changed = false
         for (let i = 0; i < len; i += 4) {
@@ -333,7 +329,7 @@ export default function HeroCanvas({ className }) {
       }
       const x = (clientX - rect.left) / rect.width
       const y = (clientY - rect.top)  / rect.height
-      paint(x, y, 90, 0.88)
+      stamp(x, y, 55, 0.85)
     },
     [paint]
   )
