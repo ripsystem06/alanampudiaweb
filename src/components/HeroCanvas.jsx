@@ -52,6 +52,17 @@ void main() {
   base.rgb   = mix(vec3(1.0), base.rgb,   inBounds);
   reveal.rgb = mix(vec3(1.0), reveal.rgb, inBounds);
 
+  // Soft outer glow on hero1 image edges — sampled from base image
+  float distX = min(texUV.x, 1.0 - texUV.x);
+  float distY = min(texUV.y, 1.0 - texUV.y);
+  float edgeDist = min(distX, distY);
+  // Glow in the border zone (0.0 → 0.08 of UV)
+  float glowZone = 1.0 - smoothstep(0.0, 0.08, edgeDist);
+  // Sample base luminance for glow color
+  float lum = dot(base.rgb, vec3(0.299, 0.587, 0.114));
+  // Magenta glow that fades into white
+  vec3 outerGlow = mix(vec3(1.0), vec3(0.91, 0.12, 0.38), glowZone * 0.55 * inBounds);
+
   float mixFactor = smoothstep(0.05, 0.80, ink);
 
   // Subtle animated shimmer at the edge of the brush stroke — magenta
@@ -61,6 +72,8 @@ void main() {
 
   vec4 blended = mix(base, reveal, mixFactor);
   blended.rgb  = mix(blended.rgb, glowColor, edge * 0.28);
+  // Apply outer glow
+  blended.rgb  = mix(blended.rgb, outerGlow, glowZone * 0.45 * inBounds);
 
   gl_FragColor = blended;
 }

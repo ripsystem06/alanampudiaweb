@@ -10,32 +10,34 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [inHero, setInHero] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    const onScroll = () => {
+      // Hero is 100vh, after that we're in dark sections
+      setInHero(window.scrollY < window.innerHeight * 0.5)
     }
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => { setMenuOpen(false) }, [location.pathname])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  // In hero (white bg): dark text/icons. After hero (dark bg): light text/icons.
+  const textColor = inHero ? '#111' : '#fff'
+  const hoverColor = 'var(--magenta-bright)'
+  const barBg = menuOpen ? '#111' : textColor
 
   return (
     <>
-      {/* Main navbar — always transparent */}
       <nav style={{
         position: 'fixed', top: '15px', left: 0, right: 0, zIndex: 1001,
         padding: '0 2rem', height: '80px',
@@ -48,8 +50,16 @@ export default function Navbar() {
         <Link
           to="/"
           style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
-          onMouseEnter={e => { e.currentTarget.children[0].style.color = 'var(--magenta-bright)'; e.currentTarget.children[0].style.textShadow = '0 0 20px var(--magenta-glow)'; }}
-          onMouseLeave={e => { e.currentTarget.children[0].style.color = '#ffffff'; e.currentTarget.children[0].style.textShadow = 'none'; }}
+          onMouseEnter={e => {
+            e.currentTarget.children[0].style.color = hoverColor
+            e.currentTarget.children[0].style.textShadow = inHero ? 'none' : '0 0 20px var(--magenta-glow)'
+            e.currentTarget.children[1].style.color = hoverColor
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.children[0].style.color = textColor
+            e.currentTarget.children[0].style.textShadow = 'none'
+            e.currentTarget.children[1].style.color = textColor
+          }}
         >
           <span style={{
             fontFamily: 'Anton, sans-serif',
@@ -57,8 +67,8 @@ export default function Navbar() {
             lineHeight: 1.05,
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
-            color: '#ffffff',
-            transition: 'color 0.2s, text-shadow 0.2s',
+            color: textColor,
+            transition: 'color 0.4s ease, text-shadow 0.2s',
           }}>ALAN</span>
           <span style={{
             fontFamily: 'Anton, sans-serif',
@@ -66,28 +76,29 @@ export default function Navbar() {
             lineHeight: 1.05,
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
-            color: '#ffffff',
-            textShadow: '0 0 12px var(--magenta-glow)',
-            transition: 'color 0.2s, text-shadow 0.2s',
+            color: textColor,
+            textShadow: inHero ? 'none' : '0 0 12px var(--magenta-glow)',
+            transition: 'color 0.4s ease, text-shadow 0.4s ease',
           }}>AMPUDIA</span>
         </Link>
 
-        {/* Center — Logo (hides on scroll) */}
+        {/* Center — Logo */}
         <Link to="/" style={{
           position: 'absolute', left: '50%', transform: 'translateX(-50%)',
           display: 'flex', alignItems: 'center',
-          opacity: scrolled ? 0 : 1,
-          pointerEvents: scrolled ? 'none' : 'auto',
+          opacity: 1,
+          pointerEvents: 'auto',
           transition: 'opacity 0.4s ease',
+          filter: inHero ? 'none' : 'brightness(0) invert(1)',
         }}>
           <img
             src="/logo2calavera.svg"
             alt="Logo"
-            style={{ height: '86px', width: 'auto' }}
+            style={{ height: '86px', width: 'auto', transition: 'filter 0.4s ease' }}
           />
         </Link>
 
-        {/* Right — Store button + Menu toggle */}
+        {/* Right — Store + Menu */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
           <a
             href="https://alanampudia.store"
@@ -112,7 +123,6 @@ export default function Navbar() {
             <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>TIENDA</span>
           </a>
 
-          {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             style={{
@@ -127,34 +137,22 @@ export default function Navbar() {
               gap: '6px',
               width: '44px',
               height: '44px',
-              position: 'relative',
             }}
             aria-label="Menu"
           >
-            <span style={{
-              display: 'block',
-              width: '28px', height: '2px',
-              background: '#ffffff',
-              borderRadius: '1px',
-              transition: 'all 0.3s ease',
-              transform: menuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none',
-            }} />
-            <span style={{
-              display: 'block',
-              width: '28px', height: '2px',
-              background: '#ffffff',
-              borderRadius: '1px',
-              transition: 'all 0.3s ease',
-              opacity: menuOpen ? 0 : 1,
-            }} />
-            <span style={{
-              display: 'block',
-              width: '28px', height: '2px',
-              background: '#ffffff',
-              borderRadius: '1px',
-              transition: 'all 0.3s ease',
-              transform: menuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
-            }} />
+            {[0, 1, 2].map(i => (
+              <span key={i} style={{
+                display: 'block',
+                width: '28px', height: '2px',
+                background: textColor,
+                borderRadius: '1px',
+                transition: 'all 0.3s ease',
+                transform: i === 0 && menuOpen ? 'rotate(45deg) translate(6px, 6px)'
+                  : i === 2 && menuOpen ? 'rotate(-45deg) translate(6px, -6px)'
+                  : 'none',
+                opacity: i === 1 && menuOpen ? 0 : 1,
+              }} />
+            ))}
           </button>
         </div>
       </nav>

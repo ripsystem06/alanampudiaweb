@@ -33,7 +33,7 @@ export default function Hero() {
           pointerEvents: 'none',
           background:
             'linear-gradient(to right, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.0) 38%, rgba(255,255,255,0.0) 62%, rgba(255,255,255,0.72) 100%), ' +
-            'linear-gradient(to top,   rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.0) 40%)',
+            'linear-gradient(to top,   rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.0) 40%)',
         }}
       />
     </section>

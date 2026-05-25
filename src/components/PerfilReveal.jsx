@@ -109,13 +109,13 @@ export default function PerfilReveal() {
     >
       <style>{`
         .perfil-outer-wrapper {
-          margin-top: -10vh;
+          margin-top: -5vh;
           z-index: 2;
         }
         @media (min-width: 768px) {
           .perfil-outer-wrapper {
             height: 320vh !important;
-            margin-top: -12vh;
+            margin-top: -8vh;
           }
         }
         .perfil-sticky {
