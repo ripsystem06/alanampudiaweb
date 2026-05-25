@@ -41,7 +41,7 @@ export default function PerfilReveal() {
 
       // Scale: continuous gradual shrink from slightly-large to final size
       const startScale = isMobile ? 1.15 : 1.10
-      const endScale = 0.30
+      const endScale = 0.36
       let shrink = p
       shrink = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2
       const scale = startScale + (endScale - startScale) * shrink
@@ -99,7 +99,7 @@ export default function PerfilReveal() {
 
   const marqueeWords = ['FELICIDAD', 'ADRENALINA', 'AMOR']
   const marqueeSep = ' \u00B7 '
-  const normalColor = 'rgba(255,255,255,0.12)'
+  const normalColor = 'rgba(255,255,255,0.85)'
 
   return (
     <div
