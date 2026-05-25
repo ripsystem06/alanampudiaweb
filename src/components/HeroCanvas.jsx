@@ -47,25 +47,8 @@ void main() {
   vec4 base   = texture2D(u_base,   texUV);
   vec4 reveal = texture2D(u_reveal, texUV);
 
-  // Multi-pass feather — sample alpha at increasing distances for a wide soft edge
-  float sp1 = 0.008;
-  float sp2 = 0.018;
-  float sp3 = 0.035;
-  float alphaBlur = base.a * 0.22;
-  alphaBlur += texture2D(u_base, texUV + vec2( sp1,  0.0)).a * 0.12;
-  alphaBlur += texture2D(u_base, texUV + vec2(-sp1,  0.0)).a * 0.12;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp1)).a * 0.12;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp1)).a * 0.12;
-  alphaBlur += texture2D(u_base, texUV + vec2( sp2,  0.0)).a * 0.06;
-  alphaBlur += texture2D(u_base, texUV + vec2(-sp2,  0.0)).a * 0.06;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp2)).a * 0.06;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp2)).a * 0.06;
-  alphaBlur += texture2D(u_base, texUV + vec2( sp3,  0.0)).a * 0.02;
-  alphaBlur += texture2D(u_base, texUV + vec2(-sp3,  0.0)).a * 0.02;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp3)).a * 0.02;
-  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp3)).a * 0.02;
-
-  base.rgb   = mix(vec3(1.0), base.rgb,   alphaBlur);
+  // Composite over white where PNG is transparent
+  base.rgb   = mix(vec3(1.0), base.rgb,   base.a);
   reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
 
   float mixFactor = smoothstep(0.05, 0.80, ink);
