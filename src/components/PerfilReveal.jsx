@@ -41,7 +41,7 @@ export default function PerfilReveal() {
 
       // Scale: continuous gradual shrink from slightly-large to final size
       const startScale = isMobile ? 1.15 : 1.10
-      const endScale = isMobile ? 0.38 : 0.25
+      const endScale = 0.30
       let shrink = p
       shrink = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2
       const scale = startScale + (endScale - startScale) * shrink
@@ -106,6 +106,7 @@ export default function PerfilReveal() {
 
   const marqueeWords = ['FELICIDAD', 'ADRENALINA', 'AMOR']
   const marqueeSep = ' \u00B7 '
+  const normalColor = 'rgba(255,255,255,0.12)'
 
   return (
     <div
@@ -155,24 +156,6 @@ export default function PerfilReveal() {
             transform: translateY(-45vh) scale(1.06);
           }
         }
-        .perfil-label {
-          position: absolute;
-          top: 1.5rem;
-          left: 1.5rem;
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 0.65rem;
-          letter-spacing: 0.25em;
-          color: var(--magenta);
-          z-index: 5;
-          pointer-events: none;
-          text-transform: uppercase;
-        }
-        @media (min-width: 768px) {
-          .perfil-label {
-            left: 4rem;
-            top: 2rem;
-          }
-        }
         .perfil-marquee-row {
           position: absolute;
           left: 0;
@@ -217,8 +200,7 @@ export default function PerfilReveal() {
       `}</style>
 
       <div className="perfil-sticky">
-        {/* Section label */}
-        <div className="perfil-label">02 / Perfil</div>
+        
 
         {/* Marquee Row 1 — scrolls LEFT to RIGHT */}
         <div
@@ -238,7 +220,7 @@ export default function PerfilReveal() {
                       fontFamily: "'Anton', sans-serif",
                       fontSize: 'clamp(2.5rem, 9vw, 7rem)',
                       whiteSpace: 'nowrap',
-                      color: word === 'AMOR' ? 'var(--magenta)' : 'rgba(255,255,255,0.05)',
+                      color: word === 'AMOR' ? 'var(--magenta)' : normalColor,
                     }}
                   >
                     {word}
@@ -247,7 +229,7 @@ export default function PerfilReveal() {
                 <span style={{
                   fontFamily: "'Anton', sans-serif",
                   fontSize: 'clamp(2.5rem, 9vw, 7rem)',
-                  color: 'rgba(255,255,255,0.05)',
+                  color: normalColor,
                   whiteSpace: 'nowrap',
                 }}>
                   {marqueeSep}
@@ -263,7 +245,7 @@ export default function PerfilReveal() {
                       fontFamily: "'Anton', sans-serif",
                       fontSize: 'clamp(2.5rem, 9vw, 7rem)',
                       whiteSpace: 'nowrap',
-                      color: word === 'AMOR' ? 'var(--magenta)' : 'rgba(255,255,255,0.05)',
+                      color: word === 'AMOR' ? 'var(--magenta)' : normalColor,
                     }}
                   >
                     {word}
@@ -272,7 +254,7 @@ export default function PerfilReveal() {
                 <span style={{
                   fontFamily: "'Anton', sans-serif",
                   fontSize: 'clamp(2.5rem, 9vw, 7rem)',
-                  color: 'rgba(255,255,255,0.05)',
+                  color: normalColor,
                   whiteSpace: 'nowrap',
                 }}>
                   {marqueeSep}
@@ -300,7 +282,7 @@ export default function PerfilReveal() {
                       fontFamily: "'Anton', sans-serif",
                       fontSize: 'clamp(2.5rem, 9vw, 7rem)',
                       whiteSpace: 'nowrap',
-                      color: word === 'AMOR' ? 'var(--magenta)' : 'rgba(255,255,255,0.05)',
+                      color: word === 'AMOR' ? 'var(--magenta)' : normalColor,
                     }}
                   >
                     {word}
@@ -309,7 +291,7 @@ export default function PerfilReveal() {
                 <span style={{
                   fontFamily: "'Anton', sans-serif",
                   fontSize: 'clamp(2.5rem, 9vw, 7rem)',
-                  color: 'rgba(255,255,255,0.05)',
+                  color: normalColor,
                   whiteSpace: 'nowrap',
                 }}>
                   {marqueeSep}
@@ -325,7 +307,7 @@ export default function PerfilReveal() {
                       fontFamily: "'Anton', sans-serif",
                       fontSize: 'clamp(2.5rem, 9vw, 7rem)',
                       whiteSpace: 'nowrap',
-                      color: word === 'AMOR' ? 'var(--magenta)' : 'rgba(255,255,255,0.05)',
+                      color: word === 'AMOR' ? 'var(--magenta)' : normalColor,
                     }}
                   >
                     {word}
@@ -334,7 +316,7 @@ export default function PerfilReveal() {
                 <span style={{
                   fontFamily: "'Anton', sans-serif",
                   fontSize: 'clamp(2.5rem, 9vw, 7rem)',
-                  color: 'rgba(255,255,255,0.05)',
+                  color: normalColor,
                   whiteSpace: 'nowrap',
                 }}>
                   {marqueeSep}
@@ -366,7 +348,7 @@ export default function PerfilReveal() {
         {/* Signature — scroll-driven left-to-right reveal */}
         <img
           ref={firmaRef}
-          src="/firma2.svg"
+          src="/firma3.svg"
           alt="Firma Alan Ampudia"
           draggable="false"
           className="perfil-firma"

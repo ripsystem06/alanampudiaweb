@@ -25,9 +25,7 @@ export default function ElEquipo() {
     }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
         <div style={{ marginBottom: '4rem', opacity: visible ? 1 : 0, transition: 'opacity 0.8s' }}>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
-            09 / CREW
-          </div>
+          
           <h2 style={{
             fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
             lineHeight: 1.05, color: 'var(--white)',

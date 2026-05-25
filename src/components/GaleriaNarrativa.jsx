@@ -20,9 +20,7 @@ export default function GaleriaNarrativa() {
     }}>
       <div style={{ padding: '0 4rem', marginBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
         <div>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
-            04 / ARCHIVE
-          </div>
+          
           <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 6rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             MOMENTOS<br /><span style={{ color: 'var(--magenta)' }}>DEFINITIVOS.</span>
           </h2>

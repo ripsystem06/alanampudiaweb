@@ -34,9 +34,7 @@ export default function ProductosDestacados() {
           opacity: visible ? 1 : 0, transition: 'opacity 0.8s',
         }}>
           <div>
-            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
-              10 / MERCH
-            </div>
+            
             <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
               PRODUCTOS<br /><span style={{ color: 'var(--magenta)' }}>DESTACADOS.</span>
             </h2>

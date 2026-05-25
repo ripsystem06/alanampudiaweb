@@ -16,11 +16,7 @@ export default function MensajePersonal() {
       position: 'relative', overflow: 'hidden',
       borderTop: '1px solid rgba(255,255,255,0.05)',
     }}>
-      <div style={{
-        position: 'absolute', top: '2rem', left: '4rem',
-        fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem',
-        letterSpacing: '0.25em', color: 'var(--magenta)',
-      }}>03 / MINDSET</div>
+      
 
       <div style={{ maxWidth: '1300px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '4rem', alignItems: 'center' }}>
         <div style={{

@@ -28,9 +28,7 @@ export default function HallOfTrucks() {
 
       <div style={{ maxWidth: '1300px', margin: '0 auto', position: 'relative' }}>
         <div style={{ marginBottom: '4rem' }}>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
-            07 / GARAGE
-          </div>
+          
           <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
             HALL OF<br /><span style={{ color: 'var(--magenta)' }}>TRUCKS.</span>
           </h2>

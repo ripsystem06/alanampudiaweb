@@ -36,9 +36,7 @@ export default function SocialFeed() {
           opacity: visible ? 1 : 0, transition: 'opacity 0.8s',
         }}>
           <div>
-            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--magenta)', marginBottom: '0.8rem' }}>
-              12 / SOCIAL
-            </div>
+            
             <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)', lineHeight: 1.05, color: 'var(--white)' }}>
               ÚLTIMAS<br /><span style={{ color: 'var(--magenta)' }}>TRANSMISIONES.</span>
             </h2>
