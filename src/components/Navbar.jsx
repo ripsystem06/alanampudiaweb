@@ -89,7 +89,7 @@ export default function Navbar() {
           opacity: 1,
           pointerEvents: 'auto',
           transition: 'opacity 0.4s ease',
-          filter: inHero ? 'none' : 'brightness(0) invert(1)',
+          filter: inHero ? 'invert(1)' : 'none',
         }}>
           <img
             src="/logo2calavera.svg"

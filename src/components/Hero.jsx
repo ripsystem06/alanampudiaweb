@@ -11,6 +11,8 @@ export default function Hero() {
         height: '100vh',
         overflow: 'hidden',
         background: '#ffffff',
+        paddingTop: '95px',
+        boxSizing: 'border-box',
       }}
     >
       <style>{`
