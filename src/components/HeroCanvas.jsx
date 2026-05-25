@@ -227,7 +227,7 @@ export default function HeroCanvas({ className }) {
 
     const imgBase = new Image()
     imgBase.crossOrigin = 'anonymous'
-    imgBase.src = '/hero1.webp'
+    imgBase.src = '/hero3.webp'
     imgBase.onload = () => { loadTex(gl, imgBase, 0); tryStart(imgBase) }
 
     const imgReveal = new Image()
