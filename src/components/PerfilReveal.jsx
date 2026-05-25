@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import FirmaSVG from './FirmaSVG'
 
 // Smoothstep: silky ease-in-out
 function smoothstep(t) {
@@ -9,13 +10,12 @@ function smoothstep(t) {
 export default function PerfilReveal() {
   const wrapperRef = useRef(null)
   const imageRef = useRef(null)
-  const firmaRef = useRef(null)
   const rafRef = useRef(null)
+  const [firmaProgress, setFirmaProgress] = useState(0)
 
   useEffect(() => {
     const wrapper = wrapperRef.current
     const image = imageRef.current
-    const firma = firmaRef.current
     if (!wrapper || !image) return
 
     const updateProgress = () => {
@@ -59,17 +59,10 @@ export default function PerfilReveal() {
       image.style.transform = `translateY(${translateY}vh) scale(${scale})`
       image.style.filter = `grayscale(${grayscale})`
 
-      // ========== SIGNATURE — progressive reveal ==========
-      if (firma) {
-        // Reveal from progress 0.55 → 0.95 (left-to-right clip)
-        let firmaP = (p - 0.55) / 0.40
-        firmaP = Math.max(0, Math.min(1, firmaP))
-        firmaP = smoothstep(firmaP)
-
-        const clipRight = ((1 - firmaP) * 100).toFixed(1)
-        firma.style.clipPath = `inset(0 ${clipRight}% 0 0)`
-        firma.style.opacity = firmaP < 0.02 ? 0 : 1
-      }
+      // ========== SIGNATURE — progressive stroke draw ==========
+      let firmaP = (p - 0.45) / 0.50
+      firmaP = Math.max(0, Math.min(1, firmaP))
+      setFirmaProgress(firmaP)
 
       rafRef.current = null
     }
@@ -183,8 +176,7 @@ export default function PerfilReveal() {
           opacity: 0;
           z-index: 3;
           pointer-events: none;
-          will-change: clip-path, opacity;
-          filter: brightness(0) invert(1);
+          will-change: opacity;
           transition: none;
         }
         @media (min-width: 768px) {
@@ -345,18 +337,15 @@ export default function PerfilReveal() {
           />
         </div>
 
-        {/* Signature — scroll-driven left-to-right reveal */}
-        <img
-          ref={firmaRef}
-          src="/firma3.svg"
-          alt="Firma Alan Ampudia"
-          draggable="false"
+        {/* Signature — scroll-driven stroke drawing animation */}
+        <div
           className="perfil-firma"
           style={{
-            opacity: 0,
-            clipPath: 'inset(0 100% 0 0)',
+            opacity: firmaProgress > 0.01 ? 1 : 0,
           }}
-        />
+        >
+          <FirmaSVG progress={firmaProgress} />
+        </div>
       </div>
     </div>
   )
