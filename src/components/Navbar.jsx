@@ -39,10 +39,10 @@ export default function Navbar() {
   return (
     <>
       <nav style={{
-        position: 'fixed', top: '15px', left: 0, right: 0, zIndex: 1001,
-        padding: '0 2rem', height: '80px',
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001,
+        padding: '0 2rem', height: '95px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: inHero ? 'rgba(255,255,255,0.95)' : 'transparent',
+        background: inHero ? 'rgba(255,255,255,0.97)' : 'transparent',
         borderBottom: '1px solid transparent',
         transition: 'all 0.4s ease',
       }}>
