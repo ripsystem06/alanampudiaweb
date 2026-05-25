@@ -51,7 +51,10 @@ void main() {
   base.rgb   = mix(vec3(1.0), base.rgb,   base.a);
   reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
 
-  // Silhouette-aware glow removed — only alpha compositing now
+  // Soft edge fade — anti-alias the silhouette border
+  float edgeSoft = smoothstep(0.0, 0.15, base.a);
+  base.rgb   = mix(vec3(1.0), base.rgb,   edgeSoft);
+  reveal.rgb = mix(vec3(1.0), reveal.rgb, edgeSoft);
 
   float mixFactor = smoothstep(0.05, 0.80, ink);
 
