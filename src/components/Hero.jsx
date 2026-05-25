@@ -8,12 +8,10 @@ export default function Hero() {
       id="hero"
       style={{
         position: 'relative',
-        height: 'calc(100vh + 95px)',
+        height: 'calc(100vh - 95px)',
         overflow: 'hidden',
         background: '#ffffff',
-        paddingTop: '95px',
-        boxSizing: 'border-box',
-        marginTop: '0',
+        marginTop: '95px',
       }}
     >
       <style>{`
