@@ -213,12 +213,12 @@ export default function HeroCanvas({ className }) {
 
     const imgBase = new Image()
     imgBase.crossOrigin = 'anonymous'
-    imgBase.src = '/hero1.webp'
+    imgBase.src = '/hero1.png'
     imgBase.onload = () => { loadTex(gl, imgBase, 0); tryStart(imgBase) }
 
     const imgReveal = new Image()
     imgReveal.crossOrigin = 'anonymous'
-    imgReveal.src = '/hero2.webp'
+    imgReveal.src = '/hero2.png'
     imgReveal.onload = () => { loadTex(gl, imgReveal, 1); tryStart(imgReveal) }
 
     const startTime = performance.now()
