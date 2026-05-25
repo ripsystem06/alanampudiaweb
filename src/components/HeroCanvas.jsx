@@ -47,14 +47,22 @@ void main() {
   vec4 base   = texture2D(u_base,   texUV);
   vec4 reveal = texture2D(u_reveal, texUV);
 
-  // Composite over white where PNG is transparent
-  base.rgb   = mix(vec3(1.0), base.rgb,   base.a);
-  reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
+  // Soft edge feather — sample neighboring alphas to create visible blur
+  float sp = 0.006;
+  float alphaBlur = base.a;
+  alphaBlur += texture2D(u_base, texUV + vec2( sp,  0.0)).a;
+  alphaBlur += texture2D(u_base, texUV + vec2(-sp,  0.0)).a;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0,  sp)).a;
+  alphaBlur += texture2D(u_base, texUV + vec2( 0.0, -sp)).a;
+  alphaBlur += texture2D(u_base, texUV + vec2( sp,  sp)).a * 0.707;
+  alphaBlur += texture2D(u_base, texUV + vec2(-sp,  sp)).a * 0.707;
+  alphaBlur += texture2D(u_base, texUV + vec2( sp, -sp)).a * 0.707;
+  alphaBlur += texture2D(u_base, texUV + vec2(-sp, -sp)).a * 0.707;
+  alphaBlur /= 6.828; // normalize: 1 + 4 + 4*0.707
 
-  // Soft edge fade — anti-alias the silhouette border
-  float edgeSoft = smoothstep(0.0, 0.35, base.a);
-  base.rgb   = mix(vec3(1.0), base.rgb,   edgeSoft);
-  reveal.rgb = mix(vec3(1.0), reveal.rgb, edgeSoft);
+  // Composite over white using blurred alpha for soft edges
+  base.rgb   = mix(vec3(1.0), base.rgb,   alphaBlur);
+  reveal.rgb = mix(vec3(1.0), reveal.rgb, reveal.a);
 
   float mixFactor = smoothstep(0.05, 0.80, ink);
 
