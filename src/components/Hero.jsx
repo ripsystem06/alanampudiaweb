@@ -36,6 +36,16 @@ export default function Hero() {
             'linear-gradient(to top,   rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.0) 40%)',
         }}
       />
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: '25vh',
+        background: 'linear-gradient(to bottom, transparent, var(--black))',
+        pointerEvents: 'none',
+        zIndex: 2,
+      }} />
     </section>
   )
 }

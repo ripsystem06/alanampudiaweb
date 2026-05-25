@@ -17,7 +17,7 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       // Hero is 100vh, after that we're in dark sections
-      setInHero(window.scrollY < window.innerHeight * 0.5)
+      setInHero(window.scrollY < window.innerHeight * 0.85)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
