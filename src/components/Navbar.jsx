@@ -92,9 +92,9 @@ export default function Navbar() {
           filter: 'none',
         }}>
           <img
-            src={inHero ? '/logo2calavera-dark.svg' : '/logo2calavera.svg'}
+            src="/logo2calavera.svg"
             alt="Logo"
-            style={{ height: '86px', width: 'auto', transition: 'opacity 0.4s ease' }}
+            style={{ height: '86px', width: 'auto', transition: 'filter 0.4s ease', filter: inHero ? 'none' : 'brightness(0) invert(1)' }}
           />
         </Link>
 
