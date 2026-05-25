@@ -10,7 +10,7 @@ export default function Hero() {
         position: 'relative',
         height: '100vh',
         overflow: 'hidden',
-        background: 'var(--black)',
+        background: '#ffffff',
       }}
     >
       <style>{`
