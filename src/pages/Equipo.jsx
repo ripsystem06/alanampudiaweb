@@ -423,7 +423,7 @@ export default function Equipo() {
       </AnimatedSection>
 
       {/* Countdown — same as En Pista */}
-      <CountdownInline targetDate="June 3, 2026 00:00:00" />
+      <CountdownInline targetDate="September 9, 2026 00:00:00" />
     </div>
   );
 }

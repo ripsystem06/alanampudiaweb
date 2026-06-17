@@ -7,6 +7,7 @@ const temporadas = [
     year: '2026',
     carreras: [
       { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2026', posicion: '10°', clase: '4WD Vehicles - Pro', tiempo: '6:48:20', estado: 'Completada', nota: '281.85 mi — 43.5 mph promedio' },
+      { nombre: 'SCORE BAJA 500', fecha: 'Jun 2026', posicion: '2° Absoluta', clase: 'Trophy Truck', tiempo: '9:11:06.665', estado: 'Completada', nota: '' },
     ],
   },
   {
@@ -630,8 +631,8 @@ function HeroSection() {
           transform: heroVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease 0.2s',
         }}>
-          58th<br />
-          <span style={{ color: 'var(--magenta)' }}>SCORE BAJA 500</span>
+          7th<br />
+          <span style={{ color: 'var(--magenta)' }}>SCORE BAJA 400</span>
         </h1>
 
         {/* Event Details */}
@@ -650,7 +651,7 @@ function HeroSection() {
             color: 'var(--white-soft)',
             letterSpacing: '0.05em',
           }}>
-            460+ miles of Baja terrain
+            400+ miles of Baja terrain
           </div>
           <div style={{
             fontFamily: 'JetBrains Mono, monospace',
@@ -658,7 +659,7 @@ function HeroSection() {
             color: 'var(--white-dim)',
             letterSpacing: '0.15em',
           }}>
-            Ensenada, Baja California — June 3–7, 2026
+            Ensenada, Baja California — Sept 9–13, 2026
           </div>
         </div>
 
@@ -679,14 +680,15 @@ function HeroSection() {
           }}>
             Tiempo hasta la salida
           </div>
-          <CountdownTimer targetDate="June 3, 2026 00:00:00" />
+          <CountdownTimer targetDate="September 9, 2026 00:00:00" />
         </div>
         </div>{/* end left column */}
 
-        {/* Track glow SVG */}
+        {/* SCORE Logo + reveal message */}
         <div style={{
           flex: isMobile ? 'none' : '0 0 50%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           padding: isMobile ? '1rem 0' : '2rem',
@@ -694,8 +696,32 @@ function HeroSection() {
           maxWidth: isMobile ? '400px' : undefined,
           margin: isMobile ? '0 auto' : undefined,
           marginTop: isMobile ? '1.8rem' : 0,
+          gap: 'clamp(1.5rem, 3vw, 2.5rem)',
+          opacity: heroVisible ? 1 : 0,
+          transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'all 0.8s ease 0.3s',
         }}>
-          <TrackGlowSVG />
+          <img
+            src="/scorelogo.svg"
+            alt="SCORE International"
+            style={{
+              width: '100%',
+              maxWidth: '280px',
+              height: 'auto',
+              filter: 'drop-shadow(0 0 30px rgba(233,30,99,0.3))',
+            }}
+          />
+          <div style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: 'clamp(0.7rem, 1.2vw, 0.85rem)',
+            letterSpacing: '0.3em',
+            color: 'var(--magenta-bright)',
+            textTransform: 'uppercase',
+            textAlign: 'center',
+            animation: 'blink 2s infinite',
+          }}>
+            Revelación de pista próximamente
+          </div>
         </div>
       </div>
 
@@ -1417,7 +1443,7 @@ export default function EnPista() {
       <TeamSection />
 
       {/* Countdown Section — minimal inline, no boxes */}
-      <CountdownInline targetDate="June 3, 2026 00:00:00" />
+      <CountdownInline targetDate="September 9, 2026 00:00:00" />
     </div>
   );
 }
