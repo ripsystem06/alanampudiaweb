@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Component } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import LogoIntro from './components/LogoIntro';
@@ -11,6 +11,31 @@ import Calendario from './pages/Calendario';
 import Equipo from './pages/Equipo';
 import Tienda from './pages/Tienda';
 import Legal from './pages/Legal';
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '2rem', color: 'white', background: '#111', minHeight: '100vh', fontFamily: 'monospace' }}>
+          <h1 style={{ color: '#e91e63' }}>⚠ Error</h1>
+          <pre style={{ whiteSpace: 'pre-wrap', fontSize: '0.85rem', color: '#ccc' }}>
+            {this.state.error?.message}
+            {'\n\n'}
+            {this.state.error?.stack}
+          </pre>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function scrollToTop() {
   // scrollTop directo → elude CSS scroll-behavior: smooth
@@ -44,19 +69,21 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <ScrollToTop />
-        <LogoIntro />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/en-pista" element={<EnPista />} />
-          <Route path="/fuera-de-pista" element={<FueraDePista />} />
-          <Route path="/calendario" element={<Calendario />} />
-          <Route path="/equipo" element={<Equipo />} />
-          <Route path="/tienda" element={<Tienda />} />
-          <Route path="/legal" element={<Legal />} />
-        </Routes>
-        <Footer />
+        <ErrorBoundary>
+          <ScrollToTop />
+          <LogoIntro />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/en-pista" element={<EnPista />} />
+            <Route path="/fuera-de-pista" element={<FueraDePista />} />
+            <Route path="/calendario" element={<Calendario />} />
+            <Route path="/equipo" element={<Equipo />} />
+            <Route path="/tienda" element={<Tienda />} />
+            <Route path="/legal" element={<Legal />} />
+          </Routes>
+          <Footer />
+        </ErrorBoundary>
       </BrowserRouter>
     </LanguageProvider>
   );
