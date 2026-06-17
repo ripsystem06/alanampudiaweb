@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const filosofia = [
   { palabra: 'Felicidad', desc: 'La pasión que lo impulsa desde los 7 años.' },

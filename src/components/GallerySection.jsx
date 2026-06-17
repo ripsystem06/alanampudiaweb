@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 const allImages = [
   '01-alan-portrait.webp', '02-truck-action-side.webp', '03-cockpit-prep.webp',
