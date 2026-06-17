@@ -742,6 +742,7 @@ function HeroSection() {
 }
 
 export default function EnPista() {
+  const { t } = useLanguage();
   const [activeYear, setActiveYear] = useState('2026');
   const [expandedRace, setExpandedRace] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
