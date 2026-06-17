@@ -7,7 +7,7 @@ const temporadas = [
     year: '2026',
     carreras: [
       { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2026', posicion: '10°', clase: '4WD Vehicles - Pro', tiempo: '6:48:20', estado: 'Completada', nota: '281.85 mi — 43.5 mph promedio' },
-      { nombre: 'SCORE BAJA 500', fecha: 'Jun 2026', posicion: '2° Absoluta', clase: 'Trophy Truck', tiempo: '9:11:06.665', estado: 'Completada', nota: '' },
+      { nombre: 'SCORE BAJA 500', fecha: 'Jun 2026', posicion: '2°', clase: 'Trophy Truck', tiempo: '9:11:06.665', estado: 'Completada', nota: '' },
     ],
   },
   {
@@ -701,16 +701,6 @@ function HeroSection() {
           transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'all 0.8s ease 0.3s',
         }}>
-          <img
-            src="/scorelogo.svg"
-            alt="SCORE International"
-            style={{
-              width: '100%',
-              maxWidth: '280px',
-              height: 'auto',
-              filter: 'drop-shadow(0 0 30px rgba(233,30,99,0.3))',
-            }}
-          />
           <div style={{
             fontFamily: 'JetBrains Mono, monospace',
             fontSize: 'clamp(0.7rem, 1.2vw, 0.85rem)',
@@ -722,6 +712,16 @@ function HeroSection() {
           }}>
             Revelación de pista próximamente
           </div>
+          <img
+            src="/scorelogo.svg"
+            alt="SCORE International"
+            style={{
+              width: '100%',
+              maxWidth: '308px',
+              height: 'auto',
+              filter: 'drop-shadow(0 0 30px rgba(233,30,99,0.3))',
+            }}
+          />
         </div>
       </div>
 
