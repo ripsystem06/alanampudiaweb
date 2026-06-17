@@ -6,8 +6,8 @@ const temporadas = [
   {
     year: '2026',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2026', posicion: '10°', clase: '4WD Vehicles - Pro', tiempo: '6:48:20', estado: 'Completada', nota: '281.85 mi — 43.5 mph promedio' },
       { nombre: 'SCORE BAJA 500', fecha: 'Jun 2026', posicion: '2°', clase: 'Trophy Truck', tiempo: '9:11:06.665', estado: 'Completada', nota: '' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2026', posicion: '10°', clase: '4WD Vehicles - Pro', tiempo: '6:48:20', estado: 'Completada', nota: '281.85 mi — 43.5 mph promedio' },
     ],
   },
   {
