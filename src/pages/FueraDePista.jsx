@@ -349,57 +349,81 @@ export default function FueraDePista() {
                 lineHeight: 1.9,
               }}>
                 <p style={{ marginTop: 0 }}>
-                  Hay colores que identifican una marca.
+                  Para Alan Ampudia, el <span style={{ color: 'var(--magenta-bright)', fontWeight: 600 }}>color rosa</span> no es una elección estética
+                  ni una estrategia para destacar en la pista. Es un homenaje, una historia de
+                  resiliencia y un símbolo de lucha familiar.
                 </p>
+
+                <h3 style={{
+                  fontFamily: 'Anton, sans-serif',
+                  fontSize: 'clamp(1.3rem, 2.2vw, 1.6rem)',
+                  color: 'var(--white)',
+                  marginBottom: '1rem',
+                  marginTop: '1.8rem',
+                  letterSpacing: '0.02em',
+                }}>
+                  Una Historia de Fuerza y Valentía
+                </h3>
+
                 <p>
-                  Y hay colores que <span style={{ color: 'var(--white)' }}>cuentan una historia</span>.
-                </p>
-                <p>
-                  El <span style={{ color: 'var(--magenta-bright)', fontWeight: 600 }}>rosa</span> que acompaña a Alan Ampudia no fue elegido para llamar
-                  la atención ni para destacar entre la multitud. Fue elegido para recordar.
-                </p>
-                <p>
-                  Recordar la fuerza de una mujer que enfrentó uno de los momentos más difíciles
-                  de su vida con valentía, determinación y una sonrisa que nunca desapareció.
-                </p>
-                <p>
-                  Cuando el cáncer tocó la puerta de la familia Ampudia, todo cambió. Lo que
-                  parecía una batalla imposible se convirtió en una lección de amor, resiliencia
-                  y esperanza. Una lección que dejó una huella permanente en quienes la vivieron.
-                </p>
-                <p>
-                  <span style={{ color: 'var(--white)' }}>Por eso el rosa está presente.</span>
-                </p>
-                <p>
-                  Porque representa a todas las madres, hijas, hermanas, esposas y amigas
-                  que han enfrentado esta enfermedad.
-                </p>
-                <p>
-                  Porque representa a quienes siguen luchando.
-                </p>
-                <p>
-                  Y también a quienes lucharon antes.
-                </p>
-                <p>
-                  Más que un color, es una promesa de no olvidar. Un recordatorio de que incluso
-                  en los momentos más difíciles existe la posibilidad de encontrar fuerza donde
-                  menos la imaginamos.
-                </p>
-                <p>
-                  Detrás de cada tono de rosa hay una historia.
-                </p>
-                <p>
-                  Y detrás de esta historia hay una mujer que inspiró a toda una familia
+                  Cuando el cáncer tocó a la familia Ampudia, la incertidumbre se transformó
+                  en una lección de amor y unión. El rosa en el automovilismo es el recordatorio
+                  permanente de esa batalla y de la fuerza de una mujer que inspiró a todos
                   a seguir adelante.
                 </p>
-                <p>
-                  Con <span style={{ color: 'var(--white)' }}>esperanza</span>.
+
+                <p style={{ color: 'var(--white)', fontWeight: 600, marginTop: '1.5rem' }}>
+                  Este color representa un compromiso real:
                 </p>
-                <p>
-                  Con <span style={{ color: 'var(--white)' }}>amor</span>.
-                </p>
-                <p>
-                  Y con la convicción de que ninguna batalla debe enfrentarse sola.
+
+                <ul style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: '1rem 0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.8rem',
+                }}>
+                  <li style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.6rem',
+                  }}>
+                    <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
+                    <span>
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>Homenaje a la resiliencia:</span>
+                      {' '}Una huella imborrable de valentía ante los momentos más difíciles.
+                    </span>
+                  </li>
+                  <li style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.6rem',
+                  }}>
+                    <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
+                    <span>
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>Solidaridad en la pista:</span>
+                      {' '}Un símbolo de apoyo para todas las madres, hijas, hermanas y amigas
+                      que enfrentan esta enfermedad.
+                    </span>
+                  </li>
+                  <li style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.6rem',
+                  }}>
+                    <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
+                    <span>
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>Un mensaje de unión:</span>
+                      {' '}Recordar que ninguna batalla se debe pelear en soledad.
+                    </span>
+                  </li>
+                </ul>
+
+                <p style={{ marginTop: '1.2rem' }}>
+                  Más que un diseño, el <span style={{ color: 'var(--magenta-bright)', fontWeight: 600 }}>rosa</span> es una promesa:
+                  mantener la esperanza viva, honrar a quienes lucharon y apoyar a quienes
+                  lo siguen haciendo.
                 </p>
               </div>
 
