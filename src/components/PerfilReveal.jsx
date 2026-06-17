@@ -8,6 +8,7 @@ const DURATION = 4.7;
 const STROKE_WIDTH = 42;
 
 export default function PerfilReveal() {
+  const { t } = useLanguage();
   const sectionRef = useRef(null)
   const cardRef = useRef(null)
   const firmaRef = useRef(null)

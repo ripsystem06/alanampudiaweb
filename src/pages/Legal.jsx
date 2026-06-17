@@ -1,4 +1,7 @@
+import { useLanguage } from '../context/LanguageContext';
+
 export default function Legal() {
+  const { t } = useLanguage();
   return (
     <div style={{ paddingTop: '67px', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Header */}

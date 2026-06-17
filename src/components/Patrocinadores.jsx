@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const sponsors = [
   { name: 'Monster Energy', img: '/patrocinadores/monster.svg' },
@@ -23,6 +24,7 @@ const loop1 = [...row1, ...row1];
 const loop2 = [...row2, ...row2];
 
 export default function Patrocinadores() {
+  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
 

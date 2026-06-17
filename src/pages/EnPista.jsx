@@ -303,9 +303,7 @@ function TeamSection() {
             marginTop: 'clamp(0.8rem, 2vw, 1.5rem)',
             maxWidth: '700px',
           }}>
-            El equipo detrás del éxito de Alan Ampudia, conocido oficialmente como Team Papas,
-            es una escudería de clase mundial fuertemente arraigada en los valores familiares
-            y respaldada por su icónico negocio, Papas &amp; Beer, ubicado en Ensenada y Rosarito.
+            {t('enpista.team_desc')}
           </p>
         </div>
 
@@ -322,7 +320,7 @@ function TeamSection() {
         }}>
           <img
             src="/images/team/05-team-group.webp"
-            alt="Team Papas — equipo completo de Alan Ampudia"
+            alt={t('enpista.team_alt')}
             style={{ width: '100%', height: 'auto', display: 'block' }}
           />
           <div style={{
@@ -336,7 +334,7 @@ function TeamSection() {
               fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
               color: 'var(--white)',
             }}>
-              EL EQUIPO COMPLETO
+              {t('enpista.team_overlay')}
             </div>
           </div>
         </div>
@@ -380,7 +378,7 @@ function TeamSection() {
               color: 'var(--white-soft)',
               lineHeight: 1.7,
             }}>
-              El padre de Alan es el líder absoluto y el cerebro detrás de la escudería.
+              {t('enpista.rodrigo_bio')}
               Su filosofía prioriza la fiabilidad técnica por encima de todo: después de
               cada carrera, el equipo desarma el Trophy Truck por completo, revisa cada
               componente a detalle y lo reensambla utilizando tornillos completamente nuevos.
@@ -398,8 +396,8 @@ function TeamSection() {
             transition: 'all 0.8s ease 0.4s',
           }}>
             {[
-              { num: '100%', label: 'Desarme post-carrera', desc: 'Cada componente inspeccionado' },
-              { num: '0', label: 'Fallas mecánicas 2025', desc: 'Temporada perfecta del Trophy Truck' },
+              { num: '100%', label: t('enpista.desarme'), desc: t('enpista.cada_componente') },
+              { num: '0', label: t('enpista.fallas'), desc: 'Temporada perfecta del Trophy Truck' },
               { num: '03:30', label: 'AM — San Felipe 250', desc: 'Reparación de emergencia nocturna' },
             ].map((stat, i) => (
               <div key={i} style={{
@@ -620,7 +618,7 @@ function HeroSection() {
             color: 'var(--magenta-bright)',
             textTransform: 'uppercase',
           }}>
-            Próxima Carrera
+            {t('common.proxima_carrera')}
           </span>
         </div>
 
@@ -682,7 +680,7 @@ function HeroSection() {
             textTransform: 'uppercase',
             marginBottom: '1rem',
           }}>
-            Tiempo hasta la salida
+            {t('common.tiempo_salida')}
           </div>
           <CountdownTimer targetDate="September 9, 2026 00:00:00" />
         </div>
@@ -802,7 +800,7 @@ export default function EnPista() {
           color: 'transparent',
           WebkitTextStroke: '1px rgba(233,30,99,0.08)',
           lineHeight: 1, userSelect: 'none',
-        }}>EN PISTA</div>
+        }}>{t('enpista.title')}</div>
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
@@ -810,7 +808,7 @@ export default function EnPista() {
             letterSpacing: '0.35em', color: 'var(--magenta-bright)',
             textTransform: 'uppercase', marginBottom: '0.5rem',
             opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s',
-          }}>Historial de Competencia</div>
+          }}>{t('enpista.historial_label')}</div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
             fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.15, color: 'var(--white)',
@@ -836,10 +834,10 @@ export default function EnPista() {
           opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s ease 0.4s',
         }}>
           {[
-            { num: '1', label: 'Campeonato Mundial' },
-            { num: '1', label: 'Triple Corona' },
-            { num: '70.71', label: 'mph Récord SF250' },
-            { num: '18h', label: 'Baja 1000 solitario' },
+            { num: '1', label: t('enpista.campeonato_mundial') },
+            { num: '1', label: t('enpista.triple_corona') },
+            { num: '70.71', label: t('enpista.mph_record') },
+            { num: '18h', label: t('enpista.baja1000_solitario') },
           ].map(s => (
             <div key={s.label} style={isMobile ? {} : { display: 'flex', alignItems: 'baseline', gap: '0.6rem' }}>
               <div style={{ fontFamily: 'Anton, sans-serif', fontSize: isMobile ? '2.2rem' : '2.42rem', color: 'var(--magenta-bright)', lineHeight: 1 }}>{s.num}</div>
@@ -1031,39 +1029,39 @@ export default function EnPista() {
                     gap: '1.5rem',
                   }}>
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Carrera</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.carrera')}</div>
                       <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)' }}>{carrera.nombre}</div>
                     </div>
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Posición Absoluta</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion_absoluta')}</div>
                       <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: posColor }}>{carrera.posicion}</div>
                     </div>
                     {carrera.clase && (
                       <div>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Posición Clase</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion_clase')}</div>
                         <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)' }}>{carrera.clase}</div>
                       </div>
                     )}
                     {carrera.tiempo && (
                       <div>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Tiempo</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.tiempo')}</div>
                         <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1rem', color: 'var(--white-soft)' }}>{carrera.tiempo}</div>
                       </div>
                     )}
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Estado</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.estado')}</div>
                       <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: estadoColor[carrera.estado] }}>{carrera.estado}</div>
                     </div>
                     {carrera.nota && (
                       <div style={{ gridColumn: '1 / -1' }}>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Notas</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.notas')}</div>
                         <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)', lineHeight: 1.5 }}>{carrera.nota}</div>
                       </div>
                     )}
                     {carrera.estado === 'DNF' && (
                       <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', background: 'rgba(255,68,68,0.1)', border: '1px solid rgba(255,68,68,0.3)' }}>
                         <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.5rem', color: '#ff4444' }}>DNF</span>
-                        <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)' }}>No completó la carrera</span>
+                        <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)' }}>{t('enpista.no_completo')}</span>
                       </div>
                     )}
                   </div>
@@ -1112,7 +1110,7 @@ export default function EnPista() {
         <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Section Header */}
         <div style={{ maxWidth: '1200px', margin: '0 auto 4rem' }}>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Specs</div>
+          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.specs')}</div>
           <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 1.15, color: 'var(--white)', margin: 0 }}>
             TROPHY<br /><span style={{ color: 'var(--magenta)' }}>TRUCK</span>
           </h2>

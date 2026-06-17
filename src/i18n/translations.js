@@ -57,6 +57,16 @@ const translations = {
     'home.perfil_felicidad': 'FELICIDAD',
     'home.perfil_amor': 'AMOR',
     'home.perfil_adrenalina': 'ADRENALINA',
+    'home.gallery_polvo': 'Donde otros ven\npolvo y ruido,\nnosotros vemos\nperfección.',
+    'home.gallery_desierto': 'Cada desierto\nes una lección\nde humildad.',
+    'home.gallery_velocidad': 'La velocidad\nse mide en\nsegundos, la\npasión en\nkilómetros.',
+    'home.gallery_miedo': 'El miedo se\nqueda en la\nlínea de\narranque.',
+    'home.gallery_baja': 'La Baja no\nperdona,\nenseña.',
+    'home.gallery_trophy': 'Un trophy truck\nno se maneja,\nse baila.',
+    'home.gallery_victorias': 'Las victorias\nse ganan en\nel taller,\nno en la meta.',
+    'home.gallery_cinco': 'Cinco minutos\nen el desierto\nvalen más que\nun año en la\noficina.',
+    'home.gallery_corazon': 'Cuando todo\nfalla, queda\nel corazón.',
+    'home.gallery_polvo2': 'El polvo se\nasienta, la\nleyenda no.',
 
     // ── En Pista ──
     'enpista.title': 'EN PISTA',
@@ -282,6 +292,16 @@ const translations = {
     'home.perfil_felicidad': 'HAPPINESS',
     'home.perfil_amor': 'LOVE',
     'home.perfil_adrenalina': 'ADRENALINE',
+    'home.gallery_polvo': 'Where others see\ndust and noise,\nwe see\nperfection.',
+    'home.gallery_desierto': 'Every desert\nis a lesson\nin humility.',
+    'home.gallery_velocidad': 'Speed is\nmeasured in\nseconds, passion\nin kilometers.',
+    'home.gallery_miedo': 'Fear stays\nat the\nstarting line.',
+    'home.gallery_baja': 'Baja doesn\'t\nforgive,\nit teaches.',
+    'home.gallery_trophy': 'A trophy truck\nisn\'t driven,\nit\'s danced.',
+    'home.gallery_victorias': 'Victories are\nwon in the\nshop, not at\nthe finish line.',
+    'home.gallery_cinco': 'Five minutes\nin the desert\nare worth more\nthan a year in\nthe office.',
+    'home.gallery_corazon': 'When everything\nfails, the\nheart remains.',
+    'home.gallery_polvo2': 'The dust\nsettles, the\nlegend doesn\'t.',
 
     // ── En Pista ──
     'enpista.title': 'ON TRACK',

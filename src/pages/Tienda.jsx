@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const productos = [
   { code: 'TS.001', name: 'Playera Oficial #1', tagline: 'Team Papas / Negra', price: '$650', cat: 'Playeras', img: '/images/hero-person.webp', tag: 'NEW' },
@@ -15,6 +16,7 @@ const categorias = ['Todos', 'Playeras', 'Gorras', 'Sudaderas', 'Accesorios'];
 const tagColor = { 'NEW': 'var(--magenta)', 'TOP': 'var(--monster-green)', 'LIMITED': 'var(--white)' };
 
 export default function Tienda() {
+  const { t } = useLanguage();
   const [filtro, setFiltro] = useState('Todos');
   const [hovered, setHovered] = useState(null);
 

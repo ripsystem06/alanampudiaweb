@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 
 export default function PistaSection() {
+  const { t } = useLanguage();
   const [selected, setSelected] = useState(null);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
