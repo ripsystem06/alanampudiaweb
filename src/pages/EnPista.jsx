@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import TrackGlowSVG from '../components/TrackGlowSVG';
 import HelmetShowcase from '../components/HelmetScroll';
 
@@ -99,6 +100,7 @@ const estadoColor = {
 };
 
 function CountdownTimer({ targetDate }) {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -124,12 +126,12 @@ function CountdownTimer({ targetDate }) {
   return (
     <div style={{ display: 'flex', gap: 'clamp(0.4rem, 1.5vw, 1.5rem)', marginTop: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
       {[
-        { value: timeLeft.days, label: 'Días' },
-        { value: timeLeft.hours, label: 'Horas' },
-        { value: timeLeft.minutes, label: 'Min' },
-        { value: timeLeft.seconds, label: 'Seg' },
+        { value: timeLeft.days, key: 'days', label: t('common.dias') },
+        { value: timeLeft.hours, key: 'hours', label: t('common.horas') },
+        { value: timeLeft.minutes, key: 'minutes', label: t('common.min') },
+        { value: timeLeft.seconds, key: 'seconds', label: t('common.seg') },
       ].map((item, i) => (
-        <div key={item.label} style={{ textAlign: 'center' }}>
+        <div key={item.key} style={{ textAlign: 'center' }}>
           <div style={{
             fontFamily: 'Anton, sans-serif',
             fontSize: 'clamp(2rem, 5vw, 4rem)',
@@ -159,6 +161,7 @@ function CountdownTimer({ targetDate }) {
 }
 
 function CountdownInline({ targetDate }) {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -231,7 +234,7 @@ function CountdownInline({ targetDate }) {
         lineHeight: 1,
         opacity: 0.85,
       }}>
-        PRÓXIMA CARRERA
+        {t('common.proxima_carrera')}
       </div>
     </div>
   );
@@ -245,6 +248,7 @@ const teamGallery = [
 ];
 
 function TeamSection() {
+  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
 
@@ -280,7 +284,7 @@ function TeamSection() {
             textTransform: 'uppercase',
             marginBottom: '0.5rem',
           }}>
-            Escudería Oficial
+            {t('common.escuderia_oficial')}
           </div>
           <h2 style={{
             fontFamily: 'Anton, sans-serif',

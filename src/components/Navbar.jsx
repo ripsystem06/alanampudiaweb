@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
-const navLinks = [
-  { label: 'Inicio', to: '/', num: '01' },
-  { label: 'En Pista', to: '/en-pista', num: '02' },
-  { label: 'Fuera de Pista', to: '/fuera-de-pista', num: '03' },
-  { label: 'Calendario', to: '/calendario', num: '04' },
-  { label: 'Equipo', to: '/equipo', num: '05' },
+const navKeys = [
+  { key: 'nav.inicio', to: '/', num: '01' },
+  { key: 'nav.en_pista', to: '/en-pista', num: '02' },
+  { key: 'nav.fuera_de_pista', to: '/fuera-de-pista', num: '03' },
+  { key: 'nav.calendario', to: '/calendario', num: '04' },
+  { key: 'nav.equipo', to: '/equipo', num: '05' },
 ];
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [inHero, setInHero] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -104,8 +107,9 @@ export default function Navbar() {
           </Link>
         )}
 
-        {/* Right — Store + Menu */}
+        {/* Right — Store + Language + Menu */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.84rem' }}>
+          <LanguageToggle />
           <a
             href="https://alanampudia.store"
             target="_blank"
@@ -126,7 +130,7 @@ export default function Navbar() {
             onMouseEnter={e => e.currentTarget.style.background = 'var(--magenta-bright)'}
             onMouseLeave={e => e.currentTarget.style.background = 'var(--magenta)'}
           >
-            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>TIENDA</span>
+            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('nav.tienda')}</span>
           </a>
 
           <button
@@ -186,11 +190,12 @@ export default function Navbar() {
             }
           `}</style>
 
-          {navLinks.map((link, i) => {
+          {navKeys.map((link, i) => {
             const isActive = location.pathname === link.to;
+            const label = t(link.key);
             return (
               <Link
-                key={link.label}
+                key={link.key}
                 to={link.to}
                 onClick={() => setMenuOpen(false)}
                 style={{
@@ -212,7 +217,7 @@ export default function Navbar() {
                 }}
                 onMouseEnter={e => e.target.style.color = 'var(--magenta-bright)'}
                 onMouseLeave={e => e.target.style.color = isActive ? 'var(--white)' : 'var(--white-dim)'}
-                >{link.label}</span>
+                >{label}</span>
                 {isActive && (
                   <span style={{
                     width: '2px', height: '2rem',
@@ -243,7 +248,7 @@ export default function Navbar() {
               animation: `menuLinkIn 0.3s ease-out ${0.05 + navLinks.length * 0.06}s both`,
             }}
           >
-            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>IR A LA TIENDA ↗</span>
+            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('nav.ir_tienda')}</span>
           </a>
         </div>
       )}

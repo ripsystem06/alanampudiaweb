@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const CASCO = '/footerleements/casctofront.webp';
 const FIRMA = '/firmafooter.webp';
 
-const pages = [
-  { label: 'En Pista', to: '/en-pista' },
-  { label: 'Fuera de Pista', to: '/fuera-de-pista' },
-  { label: 'Calendario', to: '/calendario' },
-  { label: 'Equipo', to: '/equipo' },
+const pageKeys = [
+  { key: 'nav.en_pista', to: '/en-pista' },
+  { key: 'nav.fuera_de_pista', to: '/fuera-de-pista' },
+  { key: 'nav.calendario', to: '/calendario' },
+  { key: 'nav.equipo', to: '/equipo' },
 ];
 
 const socials = [
@@ -19,6 +20,7 @@ const socials = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -139,9 +141,9 @@ export default function Footer() {
                   color: 'rgba(255,255,255,0.5)',
                   margin: '0 0 0.4rem 0',
                   textTransform: 'uppercase',
-                }}>Páginas</h4>
-                {pages.map(p => (
-                  <Link key={p.label} to={p.to} style={{
+                }}>{t('footer.paginas')}</h4>
+                {pageKeys.map(p => (
+                  <Link key={p.key} to={p.to} style={{
                     fontFamily: 'Anton, sans-serif',
                     fontSize: 'clamp(0.8rem, 1.4vw, 1.25rem)',
                     color: '#FFFFFF',
@@ -151,7 +153,7 @@ export default function Footer() {
                   }}
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
                   onMouseLeave={e => e.currentTarget.style.color = '#FFFFFF'}
-                  >{p.label.toUpperCase()}</Link>
+                  >{t(p.key).toUpperCase()}</Link>
                 ))}
                 <a
                   href="https://www.alanampudia.store"
@@ -168,7 +170,7 @@ export default function Footer() {
                   }}
                   onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
-                >TIENDA ↗</a>
+                >{t('footer.tienda')}</a>
                 <Link to="/legal" style={{
                   fontFamily: 'Anton, sans-serif',
                   fontSize: 'clamp(0.6rem, 1vw, 0.85rem)',
@@ -180,7 +182,7 @@ export default function Footer() {
                 }}
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'var(--white-dim)'}
-                >TÉRMINOS Y CONDICIONES</Link>
+                >{t('footer.terminos')}</Link>
               </div>
 
               {/* Column 2 — Redes Sociales */}
@@ -196,7 +198,7 @@ export default function Footer() {
                   color: 'rgba(255,255,255,0.5)',
                   margin: '0 0 0.4rem 0',
                   textTransform: 'uppercase',
-                }}>Redes</h4>
+                }}>{t('footer.redes')}</h4>
                 {socials.map(s => (
                   <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" style={{
                     fontFamily: 'Anton, sans-serif',
@@ -252,15 +254,15 @@ export default function Footer() {
                 flexWrap: 'wrap',
               }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'center' }}>
-                  <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', margin: 0, textTransform: 'uppercase' }}>Páginas</h4>
-                  {pages.map(p => (
-                    <Link key={p.label} to={p.to} style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.85rem', color: '#FFFFFF', textDecoration: 'none', letterSpacing: '0.04em' }}>{p.label.toUpperCase()}</Link>
+                  <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', margin: 0, textTransform: 'uppercase' }}>{t('footer.paginas')}</h4>
+                  {pageKeys.map(p => (
+                    <Link key={p.key} to={p.to} style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.85rem', color: '#FFFFFF', textDecoration: 'none', letterSpacing: '0.04em' }}>{t(p.key).toUpperCase()}</Link>
                   ))}
-                  <a href="https://www.alanampudia.store" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.9rem', color: 'var(--magenta-bright)', textDecoration: 'none', letterSpacing: '0.06em' }}>TIENDA ↗</a>
-                  <Link to="/legal" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.7rem', color: 'var(--white-dim)', textDecoration: 'none', letterSpacing: '0.04em', marginTop: '0.5rem' }}>TÉRMINOS Y CONDICIONES</Link>
+                  <a href="https://www.alanampudia.store" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.9rem', color: 'var(--magenta-bright)', textDecoration: 'none', letterSpacing: '0.06em' }}>{t('footer.tienda')}</a>
+                  <Link to="/legal" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.7rem', color: 'var(--white-dim)', textDecoration: 'none', letterSpacing: '0.04em', marginTop: '0.5rem' }}>{t('footer.terminos')}</Link>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'center' }}>
-                  <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', margin: 0, textTransform: 'uppercase' }}>Redes</h4>
+                  <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', margin: 0, textTransform: 'uppercase' }}>{t('footer.redes')}</h4>
                   {socials.map(s => (
                     <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.85rem', color: '#FFFFFF', textDecoration: 'none', letterSpacing: '0.04em' }}>{s.name.toUpperCase()}</a>
                   ))}
@@ -325,7 +327,7 @@ export default function Footer() {
           color: 'rgba(255,255,255,0.3)',
           letterSpacing: '0.15em',
         }}>
-          © 2025 ALAN AMPUDIA / ALL RIGHTS RESERVED
+          © 2025 ALAN AMPUDIA / {t('footer.all_rights')}
         </div>
 
         <div style={{
@@ -339,7 +341,7 @@ export default function Footer() {
           }}
           onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.2)'}
-          >DESARROLLADO POR XANT</a>
+          >{t('footer.desarrollado')}</a>
         </div>
 
         <Link to="/legal" style={{
@@ -353,7 +355,7 @@ export default function Footer() {
         }}
         onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
         onMouseLeave={e => e.currentTarget.style.color = 'var(--white)'}
-      >TÉRMINOS Y CONDICIONES</Link>
+      >{t('footer.terminos')}</Link>
       </div>
     </footer>
   );

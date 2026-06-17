@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { LanguageProvider } from './context/LanguageContext';
 import LogoIntro from './components/LogoIntro';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -41,21 +42,23 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <LogoIntro />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/en-pista" element={<EnPista />} />
-        <Route path="/fuera-de-pista" element={<FueraDePista />} />
-        <Route path="/calendario" element={<Calendario />} />
-        <Route path="/equipo" element={<Equipo />} />
-        <Route path="/tienda" element={<Tienda />} />
-        <Route path="/legal" element={<Legal />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <LogoIntro />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/en-pista" element={<EnPista />} />
+          <Route path="/fuera-de-pista" element={<FueraDePista />} />
+          <Route path="/calendario" element={<Calendario />} />
+          <Route path="/equipo" element={<Equipo />} />
+          <Route path="/tienda" element={<Tienda />} />
+          <Route path="/legal" element={<Legal />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 
