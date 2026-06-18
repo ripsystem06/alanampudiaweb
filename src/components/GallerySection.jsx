@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 const allImages = [
   '01-alan-portrait.webp', '02-truck-action-side.webp', '03-cockpit-prep.webp',
@@ -14,16 +15,16 @@ const allImages = [
 
 const base = '/images/galeria1/'
 const phrases = [
-  'Donde otros ven\npolvo y ruido,\nnosotros vemos\nperfección.',
-  'Cada desierto\nes una lección\nde humildad.',
-  'La velocidad\nse mide en\nsegundos, la\npasión en\nkilómetros.',
-  'El miedo se\nqueda en la\nlínea de\narranque.',
-  'La Baja no\nperdona,\nenseña.',
-  'Un trophy truck\nno se maneja,\nse baila.',
-  'Las victorias\nse ganan en\nel taller,\nno en la meta.',
-  'Cinco minutos\nen el desierto\nvalen más que\nun año en la\noficina.',
-  'Cuando todo\nfalla, queda\nel corazón.',
-  'El polvo se\nasienta, la\nleyenda no.',
+  'home.gallery_polvo',
+  'home.gallery_desierto',
+  'home.gallery_velocidad',
+  'home.gallery_miedo',
+  'home.gallery_baja',
+  'home.gallery_trophy',
+  'home.gallery_victorias',
+  'home.gallery_cinco',
+  'home.gallery_corazon',
+  'home.gallery_polvo2',
 ]
 
 const spans = [
@@ -55,6 +56,7 @@ if (items.length > 0 && items[items.length - 1].type === 'phrase') {
 }
 
 export default function GallerySection() {
+  const { t } = useLanguage();
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -188,7 +190,7 @@ export default function GallerySection() {
               {item.type === 'image' ? (
                 <img src={item.src} alt="" loading="lazy" />
               ) : (
-                <p>{item.text}</p>
+                <p>{t(item.text)}</p>
               )}
             </div>
           ))}

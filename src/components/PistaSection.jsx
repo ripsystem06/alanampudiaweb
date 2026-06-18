@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 
 export default function PistaSection() {
+  const { t } = useLanguage();
   const [selected, setSelected] = useState(null);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -215,7 +217,7 @@ export default function PistaSection() {
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
               }}>
-                <span>EXPLORAR</span>
+                <span>{t('common.explorar')}</span>
                 <span style={{ fontSize: '1.4rem' }}>→</span>
               </Link>
             </div>

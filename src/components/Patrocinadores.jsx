@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const sponsors = [
   { name: 'Monster Energy', img: '/patrocinadores/monster.svg' },
@@ -23,6 +24,7 @@ const loop1 = [...row1, ...row1];
 const loop2 = [...row2, ...row2];
 
 export default function Patrocinadores() {
+  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
 
@@ -111,7 +113,7 @@ export default function Patrocinadores() {
             letterSpacing: '0.25em',
             color: 'var(--magenta-bright)',
             marginBottom: '0.8rem',
-          }}>◉ ALIADOS & PATROCINADORES</div>
+          }}>{t('home.patrocinadores_label')}</div>
           <h2 style={{
             fontFamily: 'Anton, sans-serif',
             fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
@@ -141,7 +143,7 @@ export default function Patrocinadores() {
         onMouseEnter={e => e.currentTarget.style.background = 'var(--magenta-bright)'}
         onMouseLeave={e => e.currentTarget.style.background = 'var(--magenta)'}
         >
-          <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>→ Ser Patrocinador</span>
+          <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('home.patrocinadores_cta')}</span>
         </a>
       </div>
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const productos = [
   {
@@ -37,6 +38,7 @@ const tagColor = {
 const STORE_URL = 'https://www.alanampudia.store';
 
 export default function ProductosPromo() {
+  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(null);
@@ -108,7 +110,7 @@ export default function ProductosPromo() {
               letterSpacing: '0.25em',
               color: 'var(--magenta-bright)',
               marginBottom: '0.8rem',
-            }}>◉ TIENDA OFICIAL</div>
+            }}>{t('home.tienda_label')}</div>
             <h2 style={{
               fontFamily: 'Anton, sans-serif',
               fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
@@ -138,7 +140,7 @@ export default function ProductosPromo() {
           onMouseEnter={e => { e.currentTarget.style.background = 'var(--magenta)'; e.currentTarget.style.color = 'var(--white)'; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--magenta-bright)'; }}
           >
-            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>→ Ver Tienda</span>
+            <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('home.tienda_cta')}</span>
           </a>
         </div>
 
@@ -217,7 +219,7 @@ export default function ProductosPromo() {
                     alignItems: 'center',
                     gap: '0.5rem',
                   }}>
-                    IR A TIENDA <span style={{ fontSize: '1.6rem' }}>→</span>
+                    {t('common.ir_tienda_cta')} <span style={{ fontSize: '1.6rem' }}>→</span>
                   </div>
                 </div>
               </div>
