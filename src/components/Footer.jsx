@@ -171,18 +171,6 @@ export default function Footer() {
                   onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
                   onMouseLeave={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
                 >{t('footer.tienda')}</a>
-                <Link to="/legal" style={{
-                  fontFamily: 'Anton, sans-serif',
-                  fontSize: 'clamp(0.6rem, 1vw, 0.85rem)',
-                  color: 'var(--white-dim)',
-                  textDecoration: 'none',
-                  letterSpacing: '0.04em',
-                  marginTop: '0.5rem',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
-                onMouseLeave={e => e.currentTarget.style.color = 'var(--white-dim)'}
-                >{t('footer.terminos')}</Link>
               </div>
 
               {/* Column 2 — Redes Sociales */}
@@ -259,7 +247,6 @@ export default function Footer() {
                     <Link key={p.key} to={p.to} style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.85rem', color: '#FFFFFF', textDecoration: 'none', letterSpacing: '0.04em' }}>{t(p.key).toUpperCase()}</Link>
                   ))}
                   <a href="https://www.alanampudia.store" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.9rem', color: 'var(--magenta-bright)', textDecoration: 'none', letterSpacing: '0.06em' }}>{t('footer.tienda')}</a>
-                  <Link to="/legal" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.7rem', color: 'var(--white-dim)', textDecoration: 'none', letterSpacing: '0.04em', marginTop: '0.5rem' }}>{t('footer.terminos')}</Link>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'center' }}>
                   <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', margin: 0, textTransform: 'uppercase' }}>{t('footer.redes')}</h4>
