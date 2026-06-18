@@ -2,31 +2,31 @@ import { useRef, useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const filosofia = [
-  { palabra: 'Felicidad', desc: 'La pasión que lo impulsa desde los 7 años.' },
-  { palabra: 'Adrenalina', desc: 'El combustible de cada carrera.' },
-  { palabra: 'Amor', desc: 'Por su familia, su tierra y su deporte.' },
+  { palabraKey: 'fueradepista.filosofia_felicidad', descKey: 'fueradepista.filosofia_felicidad_desc' },
+  { palabraKey: 'fueradepista.filosofia_adrenalina', descKey: 'fueradepista.filosofia_adrenalina_desc' },
+  { palabraKey: 'fueradepista.filosofia_amor', descKey: 'fueradepista.filosofia_amor_desc' },
 ];
 
 const citas = [
   {
     cita: 'Yo soy muy competitivo en lo que sea. Yo siempre busco salir a ganar. En mi categoría, somos solo dos mexicanos compitiendo contra 15 o 16 americanos, así que quiero representar a México. Yo pienso que soy el mejor. Tienes que ser egoísta y pensar que tú eres el mejor, si no, ¿cómo vas a salir a ganarles?',
-    tema: 'Mentalidad Ganadora',
+    temaKey: 'fueradepista.cita_ganadora',
   },
   {
     cita: 'La presión mental, yo no sé si será un don o qué, pero no siento mucha presión. Yo iba tranquilo. No era como que tenía presión de hacerlo, pero quería. Obviamente, ser el primer mexicano en lograrlo es algo increíble, algo de lo que me siento muy orgulloso, y también mi equipo y mi familia.',
-    tema: 'Representar a México',
+    temaKey: 'fueradepista.cita_mexico',
   },
   {
     cita: 'Esta es la más grande, es nuestro Super Bowl, nuestra final de la Champions. Si no ganas esta, sientes que no ganaste ninguna.',
-    tema: 'La Baja 1000',
+    temaKey: 'fueradepista.cita_baja1000',
   },
   {
     cita: 'Estando en la cima es cuando más alto puedes caer. Ahorita tenemos un blanco pegado en la cabeza; todos nos quieren ganar. No nos lo tomamos a la ligera. Queremos seguir siendo los mejores.',
-    tema: 'Defender el Campeonato',
+    temaKey: 'fueradepista.cita_campeonato',
   },
   {
     cita: 'Quiero ser una inspiración para los jóvenes. Que vean que trabajando duro, sabiendo trabajar en equipo y nunca rindiéndose, es posible. Que se sepa que se puede luchar, nada es imposible si te lo pones como meta.',
-    tema: 'Inspirar a México',
+    temaKey: 'fueradepista.cita_inspirar',
   },
 ];
 
@@ -103,14 +103,16 @@ export default function FueraDePista() {
             fontFamily: 'Anton, sans-serif',
             fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.1, color: 'var(--white)',
           }}>
-            FUERA<br />DE <span style={{ color: 'var(--magenta)' }}>PISTA</span>
+            {t('fueradepista.title').split('\n').map((line, li) => (
+              <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+            ))}
           </h1>
           <p style={{
             fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem',
             color: 'var(--white-soft)', lineHeight: 1.6, marginTop: '1.5rem',
             maxWidth: '520px',
           }}>
-            El motor se apaga, pero el personaje sigue. La biografía, la mentalidad y la filosofía de Alan Ampudia más allá del desierto.
+            {t('fueradepista.sub')}
           </p>
         </div>
       </div>
@@ -150,11 +152,7 @@ export default function FueraDePista() {
                 fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.05rem',
                 color: 'var(--white-soft)', lineHeight: 1.8,
               }}>
-                Alan Ampudia es un destacado piloto originario de Ensenada, Baja California.
-                Creció frente al volante instruido por su padre, Rodrigo Ampudia Sr., quien es
-                también el líder y cerebro detrás de la escudería familiar Team Papas. Alan forma
-                parte de una dinastía de corredores junto a sus hermanos Aaron y Rodrigo, con
-                quienes ha competido para desafiar a la élite de este deporte.
+                {t('fueradepista.origenes_text')}
               </p>
             </div>
           </AnimatedBlock>
@@ -175,13 +173,7 @@ export default function FueraDePista() {
                 fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.05rem',
                 color: 'var(--white-soft)', lineHeight: 1.8,
               }}>
-                Actualmente, Alan vive el mejor momento de toda su carrera deportiva. Es el
-                Campeón Mundial del Desierto 2024 en la categoría SCORE Trophy Truck, habiendo
-                vencido por solo un punto a Tavo Vildósola tras las cuatro carreras del año. Su
-                dominio se ha extendido de manera espectacular hacia la temporada 2025, logrando
-                múltiples victorias absolutas. Además, su nombre ya está escrito en la historia al
-                ser de los pocos pilotos que han ganado la Triple Corona de Baja —conquistando la
-                Baja 1000, la Baja 500 y la San Felipe 250.
+                {t('fueradepista.presente_text')}
               </p>
             </div>
           </AnimatedBlock>
@@ -202,10 +194,7 @@ export default function FueraDePista() {
                 fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.05rem',
                 color: 'var(--white-soft)', lineHeight: 1.8,
               }}>
-                Su consolidación como leyenda comenzó a gestarse fuertemente con su histórica
-                victoria absoluta en la mítica SCORE Baja 1000 del año 2019, la cual demostró
-                su capacidad para dominar las exigencias del terreno desértico durante largas
-                distancias.
+                {t('fueradepista.pasado_max_text')}
               </p>
             </div>
           </AnimatedBlock>
@@ -220,10 +209,10 @@ export default function FueraDePista() {
               border: '1px solid rgba(233,30,99,0.15)',
             }}>
               {[
-                { num: '2024', label: 'Campeón Mundial' },
-                { num: '2019', label: 'Baja 1000 — 1° Absoluto' },
-                { num: '3X', label: 'Triple Corona de Baja' },
-                { num: '#1', label: 'Dorsal del Campeón' },
+                { num: '2024', label: t('fueradepista.campeon_mundial') },
+                { num: '2019', label: t('fueradepista.baja1000_absoluto') },
+                { num: '3X', label: t('fueradepista.triple_corona_baja') },
+                { num: '#1', label: t('fueradepista.dorsal_campeon') },
               ].map(s => (
                 <div key={s.label} style={{
                   background: 'var(--black-mid)',
@@ -303,7 +292,7 @@ export default function FueraDePista() {
                 }}>
                   <img
                     src="/images/mom/alanymama.webp"
-                    alt="{t('fueradepista.alt_madre')}"
+                      alt={t('fueradepista.alt_madre')}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                 </div>
@@ -320,7 +309,7 @@ export default function FueraDePista() {
                   }}>
                     <img
                       src="/images/mom/alanymama2.webp"
-                      alt="{t('fueradepista.alt_mama')}"
+                        alt={t('fueradepista.alt_mama')}
                       loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
@@ -333,7 +322,7 @@ export default function FueraDePista() {
                   }}>
                     <img
                       src="/images/mom/alanymama3.webp"
-                      alt="{t('fueradepista.alt_familia')}"
+                        alt={t('fueradepista.alt_familia')}
                       loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
@@ -351,9 +340,7 @@ export default function FueraDePista() {
                 lineHeight: 1.9,
               }}>
                 <p style={{ marginTop: 0 }}>
-                  Para Alan Ampudia, el <span style={{ color: 'var(--magenta-bright)', fontWeight: 600 }}>color rosa</span> no es una elección estética
-                  ni una estrategia para destacar en la pista. Es un homenaje, una historia de
-                  resiliencia y un símbolo de lucha familiar.
+                  {t('fueradepista.color_text_1')}
                 </p>
 
                 <h3 style={{
@@ -364,18 +351,15 @@ export default function FueraDePista() {
                   marginTop: '1.8rem',
                   letterSpacing: '0.02em',
                 }}>
-                  Una Historia de Fuerza y Valentía
+                  {t('fueradepista.fuerza_heading')}
                 </h3>
 
                 <p>
-                  Cuando el cáncer tocó a la familia Ampudia, la incertidumbre se transformó
-                  en una lección de amor y unión. El rosa en el automovilismo es el recordatorio
-                  permanente de esa batalla y de la fuerza de una mujer que inspiró a todos
-                  a seguir adelante.
+                  {t('fueradepista.fuerza_text')}
                 </p>
 
                 <p style={{ color: 'var(--white)', fontWeight: 600, marginTop: '1.5rem' }}>
-                  Este color representa un compromiso real:
+                  {t('fueradepista.compromiso_label')}
                 </p>
 
                 <ul style={{
@@ -393,8 +377,8 @@ export default function FueraDePista() {
                   }}>
                     <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
                     <span>
-                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>Homenaje a la resiliencia:</span>
-                      {' '}Una huella imborrable de valentía ante los momentos más difíciles.
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.resiliencia')}</span>
+                      {' '}{t('fueradepista.resiliencia_desc')}
                     </span>
                   </li>
                   <li style={{
@@ -404,9 +388,8 @@ export default function FueraDePista() {
                   }}>
                     <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
                     <span>
-                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>Solidaridad en la pista:</span>
-                      {' '}Un símbolo de apoyo para todas las madres, hijas, hermanas y amigas
-                      que enfrentan esta enfermedad.
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.solidaridad')}</span>
+                      {' '}{t('fueradepista.solidaridad_desc')}
                     </span>
                   </li>
                   <li style={{
@@ -416,16 +399,14 @@ export default function FueraDePista() {
                   }}>
                     <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
                     <span>
-                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>Un mensaje de unión:</span>
-                      {' '}Recordar que ninguna batalla se debe pelear en soledad.
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.union')}</span>
+                      {' '}{t('fueradepista.union_desc')}
                     </span>
                   </li>
                 </ul>
 
                 <p style={{ marginTop: '1.2rem' }}>
-                  Más que un diseño, el <span style={{ color: 'var(--magenta-bright)', fontWeight: 600 }}>rosa</span> es una promesa:
-                  mantener la esperanza viva, honrar a quienes lucharon y apoyar a quienes
-                  lo siguen haciendo.
+                  {t('fueradepista.color_cierre')}
                 </p>
               </div>
 
@@ -441,7 +422,7 @@ export default function FueraDePista() {
                   height: '2px',
                   background: 'var(--magenta)',
                 }} />
-                                  <img src="/lasorosa.png" alt="{t('fueradepista.alt_lazo')}" style={{ width: '32px', height: 'auto', display: 'block' }} />
+                                  <img src="/lasorosa.png" alt={t('fueradepista.alt_lazo')} style={{ width: '32px', height: 'auto', display: 'block' }} />
                 <div style={{
                   width: '40px',
                   height: '2px',
@@ -473,7 +454,9 @@ export default function FueraDePista() {
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)',
               color: 'var(--white)', lineHeight: 1.15, marginBottom: 'clamp(2rem, 4vw, 3rem)',
             }}>
-              LA MENTALIDAD<br /><span style={{ color: 'var(--magenta)' }}>DEL CAMPEÓN</span>
+              {t('fueradepista.mentalidad_heading').split('\n').map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+              ))}
             </h2>
           </AnimatedBlock>
 
@@ -532,7 +515,7 @@ export default function FueraDePista() {
                         letterSpacing: '0.2em', color: 'var(--magenta-bright)',
                         textTransform: 'uppercase', marginBottom: '0.8rem',
                       }}>
-                        {item.tema}
+                        {t(item.temaKey)}
                       </div>
                       <blockquote style={{
                         fontFamily: 'Barlow Condensed, sans-serif', fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
@@ -546,7 +529,7 @@ export default function FueraDePista() {
                         letterSpacing: '0.15em', color: 'var(--magenta-bright)',
                         marginTop: '1rem',
                       }}>
-                        — ALAN AMPUDIA
+                        {t('fueradepista.cita_alan')}
                       </div>
                     </div>
                   </div>
@@ -591,7 +574,9 @@ export default function FueraDePista() {
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)',
               color: 'var(--white)', marginBottom: 'clamp(2rem, 4vw, 3rem)',
             }}>
-              Tres palabras que<br /><span style={{ color: 'var(--magenta)' }}>lo definen todo</span>
+              {t('fueradepista.lema_sub').split('\n').map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+              ))}
             </h2>
           </AnimatedBlock>
 
@@ -607,10 +592,10 @@ export default function FueraDePista() {
                   <div style={{
                     fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
                     color: 'var(--magenta-bright)', lineHeight: 1, marginBottom: '1rem',
-                  }}>{item.palabra.toUpperCase()}</div>
+                  }}>{t(item.palabraKey).toUpperCase()}</div>
                   <div style={{ width: '30px', height: '2px', background: 'var(--magenta)', marginBottom: '1rem' }} />
                   <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '0.95rem', color: 'var(--white-soft)', lineHeight: 1.6 }}>
-                    {item.desc}
+                    {t(item.descKey)}
                   </div>
                   <div style={{ position: 'absolute', top: 0, left: 0, width: '20px', height: '20px', borderTop: '1px solid var(--magenta)', borderLeft: '1px solid var(--magenta)' }} />
                 </div>
@@ -639,7 +624,9 @@ export default function FueraDePista() {
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2rem, 4vw, 3rem)',
               color: 'var(--white)', lineHeight: 1.15, marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
             }}>
-              ÚLTIMO <span style={{ color: 'var(--magenta)' }}>VIDEO</span>
+              {t('fueradepista.ultimo_video').split('\n').map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+              ))}
             </h2>
           </AnimatedBlock>
 
@@ -655,7 +642,7 @@ export default function FueraDePista() {
             }}>
               <iframe
                 src="https://www.youtube.com/embed/v3wKjg6ZvX8?rel=0"
-                title="{t('fueradepista.video_title')}"
+                title={t('fueradepista.video_title')}
                 style={{
                   position: 'absolute',
                   top: 0, left: 0,
@@ -720,7 +707,7 @@ export default function FueraDePista() {
                   letterSpacing: '0.35em', color: 'var(--magenta-bright)',
                   textTransform: 'uppercase', marginBottom: '0.5rem',
                 }}>
-                  Instagram
+                  {t('fueradepista.instagram_label')}
                 </div>
                 <h2 style={{
                   fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2rem, 4vw, 3rem)',
