@@ -7,8 +7,8 @@ const LANGS = ['es', 'en'];
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {
-    try { return localStorage.getItem('alan-lang') || 'es'; }
-    catch { return 'es'; }
+    try { return localStorage.getItem('alan-lang') || 'en'; }
+    catch { return 'en'; }
   });
 
   const t = useCallback((key, fallback) => {
