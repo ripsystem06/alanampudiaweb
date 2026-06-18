@@ -154,7 +154,7 @@ export default function Footer() {
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
                   onMouseLeave={e => e.currentTarget.style.color = '#FFFFFF'}
                   >{t(p.key).toUpperCase()}</Link>
-                ))
+                ))}
                 <a
                   href="https://www.alanampudia.store"
                   target="_blank"
