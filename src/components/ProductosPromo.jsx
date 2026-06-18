@@ -117,7 +117,12 @@ export default function ProductosPromo() {
               lineHeight: 1.15,
               color: 'var(--white)',
             }}>
-              LO<br /><span style={{ color: 'var(--magenta)' }}>MEJOR.</span>
+              {(() => {
+                const parts = t('home.tienda_heading').split(' ');
+                const first = parts[0];
+                const rest = parts.slice(1).join(' ');
+                return <>{first}<br /><span style={{ color: 'var(--magenta)' }}>{rest}</span></>;
+              })()}
             </h2>
           </div>
 

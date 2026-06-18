@@ -20,15 +20,15 @@ export default function PistaSection() {
   const blocks = [
     {
       id: 'en-pista', to: '/en-pista',
-      title: 'EN\nPISTA',
-      description: 'Resultados, estadísticas, victorias y momentos desde el desierto.',
+      titleKey: 'home.pista_title',
+      descKey: 'home.pista_desc',
       img: '/images/onoftrack/ontrack.webp',
       side: 'left',
     },
     {
       id: 'fuera-pista', to: '/fuera-de-pista',
-      title: 'FUERA\nDE PISTA',
-      description: 'El piloto, el hombre, la familia. Lo que sucede cuando se apaga el motor.',
+      titleKey: 'home.fuera_title',
+      descKey: 'home.fuera_desc',
       img: '/images/onoftrack/oftrack.webp',
       side: 'right',
     },
@@ -134,7 +134,7 @@ export default function PistaSection() {
             }} />
 
             {/* Image — both sides offset, contain to avoid cropping */}
-            <img src={block.img} alt={block.title}
+            <img src={block.img} alt={t(block.titleKey)}
               className="pista-img" style={{
               position: 'absolute',
               top: '50%',
@@ -189,7 +189,7 @@ export default function PistaSection() {
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
               }}>
-                {block.title.split('\n').map((line, li) => (
+                {t(block.titleKey).split('\n').map((line, li) => (
                   <span key={li} style={{ display: 'block' }}>{line}</span>
                 ))}
               </h2>
@@ -205,7 +205,7 @@ export default function PistaSection() {
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s',
               }}>
-                {block.description}
+                {t(block.descKey)}
               </p>
 
               <Link to={block.to} style={{

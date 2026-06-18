@@ -46,6 +46,8 @@ const translations = {
     'common.imagen': 'Imagen',
 
     // ── Home — PistaSection ──
+    'home.pista_title': 'EN\nPISTA',
+    'home.fuera_title': 'FUERA\nDE PISTA',
     'home.pista_desc': 'Resultados, estadísticas, victorias y momentos desde el desierto.',
     'home.fuera_desc': 'El piloto, el hombre, la familia. Lo que sucede cuando se apaga el motor.',
     'home.patrocinadores_label': '◉ ALIADOS & PATROCINADORES',
@@ -281,6 +283,8 @@ const translations = {
     'common.imagen': 'Image',
 
     // ── Home — PistaSection ──
+    'home.pista_title': 'ON\nTRACK',
+    'home.fuera_title': 'OFF\nTRACK',
     'home.pista_desc': 'Results, stats, wins and moments from the desert.',
     'home.fuera_desc': 'The driver, the man, the family. What happens when the engine shuts off.',
     'home.patrocinadores_label': '◉ ALLIES & SPONSORS',

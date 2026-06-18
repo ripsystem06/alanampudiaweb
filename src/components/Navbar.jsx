@@ -245,7 +245,7 @@ export default function Navbar() {
               textTransform: 'uppercase',
               textDecoration: 'none',
               transform: 'skewX(-8deg)',
-              animation: `menuLinkIn 0.3s ease-out ${0.05 + navLinks.length * 0.06}s both`,
+              animation: `menuLinkIn 0.3s ease-out ${0.05 + navKeys.length * 0.06}s both`,
             }}
           >
             <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('nav.ir_tienda')}</span>

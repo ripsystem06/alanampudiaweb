@@ -120,7 +120,10 @@ export default function Patrocinadores() {
             lineHeight: 1.15,
             color: 'var(--white)',
           }}>
-            MARCAS QUE<br /><span style={{ color: 'var(--magenta)' }}>RESPALDAN</span> EL #1.
+            {(() => {
+              const parts = t('home.patrocinadores_heading').split('\n');
+              return <>{parts[0]}<br /><span style={{ color: 'var(--magenta)' }}>{parts[1]}</span> {parts[2]}</>;
+            })()}
           </h2>
         </div>
         <a href="mailto:contacto@alanampudia.com" style={{
