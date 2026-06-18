@@ -552,6 +552,7 @@ function TeamSection() {
 }
 
 function HeroSection() {
+  const { t } = useLanguage();
   const heroRef = useRef();
   const [heroVisible, setHeroVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
