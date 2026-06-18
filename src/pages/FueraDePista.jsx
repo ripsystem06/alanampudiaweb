@@ -9,23 +9,23 @@ const filosofia = [
 
 const citas = [
   {
-    cita: 'Yo soy muy competitivo en lo que sea. Yo siempre busco salir a ganar. En mi categoría, somos solo dos mexicanos compitiendo contra 15 o 16 americanos, así que quiero representar a México. Yo pienso que soy el mejor. Tienes que ser egoísta y pensar que tú eres el mejor, si no, ¿cómo vas a salir a ganarles?',
+    citaKey: 'fueradepista.cita_ganadora_text',
     temaKey: 'fueradepista.cita_ganadora',
   },
   {
-    cita: 'La presión mental, yo no sé si será un don o qué, pero no siento mucha presión. Yo iba tranquilo. No era como que tenía presión de hacerlo, pero quería. Obviamente, ser el primer mexicano en lograrlo es algo increíble, algo de lo que me siento muy orgulloso, y también mi equipo y mi familia.',
+    citaKey: 'fueradepista.cita_mexico_text',
     temaKey: 'fueradepista.cita_mexico',
   },
   {
-    cita: 'Esta es la más grande, es nuestro Super Bowl, nuestra final de la Champions. Si no ganas esta, sientes que no ganaste ninguna.',
+    citaKey: 'fueradepista.cita_baja1000_text',
     temaKey: 'fueradepista.cita_baja1000',
   },
   {
-    cita: 'Estando en la cima es cuando más alto puedes caer. Ahorita tenemos un blanco pegado en la cabeza; todos nos quieren ganar. No nos lo tomamos a la ligera. Queremos seguir siendo los mejores.',
+    citaKey: 'fueradepista.cita_campeonato_text',
     temaKey: 'fueradepista.cita_campeonato',
   },
   {
-    cita: 'Quiero ser una inspiración para los jóvenes. Que vean que trabajando duro, sabiendo trabajar en equipo y nunca rindiéndose, es posible. Que se sepa que se puede luchar, nada es imposible si te lo pones como meta.',
+    citaKey: 'fueradepista.cita_inspirar_text',
     temaKey: 'fueradepista.cita_inspirar',
   },
 ];
@@ -490,7 +490,7 @@ export default function FueraDePista() {
                     }}>
                       <img
                         src={citasImgs[i]}
-                        alt={item.tema}
+                        alt={t(item.temaKey)}
                         loading="lazy"
                         style={{
                           width: '100%',
@@ -522,7 +522,7 @@ export default function FueraDePista() {
                         color: 'var(--white-soft)', lineHeight: 1.7, fontStyle: 'italic',
                         margin: 0,
                       }}>
-                        &ldquo;{item.cita}&rdquo;
+                        &ldquo;{t(item.citaKey)}&rdquo;
                       </blockquote>
                       <div style={{
                         fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem',
