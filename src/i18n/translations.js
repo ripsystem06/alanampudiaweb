@@ -220,13 +220,16 @@ const translations = {
     'equipo.mecanico_bio': 'Junto a "El Pollo", forma el dúo de mecánicos que mantiene el Trophy Truck #1 en condiciones de ganar cada carrera.',
 
     // ── Calendario ──
-    'calendario.title': 'CALENDARIO',
+    'calendario.title': 'CALEN\nDARIO',
     'calendario.temporada': 'Temporada SCORE 2026',
     'calendario.sub': 'Tres carreras restantes en la temporada SCORE 2026. Alan Ampudia defiende el campeonato como el piloto a vencer en la categoría Trophy Truck.',
     'calendario.proxima': 'PRÓXIMA',
     'calendario.preparacion': 'EN PREPARACIÓN',
     'calendario.championship': 'CAMPEONATO SCORE INTERNATIONAL 2026',
-    'calendario.footer': 'La categoría Trophy Truck representa la cima del automovilismo off-road. Vehículos de 900+ hp, suspensión de largo recorrido y pilotos que desafían los terrenos más hostiles del planeta.',
+    'calendario.footer': 'La categoría Trophy Truck representa la cima del off-road mundial: vehículos de más de 900 HP capaces de atravesar desiertos a más de 200 km/h. Alan Ampudia compite con el dorsal #1 como Campeón Defensor, enfrentando los terrenos más hostiles del planeta sin relevos. Cuatro carreras. Un solo campeón.',
+    'calendario.baja500_desc': 'La primera gran batalla del desierto. Más de 500 millas de terreno extremo en la península de Baja California.',
+    'calendario.baja400_desc': 'Velocidad pura en un recorrido técnico que castiga a los impacientes. La carrera que define al contendiente.',
+    'calendario.baja1000_desc': 'La madre de todas las carreras off-road. 1,000 millas sin relevos. La prueba definitiva de resistencia, navegación y coraje.',
 
     // ── Tienda ──
     'tienda.title': 'TIENDA #1',
@@ -486,13 +489,16 @@ const translations = {
     'equipo.mecanico_bio': 'Together with "El Pollo," he forms the mechanic duo that keeps the #1 Trophy Truck in race-winning condition.',
 
     // ── Calendario ──
-    'calendario.title': 'CALENDAR',
+    'calendario.title': 'CALEN\nDAR',
     'calendario.temporada': 'SCORE 2026 Season',
     'calendario.sub': 'Three races remaining in the SCORE 2026 season. Alan Ampudia defends the championship as the driver to beat in the Trophy Truck category.',
     'calendario.proxima': 'NEXT',
     'calendario.preparacion': 'IN PREPARATION',
     'calendario.championship': 'SCORE INTERNATIONAL CHAMPIONSHIP 2026',
-    'calendario.footer': 'The Trophy Truck category represents the pinnacle of off-road motorsport. 900+ hp vehicles, long-travel suspension, and drivers who challenge the planet\'s most hostile terrain.',
+    'calendario.footer': 'The Trophy Truck category represents the pinnacle of world off-road: 900+ HP vehicles capable of crossing deserts at over 200 km/h. Alan Ampudia competes with the #1 plate as Defending Champion, facing the planet\'s most hostile terrain with no relief drivers. Four races. One champion.',
+    'calendario.baja500_desc': 'The first great desert battle. Over 500 miles of extreme terrain in the Baja California peninsula.',
+    'calendario.baja400_desc': 'Pure speed on a technical course that punishes the impatient. The race that defines the contender.',
+    'calendario.baja1000_desc': 'The mother of all off-road races. 1,000 miles with no relief drivers. The ultimate test of endurance, navigation and courage.',
 
     // ── Tienda ──
     'tienda.title': 'SHOP #1',

@@ -8,7 +8,7 @@ const carreras2026 = [
     lugar: 'Ensenada, B.C.',
     fecha: '3 – 7 Junio 2026',
     targetDate: 'June 3, 2026 00:00:00',
-    desc: 'La primera gran batalla del desierto. Más de 500 millas de terreno extremo en la península de Baja California.',
+    descKey: 'calendario.baja500_desc',
   },
   {
     num: '02',
@@ -16,7 +16,7 @@ const carreras2026 = [
     lugar: 'Ensenada, B.C.',
     fecha: '9 – 13 Septiembre 2026',
     targetDate: 'September 9, 2026 00:00:00',
-    desc: 'Velocidad pura en un recorrido técnico que castiga a los impacientes. La carrera que define al contendiente.',
+    descKey: 'calendario.baja400_desc',
   },
   {
     num: '03',
@@ -24,7 +24,7 @@ const carreras2026 = [
     lugar: 'Ensenada → La Paz, B.C.',
     fecha: '9 – 15 Noviembre 2026',
     targetDate: 'November 9, 2026 00:00:00',
-    desc: 'La madre de todas las carreras off-road. 1,000 millas sin relevos. La prueba definitiva de resistencia, navegación y coraje.',
+    descKey: 'calendario.baja1000_desc',
   },
 ];
 
@@ -111,7 +111,9 @@ export default function Calendario() {
             color: 'var(--white)',
             margin: 0,
           }}>
-            CALEN<span style={{ color: 'var(--magenta)' }}>DARIO</span>
+            {t('calendario.title').split('\n').map((line, li) => (
+              <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+            ))}
           </h1>
           <p style={{
             fontFamily: 'Barlow Condensed, sans-serif',
@@ -121,7 +123,7 @@ export default function Calendario() {
             marginTop: '1.5rem',
             maxWidth: '500px',
           }}>
-            Tres carreras restantes en la temporada SCORE 2026. Alan Ampudia defiende el campeonato como el piloto a vencer en la categoría Trophy Truck.
+            {t('calendario.sub')}
           </p>
         </div>
       </div>
@@ -230,7 +232,7 @@ export default function Calendario() {
                 lineHeight: 1.5,
                 marginBottom: 'clamp(0.8rem, 1.5vw, 1.2rem)',
               }}>
-                {carrera.desc}
+                {t(carrera.descKey)}
               </p>
 
               {/* Bottom row: date + countdown */}
@@ -269,7 +271,7 @@ export default function Calendario() {
             marginBottom: '0.6rem',
             letterSpacing: '0.04em',
           }}>
-            CAMPEONATO SCORE INTERNATIONAL 2026
+            {t('calendario.championship')}
           </div>
           <p style={{
             fontFamily: 'Barlow Condensed, sans-serif',
@@ -278,10 +280,7 @@ export default function Calendario() {
             lineHeight: 1.7,
             margin: 0,
           }}>
-            La categoría Trophy Truck representa la cima del off-road mundial: vehículos de más de 900 HP
-            capaces de atravesar desiertos a más de 200 km/h. Alan Ampudia compite con el dorsal #1 como
-            Campeón Defensor, enfrentando los terrenos más hostiles del planeta sin relevos. Cuatro carreras.
-            Un solo campeón.
+            {t('calendario.footer')}
           </p>
         </div>
       </div>
