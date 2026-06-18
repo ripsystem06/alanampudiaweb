@@ -2,18 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const miembros = [
-  { rol: 'PILOTO #1', nombre: 'Alan Ampudia', detail: '35 años — Ensenada, B.C.', bio: 'Campeón Mundial SCORE Trophy Truck 2024. El primer ensenadense en lograr el título absoluto. Lleva las riendas del Ford Raptor #1.', code: 'P.001', img: '/images/01-alan-portrait.webp' },
-  { rol: 'TEAM PRINCIPAL', nombre: 'Rodrigo Ampudia Sr.', detail: 'Cerebro técnico — Padre', bio: 'El líder absoluto y el cerebro detrás de la escudería. Su filosofía prioriza la fiabilidad técnica por encima de todo: después de cada carrera, desarman el Trophy Truck por completo, revisan cada componente y lo reensamblan con tornillos completamente nuevos.', code: 'T.002', img: '/images/team/papa-alan.webp' },
-  { rol: 'CO-PILOTO', nombre: 'Kyle "El K"', detail: 'Navegante Principal', bio: 'El estratega a bordo del Trophy Truck #1. Su precisión implacable al cantar las notas de navegación a velocidades extremas ha sido un pilar fundamental para las victorias consecutivas del equipo en la temporada 2025. Detrás de cada rey del Off-Road hay un navegante que nunca pierde el rumbo.', code: 'C.003', img: '/images/copiloto/copiloto.webp' },
-  { rol: 'MECÁNICO LÍDER', nombre: '"El Pollo"', detail: 'Pits — Confianza absoluta', bio: 'Uno de los mecánicos de mayor confianza mencionados recurrentemente por Alan. Su capacidad para trabajar bajo presión y resolver problemas mecánicos complejos en minutos marca la diferencia entre ganar y abandonar.', code: 'M.005', img: '/images/team/accion.webp' },
-  { rol: 'MECÁNICO', nombre: 'Gael', detail: 'Pits — Especialista', bio: 'Junto a "El Pollo", forma el dúo de mecánicos de élite que mantiene el Trophy Truck #1 en condiciones de victoria. Pieza clave en las reparaciones de emergencia que han salvado carreras.', code: 'M.006', img: '/images/team/06-pit-stop.webp' },
+  { rolKey: 'equipo.piloto', nombre: 'Alan Ampudia', detailKey: 'equipo.piloto_detail', bioKey: 'equipo.piloto_bio', code: 'P.001', img: '/images/01-alan-portrait.webp' },
+  { rolKey: 'equipo.team_principal', nombre: 'Rodrigo Ampudia Sr.', detailKey: 'equipo.team_principal_detail', bioKey: 'equipo.team_principal_bio', code: 'T.002', img: '/images/team/papa-alan.webp' },
+  { rolKey: 'equipo.copiloto', nombre: 'Kyle "El K"', detailKey: 'equipo.copiloto_detail', bioKey: 'equipo.copiloto_bio', code: 'C.003', img: '/images/copiloto/copiloto.webp' },
+  { rolKey: 'equipo.mecanico_lider', nombre: '"El Pollo"', detailKey: 'equipo.mecanico_lider_detail', bioKey: 'equipo.mecanico_lider_bio', code: 'M.005', img: '/images/team/accion.webp' },
+  { rolKey: 'equipo.mecanico', nombre: 'Gael', detailKey: 'equipo.mecanico_detail', bioKey: 'equipo.mecanico_bio', code: 'M.006', img: '/images/team/06-pit-stop.webp' },
 ];
 
 const teamGallery = [
-  { src: '/images/team/team-papas.webp', alt: 'Team Papas unido en los pits' },
-  { src: '/images/team/06-pit-stop.webp', alt: 'Pit stop cronometrado del Trophy Truck #1' },
-  { src: '/images/team/accion.webp', alt: 'Mecánicos en acción durante carrera' },
-  { src: '/images/team/papa-alan.webp', alt: 'Rodrigo Ampudia Sr. y Alan Ampudia' },
+  { src: '/images/team/team-papas.webp', altKey: 'equipo.gallery_team' },
+  { src: '/images/team/06-pit-stop.webp', altKey: 'equipo.gallery_pitstop' },
+  { src: '/images/team/accion.webp', altKey: 'equipo.gallery_accion' },
+  { src: '/images/team/papa-alan.webp', altKey: 'equipo.gallery_papa' },
 ];
 
 function AnimatedSection({ children, style, delay = 0 }) {
@@ -80,7 +80,9 @@ export default function Equipo() {
             color: 'var(--white)',
             margin: 0,
           }}>
-            EL <span style={{ color: 'var(--magenta)' }}>EQUIPO</span>
+            {t('equipo.title').split('\n').map((line, li) => (
+              <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+            ))}
           </h1>
           <p style={{
             fontFamily: 'Barlow Condensed, sans-serif',
@@ -90,9 +92,7 @@ export default function Equipo() {
             marginTop: '1.5rem',
             maxWidth: '600px',
           }}>
-            El equipo detrás del éxito de Alan Ampudia, conocido oficialmente como Team Papas,
-            es una escudería de clase mundial fuertemente arraigada en los valores familiares
-            y respaldada por su icónico negocio, Papas &amp; Beer, ubicado en Ensenada y Rosarito.
+            {t('equipo.sub')}
           </p>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function Equipo() {
           }}>
             <img
               src="/images/team/05-team-group.webp"
-              alt="Team Papas — equipo completo de Alan Ampudia"
+              alt={t('equipo.alt_completo')}
               style={{ width: '100%', height: 'auto', display: 'block' }}
             />
             <div style={{
@@ -121,7 +121,7 @@ export default function Equipo() {
                 fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
                 color: 'var(--white)',
               }}>
-                {t('equipo.title')} COMPLETO
+                {t('equipo.overlay')}
               </div>
             </div>
           </div>
@@ -166,20 +166,16 @@ export default function Equipo() {
                 color: 'var(--white-soft)',
                 lineHeight: 1.7,
               }}>
-                El padre de Alan es el líder absoluto y el cerebro detrás de la escudería.
-                Su filosofía prioriza la fiabilidad técnica por encima de todo: después de
-                cada carrera, el equipo desarma el Trophy Truck por completo, revisa cada
-                componente a detalle y lo reensambla utilizando tornillos completamente nuevos.
-                Es la obsesión por la perfección mecánica lo que mantiene al #1 en la cima.
+                {t('equipo.rodrigo_bio')}
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
-                  { num: '100%', label: 'Desarme post-carrera', desc: 'Cada componente inspeccionado' },
-                  { num: '0', label: 'Fallas mecánicas 2025', desc: 'Temporada perfecta del Trophy Truck' },
-                  { num: '03:30', label: 'AM — San Felipe 250', desc: 'Reparación de emergencia nocturna' },
+                  { num: '100%', label: t('equipo.desarme'), desc: t('equipo.cada_componente') },
+                  { num: '0', label: t('equipo.fallas'), desc: t('equipo.stat_perfecta') },
+                  { num: '03:30', label: t('equipo.am_sf250'), desc: t('equipo.stat_emergencia') },
                 ].map((stat, i) => (
                   <div key={i} style={{
                     display: 'flex',
@@ -262,7 +258,7 @@ export default function Equipo() {
                       textTransform: 'uppercase',
                       marginBottom: '0.6rem',
                     }}>
-                      {m.rol}
+                      {t(m.rolKey)}
                     </div>
                     <h2 style={{
                       fontFamily: 'Anton, sans-serif',
@@ -279,7 +275,7 @@ export default function Equipo() {
                       color: 'var(--white-dim)',
                       marginBottom: '1.5rem',
                     }}>
-                      {m.detail}
+                      {t(m.detailKey)}
                     </div>
                     <div style={{
                       width: '60px',
@@ -295,7 +291,7 @@ export default function Equipo() {
                       maxWidth: '600px',
                       margin: 0,
                     }}>
-                      {m.bio}
+                      {t(m.bioKey)}
                     </p>
                   </div>
                 </div>
@@ -325,7 +321,7 @@ export default function Equipo() {
               }}>
                 <img
                   src={img.src}
-                  alt={img.alt}
+                  alt={t(img.altKey)}
                   loading="lazy"
                   style={{
                     width: '100%',
@@ -360,7 +356,7 @@ export default function Equipo() {
               marginBottom: '0.6rem',
               textTransform: 'uppercase',
             }}>
-              // SAN FELIPE 250 — 2025
+              {t('equipo.anecdota_label')}
             </div>
             <p style={{
               fontFamily: 'Barlow Condensed, sans-serif',
@@ -370,11 +366,7 @@ export default function Equipo() {
               fontStyle: 'italic',
               margin: 0,
             }}>
-              La noche antes de la carrera, el vehículo de Alan sufrió daños graves tras golpear
-              una gran piedra durante las clasificaciones. El equipo de mecánicos, sumando
-              esfuerzos con Neil Mason —el constructor de los vehículos—, trabajó a contrarreloj
-              hasta las 3:30 de la madrugada. Cambiaron desde el diferencial delantero hasta la
-              flecha trasera, salvando el carro y permitiendo que Alan ganara la carrera horas después.
+              {t('equipo.mecanicos_anecdota')}
             </p>
           </div>
         </div>
@@ -399,7 +391,7 @@ export default function Equipo() {
               color: 'var(--magenta-bright)',
               marginBottom: '0.8rem',
             }}>
-              // PROTOCOL POST-RACE
+              {t('equipo.protocol_label')}
             </div>
             <div style={{
               fontFamily: 'Anton, sans-serif',
@@ -416,9 +408,7 @@ export default function Equipo() {
               lineHeight: 1.7,
               margin: 0,
             }}>
-              Tras cada carrera, el equipo desarma el Ford Raptor por completo e instala
-              tornillos nuevos en todo el vehículo, sin excepciones. Es la firma del Team
-              Papas: cada milla compite con un coche prácticamente nuevo.
+              {t('equipo.obsesion_desc')}
             </p>
           </div>
         </div>
@@ -431,6 +421,7 @@ export default function Equipo() {
 }
 
 function CountdownInline({ targetDate }) {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -501,7 +492,7 @@ function CountdownInline({ targetDate }) {
         lineHeight: 1,
         opacity: 0.85,
       }}>
-        PRÓXIMA CARRERA
+        {t('common.proxima_carrera')}
       </div>
     </div>
   );
