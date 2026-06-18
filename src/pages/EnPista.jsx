@@ -100,6 +100,7 @@ const estadoColor = {
 };
 
 function CountdownTimer({ targetDate }) {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -125,10 +126,10 @@ function CountdownTimer({ targetDate }) {
   return (
     <div style={{ display: 'flex', gap: 'clamp(0.4rem, 1.5vw, 1.5rem)', marginTop: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
       {[
-        { value: timeLeft.days, label: 'Días' },
-        { value: timeLeft.hours, label: 'Horas' },
-        { value: timeLeft.minutes, label: 'Min' },
-        { value: timeLeft.seconds, label: 'Seg' },
+        { value: timeLeft.days, label: t('common.dias_short') },
+        { value: timeLeft.hours, label: t('common.horas_short') },
+        { value: timeLeft.minutes, label: t('common.min_short') },
+        { value: timeLeft.seconds, label: t('common.seg_short') },
       ].map((item, i) => (
         <div key={item.label} style={{ textAlign: 'center' }}>
           <div style={{
@@ -160,6 +161,7 @@ function CountdownTimer({ targetDate }) {
 }
 
 function CountdownInline({ targetDate }) {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -232,7 +234,7 @@ function CountdownInline({ targetDate }) {
         lineHeight: 1,
         opacity: 0.85,
       }}>
-        PRÓXIMA CARRERA
+        {t('common.proxima_carrera')}
       </div>
     </div>
   );
@@ -301,9 +303,7 @@ function TeamSection() {
             marginTop: 'clamp(0.8rem, 2vw, 1.5rem)',
             maxWidth: '700px',
           }}>
-            El equipo detrás del éxito de Alan Ampudia, conocido oficialmente como Team Papas,
-            es una escudería de clase mundial fuertemente arraigada en los valores familiares
-            y respaldada por su icónico negocio, Papas &amp; Beer, ubicado en Ensenada y Rosarito.
+            {t('enpista.team_desc')}
           </p>
         </div>
 
@@ -378,11 +378,7 @@ function TeamSection() {
               color: 'var(--white-soft)',
               lineHeight: 1.7,
             }}>
-              El padre de Alan es el líder absoluto y el cerebro detrás de la escudería.
-              Su filosofía prioriza la fiabilidad técnica por encima de todo: después de
-              cada carrera, el equipo desarma el Trophy Truck por completo, revisa cada
-              componente a detalle y lo reensambla utilizando tornillos completamente nuevos.
-              Es la obsesión por la perfección mecánica lo que mantiene al #1 en la cima.
+              {t('enpista.rodrigo_bio')}
             </p>
           </div>
 
@@ -396,9 +392,9 @@ function TeamSection() {
             transition: 'all 0.8s ease 0.4s',
           }}>
             {[
-              { num: '100%', label: 'Desarme post-carrera', desc: 'Cada componente inspeccionado' },
-              { num: '0', label: 'Fallas mecánicas 2025', desc: 'Temporada perfecta del Trophy Truck' },
-              { num: '03:30', label: 'AM — San Felipe 250', desc: 'Reparación de emergencia nocturna' },
+              { num: '100%', label: t('enpista.desarme'), desc: t('enpista.cada_componente') },
+              { num: '0', label: t('enpista.fallas'), desc: t('enpista.stat_perfecta') },
+              { num: '03:30', label: t('enpista.am_sf250'), desc: t('enpista.stat_emergencia') },
             ].map((stat, i) => (
               <div key={i} style={{
                 display: 'flex',
@@ -508,10 +504,7 @@ function TeamSection() {
               color: 'var(--white-soft)',
               lineHeight: 1.7,
             }}>
-              &ldquo;El Pollo&rdquo; y &ldquo;Gael&rdquo; son dos de los mecánicos de mayor confianza,
-              mencionados recurrentemente por Alan como piezas clave del equipo. Su capacidad
-              para trabajar bajo presión y resolver problemas mecánicos complejos en minutos
-              —no en horas— marca la diferencia entre ganar y abandonar.
+              {t('enpista.mecanicos_desc')}
             </p>
           </div>
 
@@ -528,7 +521,7 @@ function TeamSection() {
               marginBottom: '0.6rem',
               textTransform: 'uppercase',
             }}>
-              // SAN FELIPE 250 — 2025
+              {t('enpista.anecdota_label')}
             </div>
             <p style={{
               fontFamily: 'Barlow Condensed, sans-serif',
@@ -537,11 +530,7 @@ function TeamSection() {
               lineHeight: 1.6,
               fontStyle: 'italic',
             }}>
-              La noche antes de la carrera, el vehículo de Alan sufrió daños graves tras golpear
-              una gran piedra durante las clasificaciones. El equipo de mecánicos, sumando
-              esfuerzos con Neil Mason —el constructor de los vehículos—, trabajó a contrarreloj
-              hasta las 3:30 de la madrugada. Cambiaron desde el diferencial delantero hasta la
-              flecha trasera, salvando el carro y permitiendo que Alan ganara la carrera horas después.
+              {t('enpista.mecanicos_anecdota')}
             </p>
           </div>
         </div>
@@ -757,6 +746,13 @@ export default function EnPista() {
     '/specTT/SanFelipe250-DSchenkelberg-524.jpg',
   ];
 
+  const estadoT = (estado) => {
+    if (estado === 'Victoria') return t('enpista.estado_victoria');
+    if (estado === 'Completada') return t('enpista.estado_completada');
+    if (estado === 'DNF') return t('enpista.estado_dnf');
+    return estado;
+  };
+
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', onResize);
@@ -818,7 +814,9 @@ export default function EnPista() {
             transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'all 0.8s ease 0.1s',
           }}>
-            EN<br /><span style={{ color: 'var(--magenta)' }}>PISTA</span>
+            {t('enpista.title').split('\n').map((line, li) => (
+              <span key={li} style={{ display: 'block', color: li === 1 ? 'var(--magenta)' : undefined }}>{line}</span>
+            ))}
           </h1>
           <p style={{
             fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem',
@@ -826,7 +824,7 @@ export default function EnPista() {
             maxWidth: '500px',
             opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s ease 0.3s',
           }}>
-            Resultados, victorias y momentos definitorios en la máxima categoría del off-road mundial.
+            {t('enpista.sub')}
           </p>
         </div>
 
@@ -836,10 +834,10 @@ export default function EnPista() {
           opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s ease 0.4s',
         }}>
           {[
-            { num: '1', label: 'Campeonato Mundial' },
-            { num: '1', label: 'Triple Corona' },
-            { num: '70.71', label: 'mph Récord SF250' },
-            { num: '18h', label: 'Baja 1000 solitario' },
+            { num: '1', label: t('enpista.campeonato_mundial') },
+            { num: '1', label: t('enpista.triple_corona') },
+            { num: '70.71', label: t('enpista.mph_record') },
+            { num: '18h', label: t('enpista.baja1000_solitario') },
           ].map(s => (
             <div key={s.label} style={isMobile ? {} : { display: 'flex', alignItems: 'baseline', gap: '0.6rem' }}>
               <div style={{ fontFamily: 'Anton, sans-serif', fontSize: isMobile ? '2.2rem' : '2.42rem', color: 'var(--magenta-bright)', lineHeight: 1 }}>{s.num}</div>
@@ -979,7 +977,7 @@ export default function EnPista() {
                           color: '#ff4444',
                           letterSpacing: '0.1em',
                         }}>
-                          DNF
+                          {t('enpista.estado_dnf')}
                         </span>
                       )}
                       {/* Expand indicator */}
@@ -994,7 +992,7 @@ export default function EnPista() {
                       {carrera.fecha}
                       {carrera.clase && (
                         <span style={{ color: 'var(--magenta-bright)', marginLeft: '1rem' }}>
-                          #{carrera.clase.split('°')[0]} clase
+                          #{carrera.clase.split('°')[0]} {t('enpista.clase_label')}
                         </span>
                       )}
                       {carrera.tiempo && (
@@ -1016,7 +1014,7 @@ export default function EnPista() {
                     padding: '0.3rem 0.8rem',
                     border: `1px solid ${posColor}40`,
                     color: posColor, whiteSpace: 'nowrap',
-                  }}>{carrera.estado}</div>
+                  }}>{estadoT(carrera.estado)}</div>
                 </div>
 
                 {/* Expanded Detail Panel */}
@@ -1052,7 +1050,7 @@ export default function EnPista() {
                     )}
                     <div>
                       <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.estado')}</div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: estadoColor[carrera.estado] }}>{carrera.estado}</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: estadoColor[carrera.estado] }}>{estadoT(carrera.estado)}</div>
                     </div>
                     {carrera.nota && (
                       <div style={{ gridColumn: '1 / -1' }}>
@@ -1062,7 +1060,7 @@ export default function EnPista() {
                     )}
                     {carrera.estado === 'DNF' && (
                       <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', background: 'rgba(255,68,68,0.1)', border: '1px solid rgba(255,68,68,0.3)' }}>
-                        <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.5rem', color: '#ff4444' }}>DNF</span>
+                        <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.5rem', color: '#ff4444' }}>{t('enpista.estado_dnf')}</span>
                         <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)' }}>{t('enpista.no_completo')}</span>
                       </div>
                     )}
@@ -1334,9 +1332,9 @@ export default function EnPista() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {/* Section Header */}
           <div style={{ marginBottom: '3rem' }}>
-            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>El Equipo</div>
+            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.codriver_label')}</div>
             <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: 1.15, color: 'var(--white)', margin: 0 }}>
-              <span style={{ color: 'var(--magenta)' }}>CO-DRIVER</span>
+              <span style={{ color: 'var(--magenta)' }}>{t('enpista.codriver_heading')}</span>
             </h2>
           </div>
 
@@ -1392,7 +1390,7 @@ export default function EnPista() {
                 textTransform: 'uppercase',
                 marginBottom: '0.5rem',
               }}>
-                Copiloto y Navegante Principal del Trophy Truck #1
+                {t('enpista.codriver_role')}
               </div>
               <p style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
@@ -1401,7 +1399,7 @@ export default function EnPista() {
                 color: 'var(--white-soft)',
                 marginTop: '1.5rem',
               }}>
-                "El estratega a bordo del Trophy Truck #1. Mientras Alan Ampudia domina el volante y desafía los límites del desierto, 'El K' domina la ruta. Su precisión implacable al cantar las notas de navegación a velocidades extremas ha sido un pilar fundamental para las victorias consecutivas del equipo en la temporada 2025. Como el copiloto de confianza que acompaña al campeón en sus extenuantes desafíos sin relevos, Kyle demuestra que detrás de cada rey del Off-Road hay un navegante que nunca pierde el rumbo."
+                {t('enpista.codriver_bio')}
               </p>
             </div>
           </div>
