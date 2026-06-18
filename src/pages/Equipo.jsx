@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const miembros = [
   { rol: 'PILOTO #1', nombre: 'Alan Ampudia', detail: '35 años — Ensenada, B.C.', bio: 'Campeón Mundial SCORE Trophy Truck 2024. El primer ensenadense en lograr el título absoluto. Lleva las riendas del Ford Raptor #1.', code: 'P.001', img: '/images/01-alan-portrait.webp' },
@@ -41,6 +42,7 @@ function AnimatedSection({ children, style, delay = 0 }) {
 }
 
 export default function Equipo() {
+  const { t } = useLanguage();
   return (
     <div style={{ paddingTop: '67px', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Header */}
@@ -69,7 +71,7 @@ export default function Equipo() {
             textTransform: 'uppercase',
             marginBottom: '0.5rem',
           }}>
-            Escudería Oficial
+            {t('common.escuderia_oficial')}
           </div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
@@ -119,7 +121,7 @@ export default function Equipo() {
                 fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
                 color: 'var(--white)',
               }}>
-                EL EQUIPO COMPLETO
+                {t('equipo.title')} COMPLETO
               </div>
             </div>
           </div>
@@ -146,7 +148,7 @@ export default function Equipo() {
                 textTransform: 'uppercase',
                 marginBottom: '0.8rem',
               }}>
-                El Cerebro y la Filosofía del Equipo
+                {t('equipo.cerebro_label')}
               </div>
               <h3 style={{
                 fontFamily: 'Anton, sans-serif',
@@ -156,7 +158,7 @@ export default function Equipo() {
                 margin: 0,
                 marginBottom: '1rem',
               }}>
-                RODRIGO AMPUDIA SR.
+                {t('equipo.rodrigo_name')}
               </h3>
               <p style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
@@ -405,7 +407,7 @@ export default function Equipo() {
               color: 'var(--white)',
               marginBottom: '0.8rem',
             }}>
-              LA OBSESIÓN POR LA PERFECCIÓN
+              {t('equipo.obsesion_heading')}
             </div>
             <p style={{
               fontFamily: 'Barlow Condensed, sans-serif',

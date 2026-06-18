@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const carreras2026 = [
   {
@@ -74,6 +75,7 @@ function RaceCountdown({ targetDate }) {
 }
 
 export default function Calendario() {
+  const { t } = useLanguage();
   return (
     <div style={{ paddingTop: '67px', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Header */}
@@ -100,7 +102,7 @@ export default function Calendario() {
             textTransform: 'uppercase',
             marginBottom: '0.5rem',
           }}>
-            Temporada SCORE 2026
+            {t('calendario.temporada')}
           </div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
@@ -216,7 +218,7 @@ export default function Calendario() {
                     background: 'var(--magenta-bright)',
                     animation: 'blink 2s infinite',
                   }} />
-                  {i === 0 ? 'PRÓXIMA' : 'EN PREPARACIÓN'}
+                  {i === 0 ? t('calendario.proxima') : t('calendario.preparacion')}
                 </div>
               </div>
 

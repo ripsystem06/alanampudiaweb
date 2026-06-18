@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import TrackGlowSVG from '../components/TrackGlowSVG';
 import HelmetShowcase from '../components/HelmetScroll';
 
@@ -245,6 +246,7 @@ const teamGallery = [
 ];
 
 function TeamSection() {
+  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
 
@@ -280,7 +282,7 @@ function TeamSection() {
             textTransform: 'uppercase',
             marginBottom: '0.5rem',
           }}>
-            Escudería Oficial
+            {t('common.escuderia_oficial')}
           </div>
           <h2 style={{
             fontFamily: 'Anton, sans-serif',
@@ -332,7 +334,7 @@ function TeamSection() {
               fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
               color: 'var(--white)',
             }}>
-              EL EQUIPO COMPLETO
+              {t('enpista.team_overlay')}
             </div>
           </div>
         </div>
@@ -358,7 +360,7 @@ function TeamSection() {
               textTransform: 'uppercase',
               marginBottom: '0.8rem',
             }}>
-              El Cerebro y la Filosofía del Equipo
+              {t('enpista.cerebro_label')}
             </div>
             <h3 style={{
               fontFamily: 'Anton, sans-serif',
@@ -488,7 +490,7 @@ function TeamSection() {
               textTransform: 'uppercase',
               marginBottom: '0.8rem',
             }}>
-              Los Héroes en los Pits
+              {t('enpista.heroes_label')}
             </div>
             <h3 style={{
               fontFamily: 'Anton, sans-serif',
@@ -498,7 +500,7 @@ function TeamSection() {
               margin: 0,
               marginBottom: '1rem',
             }}>
-              MECÁNICOS DE ÉLITE
+              {t('enpista.mecanicos_heading')}
             </h3>
             <p style={{
               fontFamily: 'Barlow Condensed, sans-serif',
@@ -550,6 +552,7 @@ function TeamSection() {
 }
 
 function HeroSection() {
+  const { t } = useLanguage();
   const heroRef = useRef();
   const [heroVisible, setHeroVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -616,7 +619,7 @@ function HeroSection() {
             color: 'var(--magenta-bright)',
             textTransform: 'uppercase',
           }}>
-            Próxima Carrera
+            {t('common.proxima_carrera')}
           </span>
         </div>
 
@@ -678,7 +681,7 @@ function HeroSection() {
             textTransform: 'uppercase',
             marginBottom: '1rem',
           }}>
-            Tiempo hasta la salida
+            {t('common.tiempo_salida')}
           </div>
           <CountdownTimer targetDate="September 9, 2026 00:00:00" />
         </div>
@@ -710,7 +713,7 @@ function HeroSection() {
             textAlign: 'center',
             animation: 'blink 2s infinite',
           }}>
-            Revelación de pista próximamente
+            {t('enpista.revelacion_pista')}
           </div>
           <img
             src="/scorelogo.svg"
@@ -740,6 +743,7 @@ function HeroSection() {
 }
 
 export default function EnPista() {
+  const { t } = useLanguage();
   const [activeYear, setActiveYear] = useState('2026');
   const [expandedRace, setExpandedRace] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -798,7 +802,7 @@ export default function EnPista() {
           color: 'transparent',
           WebkitTextStroke: '1px rgba(233,30,99,0.08)',
           lineHeight: 1, userSelect: 'none',
-        }}>EN PISTA</div>
+        }}>{t('enpista.title')}</div>
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
@@ -806,7 +810,7 @@ export default function EnPista() {
             letterSpacing: '0.35em', color: 'var(--magenta-bright)',
             textTransform: 'uppercase', marginBottom: '0.5rem',
             opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s',
-          }}>Historial de Competencia</div>
+          }}>{t('enpista.historial_label')}</div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
             fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.15, color: 'var(--white)',
@@ -925,7 +929,7 @@ export default function EnPista() {
           }}>
             <div style={{ width: '6px', height: '6px', background: 'var(--magenta)', borderRadius: '50%', animation: 'blink 2s infinite' }} />
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.72rem', letterSpacing: '0.2em', color: 'var(--magenta-bright)', textTransform: 'uppercase' }}>
-              Temporada en curso
+              {t('enpista.temporada_curso')}
             </span>
           </div>
         )}
@@ -1027,39 +1031,39 @@ export default function EnPista() {
                     gap: '1.5rem',
                   }}>
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Carrera</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.carrera')}</div>
                       <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)' }}>{carrera.nombre}</div>
                     </div>
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Posición Absoluta</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion_absoluta')}</div>
                       <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: posColor }}>{carrera.posicion}</div>
                     </div>
                     {carrera.clase && (
                       <div>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Posición Clase</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion_clase')}</div>
                         <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)' }}>{carrera.clase}</div>
                       </div>
                     )}
                     {carrera.tiempo && (
                       <div>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Tiempo</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.tiempo')}</div>
                         <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1rem', color: 'var(--white-soft)' }}>{carrera.tiempo}</div>
                       </div>
                     )}
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Estado</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.estado')}</div>
                       <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: estadoColor[carrera.estado] }}>{carrera.estado}</div>
                     </div>
                     {carrera.nota && (
                       <div style={{ gridColumn: '1 / -1' }}>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Notas</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.notas')}</div>
                         <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)', lineHeight: 1.5 }}>{carrera.nota}</div>
                       </div>
                     )}
                     {carrera.estado === 'DNF' && (
                       <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', background: 'rgba(255,68,68,0.1)', border: '1px solid rgba(255,68,68,0.3)' }}>
                         <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.5rem', color: '#ff4444' }}>DNF</span>
-                        <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)' }}>No completó la carrera</span>
+                        <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)' }}>{t('enpista.no_completo')}</span>
                       </div>
                     )}
                   </div>
@@ -1108,7 +1112,7 @@ export default function EnPista() {
         <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Section Header */}
         <div style={{ maxWidth: '1200px', margin: '0 auto 4rem' }}>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Specs</div>
+          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.35em', color: 'var(--magenta-bright)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.specs')}</div>
           <h2 style={{ fontFamily: 'Anton, sans-serif', fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 1.15, color: 'var(--white)', margin: 0 }}>
             TROPHY<br /><span style={{ color: 'var(--magenta)' }}>TRUCK</span>
           </h2>
