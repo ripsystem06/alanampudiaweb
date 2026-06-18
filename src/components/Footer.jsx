@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 const CASCO = '/footerleements/casctofront.webp';
 const FIRMA = '/firmafooter.webp';
 
-const pageKeys = [
+const pages = [
   { key: 'nav.en_pista', to: '/en-pista' },
   { key: 'nav.fuera_de_pista', to: '/fuera-de-pista' },
   { key: 'nav.calendario', to: '/calendario' },
@@ -142,7 +142,7 @@ export default function Footer() {
                   margin: '0 0 0.4rem 0',
                   textTransform: 'uppercase',
                 }}>{t('footer.paginas')}</h4>
-                {pageKeys.map(p => (
+                {pages.map(p => (
                   <Link key={p.key} to={p.to} style={{
                     fontFamily: 'Anton, sans-serif',
                     fontSize: 'clamp(0.8rem, 1.4vw, 1.25rem)',
@@ -154,7 +154,7 @@ export default function Footer() {
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
                   onMouseLeave={e => e.currentTarget.style.color = '#FFFFFF'}
                   >{t(p.key).toUpperCase()}</Link>
-                ))}
+                ))
                 <a
                   href="https://www.alanampudia.store"
                   target="_blank"
@@ -255,7 +255,7 @@ export default function Footer() {
               }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'center' }}>
                   <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', margin: 0, textTransform: 'uppercase' }}>{t('footer.paginas')}</h4>
-                  {pageKeys.map(p => (
+                  {pages.map(p => (
                     <Link key={p.key} to={p.to} style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.85rem', color: '#FFFFFF', textDecoration: 'none', letterSpacing: '0.04em' }}>{t(p.key).toUpperCase()}</Link>
                   ))}
                   <a href="https://www.alanampudia.store" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Anton, sans-serif', fontSize: '0.9rem', color: 'var(--magenta-bright)', textDecoration: 'none', letterSpacing: '0.06em' }}>{t('footer.tienda')}</a>

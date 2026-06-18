@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 
 const miembros = [
-  { rolKey: 'equipo.piloto', nombre: 'Alan Ampudia', detailKey: 'equipo.piloto_detail', bio: 'Campeón Mundial SCORE Trophy Truck 2024. El primer ensenadense en lograr el título absoluto. Lleva las riendas del Ford Raptor #1.', code: 'P.001', img: '/images/01-alan-portrait.webp' },
-  { rolKey: 'equipo.team_principal', nombre: 'Rodrigo Ampudia Sr.', detailKey: 'equipo.team_principal_detail', bio: 'El líder absoluto y el cerebro detrás de la escudería. Su filosofía prioriza la fiabilidad técnica por encima de todo: después de cada carrera, desarman el Trophy Truck por completo, revisan cada componente y lo reensamblan con tornillos completamente nuevos.', code: 'T.002', img: '/images/team/papa-alan.webp' },
-  { rolKey: 'equipo.copiloto', nombre: 'Kyle "El K"', detailKey: 'equipo.copiloto_detail', bio: 'El estratega a bordo del Trophy Truck #1. Su precisión implacable al cantar las notas de navegación a velocidades extremas ha sido un pilar fundamental para las victorias consecutivas del equipo en la temporada 2025. Detrás de cada rey del Off-Road hay un navegante que nunca pierde el rumbo.', code: 'C.003', img: '/images/copiloto/copiloto.webp' },
-  { rolKey: 'equipo.mecanico_lider', nombre: '"El Pollo"', detailKey: 'equipo.mecanico_lider_detail', bio: 'Uno de los mecánicos de mayor confianza mencionados recurrentemente por Alan. Su capacidad para trabajar bajo presión y resolver problemas mecánicos complejos en minutos marca la diferencia entre ganar y abandonar.', code: 'M.005', img: '/images/team/accion.webp' },
-  { rolKey: 'equipo.mecanico', nombre: 'Gael', detailKey: 'equipo.mecanico_detail', bio: 'Junto a "El Pollo", forma el dúo de mecánicos de élite que mantiene el Trophy Truck #1 en condiciones de victoria. Pieza clave en las reparaciones de emergencia que han salvado carreras.', code: 'M.006', img: '/images/team/06-pit-stop.webp' },
+  { rol: 'PILOTO #1', nombre: 'Alan Ampudia', detail: '35 años — Ensenada, B.C.', bio: 'Campeón Mundial SCORE Trophy Truck 2024. El primer ensenadense en lograr el título absoluto. Lleva las riendas del Ford Raptor #1.', code: 'P.001', img: '/images/01-alan-portrait.webp' },
+  { rol: 'TEAM PRINCIPAL', nombre: 'Rodrigo Ampudia Sr.', detail: 'Cerebro técnico — Padre', bio: 'El líder absoluto y el cerebro detrás de la escudería. Su filosofía prioriza la fiabilidad técnica por encima de todo: después de cada carrera, desarman el Trophy Truck por completo, revisan cada componente y lo reensamblan con tornillos completamente nuevos.', code: 'T.002', img: '/images/team/papa-alan.webp' },
+  { rol: 'CO-PILOTO', nombre: 'Kyle "El K"', detail: 'Navegante Principal', bio: 'El estratega a bordo del Trophy Truck #1. Su precisión implacable al cantar las notas de navegación a velocidades extremas ha sido un pilar fundamental para las victorias consecutivas del equipo en la temporada 2025. Detrás de cada rey del Off-Road hay un navegante que nunca pierde el rumbo.', code: 'C.003', img: '/images/copiloto/copiloto.webp' },
+  { rol: 'MECÁNICO LÍDER', nombre: '"El Pollo"', detail: 'Pits — Confianza absoluta', bio: 'Uno de los mecánicos de mayor confianza mencionados recurrentemente por Alan. Su capacidad para trabajar bajo presión y resolver problemas mecánicos complejos en minutos marca la diferencia entre ganar y abandonar.', code: 'M.005', img: '/images/team/accion.webp' },
+  { rol: 'MECÁNICO', nombre: 'Gael', detail: 'Pits — Especialista', bio: 'Junto a "El Pollo", forma el dúo de mecánicos de élite que mantiene el Trophy Truck #1 en condiciones de victoria. Pieza clave en las reparaciones de emergencia que han salvado carreras.', code: 'M.006', img: '/images/team/06-pit-stop.webp' },
 ];
 
 const teamGallery = [
@@ -42,7 +41,6 @@ function AnimatedSection({ children, style, delay = 0 }) {
 }
 
 export default function Equipo() {
-  const { t } = useLanguage();
   return (
     <div style={{ paddingTop: '67px', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Header */}
@@ -71,7 +69,7 @@ export default function Equipo() {
             textTransform: 'uppercase',
             marginBottom: '0.5rem',
           }}>
-            {t('common.escuderia_oficial')}
+            Escudería Oficial
           </div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
@@ -108,7 +106,7 @@ export default function Equipo() {
           }}>
             <img
               src="/images/team/05-team-group.webp"
-              alt="{t('equipo.alt_completo')}"
+              alt="Team Papas — equipo completo de Alan Ampudia"
               style={{ width: '100%', height: 'auto', display: 'block' }}
             />
             <div style={{
@@ -121,7 +119,7 @@ export default function Equipo() {
                 fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
                 color: 'var(--white)',
               }}>
-                {t('equipo.overlay')}
+                EL EQUIPO COMPLETO
               </div>
             </div>
           </div>
@@ -148,7 +146,7 @@ export default function Equipo() {
                 textTransform: 'uppercase',
                 marginBottom: '0.8rem',
               }}>
-                {t('equipo.cerebro_label')}
+                El Cerebro y la Filosofía del Equipo
               </div>
               <h3 style={{
                 fontFamily: 'Anton, sans-serif',
@@ -158,7 +156,7 @@ export default function Equipo() {
                 margin: 0,
                 marginBottom: '1rem',
               }}>
-                {t('equipo.rodrigo_name')}
+                RODRIGO AMPUDIA SR.
               </h3>
               <p style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
@@ -177,9 +175,9 @@ export default function Equipo() {
             <AnimatedSection delay={0.2}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
-                  { num: '100%', label: t('equipo.desarme'), desc: t('equipo.cada_componente') },
-                  { num: '0', label: t('equipo.fallas'), desc: 'Temporada perfecta del Trophy Truck' },
-                  { num: '03:30', label: t('equipo.am_sf250'), desc: 'Reparación de emergencia nocturna' },
+                  { num: '100%', label: 'Desarme post-carrera', desc: 'Cada componente inspeccionado' },
+                  { num: '0', label: 'Fallas mecánicas 2025', desc: 'Temporada perfecta del Trophy Truck' },
+                  { num: '03:30', label: 'AM — San Felipe 250', desc: 'Reparación de emergencia nocturna' },
                 ].map((stat, i) => (
                   <div key={i} style={{
                     display: 'flex',
@@ -262,7 +260,7 @@ export default function Equipo() {
                       textTransform: 'uppercase',
                       marginBottom: '0.6rem',
                     }}>
-                      {t(m.rolKey)}
+                      {m.rol}
                     </div>
                     <h2 style={{
                       fontFamily: 'Anton, sans-serif',
@@ -279,7 +277,7 @@ export default function Equipo() {
                       color: 'var(--white-dim)',
                       marginBottom: '1.5rem',
                     }}>
-                      {t(m.detailKey)}
+                      {m.detail}
                     </div>
                     <div style={{
                       width: '60px',
@@ -407,7 +405,7 @@ export default function Equipo() {
               color: 'var(--white)',
               marginBottom: '0.8rem',
             }}>
-              {t('equipo.obsesion_heading')}
+              LA OBSESIÓN POR LA PERFECCIÓN
             </div>
             <p style={{
               fontFamily: 'Barlow Condensed, sans-serif',

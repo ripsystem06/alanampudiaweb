@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 
 const nextRace = {
   name: 'SCORE Baja 400',
@@ -11,7 +10,6 @@ const nextRace = {
 };
 
 export default function ProximaCarrera() {
-  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
@@ -79,7 +77,7 @@ export default function ProximaCarrera() {
               <span style={{
                 fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem',
                 letterSpacing: '0.3em', color: 'var(--white)', fontWeight: 700,
-              }}>{t('common.proxima_carrera')}</span>
+              }}>PRÓXIMA CARRERA</span>
             </div>
 
             <div style={{
@@ -102,15 +100,15 @@ export default function ProximaCarrera() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--black)', fontWeight: 700, minWidth: '90px' }}>{t('common.ubicacion')}</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--black)', fontWeight: 700, minWidth: '90px' }}>UBICACIÓN</span>
                 <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)', letterSpacing: '0.02em' }}>{nextRace.location}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--black)', fontWeight: 700, minWidth: '90px' }}>{t('common.distancia')}</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--black)', fontWeight: 700, minWidth: '90px' }}>DISTANCIA</span>
                 <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)', letterSpacing: '0.02em' }}>{nextRace.distance}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--black)', fontWeight: 700, minWidth: '90px' }}>{t('common.categoria')}</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--black)', fontWeight: 700, minWidth: '90px' }}>CATEGORÍA</span>
                 <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)', letterSpacing: '0.02em' }}>{nextRace.category}</span>
               </div>
             </div>
@@ -127,7 +125,7 @@ export default function ProximaCarrera() {
             }}
             onMouseEnter={e => e.currentTarget.style.background = 'var(--white)' + ',' + (e.currentTarget.style.color = 'var(--black)')}
             >
-              <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('common.ver_calendario')}</span>
+              <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>→ Ver Calendario Completo</span>
             </a>
           </div>
 
@@ -142,7 +140,7 @@ export default function ProximaCarrera() {
               letterSpacing: '0.3em', color: 'var(--black)',
               fontWeight: 700, marginBottom: '1rem',
             }}>
-              {t('common.cuenta_regresiva')}
+              CUENTA REGRESIVA / COUNTDOWN
             </div>
 
             <div style={{
@@ -152,10 +150,10 @@ export default function ProximaCarrera() {
               border: '2px solid var(--black)',
             }}>
               {[
-                { num: countdown.d, label: t('common.dias_short') },
-                { num: countdown.h, label: t('common.horas_short') },
-                { num: countdown.m, label: t('common.min_short') },
-                { num: countdown.s, label: t('common.seg_short') },
+                { num: countdown.d, label: 'DÍAS' },
+                { num: countdown.h, label: 'HORAS' },
+                { num: countdown.m, label: 'MIN' },
+                { num: countdown.s, label: 'SEG' },
               ].map((item, i) => (
                 <div key={item.label} style={{
                   background: 'var(--black)',
@@ -185,7 +183,7 @@ export default function ProximaCarrera() {
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             }}>
               <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--white-dim)', fontWeight: 700 }}>
-                {t('common.fecha_largada')}
+                FECHA DE LARGADA
               </span>
               <span style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta-bright)', letterSpacing: '0.03em' }}>
                 9 SEPT 2026 / 06:00 PT

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 
 const productos = [
   {
@@ -38,7 +37,6 @@ const tagColor = {
 const STORE_URL = 'https://www.alanampudia.store';
 
 export default function ProductosPromo() {
-  const { t } = useLanguage();
   const ref = useRef();
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(null);

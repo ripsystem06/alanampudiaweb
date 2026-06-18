@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 
 const filosofia = [
   { palabra: 'Felicidad', desc: 'La pasión que lo impulsa desde los 7 años.' },
@@ -56,7 +55,6 @@ function AnimatedBlock({ children, style, delay = 0 }) {
 }
 
 export default function FueraDePista() {
-  const { t } = useLanguage();
   return (
     <div style={{ paddingTop: '67px', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Header */}
@@ -91,14 +89,14 @@ export default function FueraDePista() {
           color: 'transparent',
           WebkitTextStroke: '1px rgba(233,30,99,0.05)',
           lineHeight: 1, userSelect: 'none', whiteSpace: 'nowrap',
-        }}>{t('fueradepista.title')}</div>
+        }}>FUERA DE PISTA</div>
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem',
             letterSpacing: '0.35em', color: 'var(--magenta-bright)',
             textTransform: 'uppercase', marginBottom: '0.5rem',
-          }}>{t('fueradepista.label')}</div>
+          }}>El Hombre detrás del #1</div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
             fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1.1, color: 'var(--white)',
@@ -124,13 +122,13 @@ export default function FueraDePista() {
               letterSpacing: '0.35em', color: 'var(--magenta-bright)',
               textTransform: 'uppercase', marginBottom: '0.5rem',
             }}>
-              {t('fueradepista.pasado_presente')}
+              Pasado y Presente
             </div>
             <h2 style={{
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)',
               color: 'var(--white)', lineHeight: 1.15, marginBottom: '2rem',
             }}>
-              {t('fueradepista.biografia')}
+              BIO<span style={{ color: 'var(--magenta)' }}>GRAFÍA</span>
             </h2>
           </AnimatedBlock>
 
@@ -144,7 +142,7 @@ export default function FueraDePista() {
                 fontFamily: 'Anton, sans-serif', fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
                 color: 'var(--white)', margin: 0, marginBottom: '1rem',
               }}>
-                {t('fueradepista.origenes')}
+                SUS ORÍGENES
               </h3>
               <p style={{
                 fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.05rem',
@@ -169,7 +167,7 @@ export default function FueraDePista() {
                 fontFamily: 'Anton, sans-serif', fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
                 color: 'var(--white)', margin: 0, marginBottom: '1rem',
               }}>
-                {t('fueradepista.presente')}
+                EL PRESENTE
               </h3>
               <p style={{
                 fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.05rem',
@@ -196,7 +194,7 @@ export default function FueraDePista() {
                 fontFamily: 'Anton, sans-serif', fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
                 color: 'var(--white)', margin: 0, marginBottom: '1rem',
               }}>
-                {t('fueradepista.pasado_max')}
+                EL PASADO EN LA MÁXIMA CATEGORÍA
               </h3>
               <p style={{
                 fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.05rem',
@@ -220,10 +218,10 @@ export default function FueraDePista() {
               border: '1px solid rgba(233,30,99,0.15)',
             }}>
               {[
-                { num: '2024', label: t('fueradepista.campeon_mundial') },
-                { num: '2019', label: t('fueradepista.baja1000_absoluto') },
-                { num: '3X', label: t('fueradepista.triple_corona_baja') },
-                { num: '#1', label: t('fueradepista.dorsal_campeon') },
+                { num: '2024', label: 'Campeón Mundial' },
+                { num: '2019', label: 'Baja 1000 — 1° Absoluto' },
+                { num: '3X', label: 'Triple Corona de Baja' },
+                { num: '#1', label: 'Dorsal del Campeón' },
               ].map(s => (
                 <div key={s.label} style={{
                   background: 'var(--black-mid)',
@@ -279,7 +277,7 @@ export default function FueraDePista() {
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
               color: 'var(--white)', lineHeight: 1.15, marginBottom: 'clamp(2rem, 4vw, 3rem)',
             }}>
-              {t('fueradepista.mas_que_color')}<br /><span style={{ color: 'var(--magenta)' }}>{t('fueradepista.un_color')}</span>
+              MÁS QUE<br /><span style={{ color: 'var(--magenta)' }}>UN COLOR</span>
             </h2>
           </AnimatedBlock>
 
@@ -303,7 +301,7 @@ export default function FueraDePista() {
                 }}>
                   <img
                     src="/images/mom/alanymama.webp"
-                    alt="{t('fueradepista.alt_madre')}"
+                    alt="Alan Ampudia con su madre"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                 </div>
@@ -320,7 +318,7 @@ export default function FueraDePista() {
                   }}>
                     <img
                       src="/images/mom/alanymama2.webp"
-                      alt="{t('fueradepista.alt_mama')}"
+                      alt="Alan y su mamá"
                       loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
@@ -333,7 +331,7 @@ export default function FueraDePista() {
                   }}>
                     <img
                       src="/images/mom/alanymama3.webp"
-                      alt="{t('fueradepista.alt_familia')}"
+                      alt="Alan Ampudia familia"
                       loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
@@ -441,7 +439,7 @@ export default function FueraDePista() {
                   height: '2px',
                   background: 'var(--magenta)',
                 }} />
-                                  <img src="/lasorosa.png" alt="{t('fueradepista.alt_lazo')}" style={{ width: '32px', height: 'auto', display: 'block' }} />
+                                  <img src="/lasorosa.png" alt="Lazo rosa" style={{ width: '32px', height: 'auto', display: 'block' }} />
                 <div style={{
                   width: '40px',
                   height: '2px',
@@ -467,7 +465,7 @@ export default function FueraDePista() {
               letterSpacing: '0.35em', color: 'var(--magenta-bright)',
               textTransform: 'uppercase', marginBottom: '0.5rem',
             }}>
-              {t('fueradepista.palabras_label')}
+              En sus propias palabras
             </div>
             <h2 style={{
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)',
@@ -585,7 +583,7 @@ export default function FueraDePista() {
               letterSpacing: '0.35em', color: 'var(--magenta-bright)',
               textTransform: 'uppercase', marginBottom: '0.5rem',
             }}>
-              {t('fueradepista.lema_label')}
+              El lema del campeón
             </div>
             <h2 style={{
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2.5rem, 5vw, 4rem)',
@@ -633,7 +631,7 @@ export default function FueraDePista() {
               letterSpacing: '0.35em', color: 'var(--magenta-bright)',
               textTransform: 'uppercase', marginBottom: '0.5rem',
             }}>
-              {t('fueradepista.youtube_label')}
+              Canal de YouTube
             </div>
             <h2 style={{
               fontFamily: 'Anton, sans-serif', fontSize: 'clamp(2rem, 4vw, 3rem)',
@@ -655,7 +653,7 @@ export default function FueraDePista() {
             }}>
               <iframe
                 src="https://www.youtube.com/embed/v3wKjg6ZvX8?rel=0"
-                title="{t('fueradepista.video_title')}"
+                title="Alan Ampudia — Último video"
                 style={{
                   position: 'absolute',
                   top: 0, left: 0,
@@ -691,7 +689,7 @@ export default function FueraDePista() {
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--white)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'var(--magenta-bright)'}
               >
-                {t('fueradepista.ver_youtube')} 
+                Ver más en YouTube → 
               </a>
             </div>
           </AnimatedBlock>
@@ -751,7 +749,7 @@ export default function FueraDePista() {
                 onMouseEnter={e => e.currentTarget.style.background = 'var(--magenta-bright)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'var(--magenta)'}
               >
-                <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>{t('fueradepista.seguir_ig')}</span>
+                <span style={{ transform: 'skewX(8deg)', display: 'inline-block' }}>SEGUIR EN INSTAGRAM ↗</span>
               </a>
             </div>
           </AnimatedBlock>

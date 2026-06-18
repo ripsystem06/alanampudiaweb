@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 
 const carreras2026 = [
   {
@@ -75,7 +74,6 @@ function RaceCountdown({ targetDate }) {
 }
 
 export default function Calendario() {
-  const { t } = useLanguage();
   return (
     <div style={{ paddingTop: '67px', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Header */}
@@ -102,7 +100,7 @@ export default function Calendario() {
             textTransform: 'uppercase',
             marginBottom: '0.5rem',
           }}>
-            {t('calendario.temporada')}
+            Temporada SCORE 2026
           </div>
           <h1 style={{
             fontFamily: 'Anton, sans-serif',
@@ -121,7 +119,7 @@ export default function Calendario() {
             marginTop: '1.5rem',
             maxWidth: '500px',
           }}>
-            {t('calendario.sub')}
+            Tres carreras restantes en la temporada SCORE 2026. Alan Ampudia defiende el campeonato como el piloto a vencer en la categoría Trophy Truck.
           </p>
         </div>
       </div>
@@ -218,7 +216,7 @@ export default function Calendario() {
                     background: 'var(--magenta-bright)',
                     animation: 'blink 2s infinite',
                   }} />
-                  {i === 0 ? t('calendario.proxima') : t('calendario.preparacion')}
+                  {i === 0 ? 'PRÓXIMA' : 'EN PREPARACIÓN'}
                 </div>
               </div>
 
@@ -269,7 +267,7 @@ export default function Calendario() {
             marginBottom: '0.6rem',
             letterSpacing: '0.04em',
           }}>
-            {t('calendario.championship')}
+            CAMPEONATO SCORE INTERNATIONAL 2026
           </div>
           <p style={{
             fontFamily: 'Barlow Condensed, sans-serif',
