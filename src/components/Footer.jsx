@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
+const CASCO = '/footerleements/casctofront.webp';
+
 const pages = [
   { key: 'nav.en_pista', to: '/en-pista' },
   { key: 'nav.fuera_de_pista', to: '/fuera-de-pista' },
@@ -204,6 +206,26 @@ export default function Footer() {
         onMouseLeave={e => e.currentTarget.style.color = 'var(--white)'}
       >{t('footer.terminos')}</Link>
       </div>
+
+      {/* Runner image */}
+      <img
+        src={CASCO}
+        alt="Alan Ampudia"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '85%',
+          maxWidth: '500px',
+          height: 'auto',
+          opacity: 0.15,
+          objectFit: 'contain',
+          objectPosition: 'bottom center',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
     </footer>
   );
 }
