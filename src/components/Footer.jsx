@@ -61,13 +61,13 @@ export default function Footer() {
         }
       `}</style>
 
-      {/* Main section: CASCO left, links right on desktop */}
+      {/* Main section: links top on mobile, CASCO left on desktop */}
       <div style={{
         maxWidth: '1300px',
         margin: '0 auto',
         padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) 0',
         display: 'flex',
-        flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+        flexDirection: window.innerWidth < 768 ? 'column' : 'row-reverse',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 'clamp(2rem, 4vw, 4rem)',
@@ -75,35 +75,7 @@ export default function Footer() {
         transform: visible ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
       }}>
-        {/* CASCO image — left on desktop, below on mobile */}
-        <div style={{
-          flex: '0 0 auto',
-          display: 'flex',
-          justifyContent: 'center',
-          position: 'relative',
-        }}>
-          <img
-            src={CASCO}
-            alt="Alan Ampudia"
-            style={{
-              width: window.innerWidth < 768 ? '100%' : '350px',
-              maxWidth: '500px',
-              height: 'auto',
-              objectFit: 'contain',
-            }}
-          />
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '40%',
-            background: 'linear-gradient(to top, #000 0%, transparent 100%)',
-            pointerEvents: 'none',
-          }} />
-        </div>
-
-        {/* Links — right on desktop, top on mobile */}
+        {/* Links — top on mobile, right on desktop */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -183,6 +155,34 @@ export default function Footer() {
               >{s.name.toUpperCase()}</a>
             ))}
           </div>
+        </div>
+
+        {/* CASCO image — below on mobile, left on desktop (row-reverse) */}
+        <div style={{
+          flex: '0 0 auto',
+          display: 'flex',
+          justifyContent: 'center',
+          position: 'relative',
+        }}>
+          <img
+            src={CASCO}
+            alt="Alan Ampudia"
+            style={{
+              width: window.innerWidth < 768 ? '100%' : '350px',
+              maxWidth: '500px',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '40%',
+            background: 'linear-gradient(to top, #000 0%, transparent 100%)',
+            pointerEvents: 'none',
+          }} />
         </div>
       </div>
 
