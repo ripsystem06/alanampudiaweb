@@ -805,8 +805,8 @@ export default function EnPista() {
           flexWrap: 'wrap',
           opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s ease 0.4s',
         }}>
-          <h3 style={{ fontFamily: 'Anton', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--white)', marginBottom: '0.5rem' }}>{t('enpista.records_2_campeones')}</h3>
           {[
+            { num: '2', label: t('enpista.records_2_campeones') },
             { num: '1', label: t('enpista.triple_corona') },
             { num: '70.71', label: t('enpista.mph_record') },
             { num: '18h', label: t('enpista.baja1000_solitario') },
@@ -1005,15 +1005,9 @@ export default function EnPista() {
                       <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)' }}>{carrera.nombre}</div>
                     </div>
                     <div>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion_absoluta')}</div>
+                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion')}</div>
                       <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: posColor }}>{carrera.posicion}</div>
                     </div>
-                    {carrera.clase && (
-                      <div>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.posicion_clase')}</div>
-                        <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--white)' }}>{carrera.clase}</div>
-                      </div>
-                    )}
                     {carrera.tiempo && (
                       <div>
                         <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.tiempo')}</div>

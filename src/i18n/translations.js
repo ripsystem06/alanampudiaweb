@@ -107,7 +107,10 @@ const translations = {
     'enpista.tts_frenos_label': 'Frenos',
     'enpista.temporada_curso': 'Temporada en curso',
     'enpista.carrera': 'Carrera',
+    'enpista.posicion': 'Posición',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.posicion_absoluta': 'Posición Absoluta',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.posicion_clase': 'Posición Clase',
     'enpista.tiempo': 'Tiempo',
     'enpista.estado': 'Estado',
@@ -441,7 +444,10 @@ const translations = {
     'enpista.tts_frenos_label': 'Brakes',
     'enpista.temporada_curso': 'Current Season',
     'enpista.carrera': 'Race',
+    'enpista.posicion': 'Position',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.posicion_absoluta': 'Overall Position',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.posicion_clase': 'Class Position',
     'enpista.tiempo': 'Time',
     'enpista.estado': 'Status',
