@@ -37,6 +37,7 @@ export default function Footer() {
       position: 'relative',
       background: '#000',
       border: '2px solid #E91E8C',
+      borderRadius: '12px',
       boxSizing: 'border-box',
       overflow: 'hidden',
     }}>
