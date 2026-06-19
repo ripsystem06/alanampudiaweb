@@ -335,7 +335,7 @@ export default function FueraDePista() {
                 lineHeight: 1.9,
               }}>
                 <p style={{ marginTop: 0 }}>
-                  {t('fueradepista.color_text_1')}
+                  {t('fueradepista.color_texto')}
                 </p>
 
                 <h3 style={{
@@ -346,15 +346,15 @@ export default function FueraDePista() {
                   marginTop: '1.8rem',
                   letterSpacing: '0.02em',
                 }}>
-                  {t('fueradepista.fuerza_heading')}
+                  {t('fueradepista.historia_heading')}
                 </h3>
 
                 <p>
-                  {t('fueradepista.fuerza_text')}
+                  {t('fueradepista.historia_texto')}
                 </p>
 
-                <p style={{ color: 'var(--white)', fontWeight: 600, marginTop: '1.5rem' }}>
-                  {t('fueradepista.compromiso_label')}
+                <p style={{ marginTop: '1.5rem' }}>
+                  {t('fueradepista.compromiso_texto')}
                 </p>
 
                 <ul style={{
@@ -365,57 +365,87 @@ export default function FueraDePista() {
                   flexDirection: 'column',
                   gap: '0.8rem',
                 }}>
-                  <li style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '0.6rem',
-                  }}>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                     <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
                     <span>
-                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.resiliencia')}</span>
-                      {' '}{t('fueradepista.resiliencia_desc')}
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.concientizacion')}</span>
+                      {' '}{t('fueradepista.concientizacion_desc')}
                     </span>
                   </li>
-                  <li style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '0.6rem',
-                  }}>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                     <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
                     <span>
-                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.solidaridad')}</span>
-                      {' '}{t('fueradepista.solidaridad_desc')}
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.homenaje')}</span>
+                      {' '}{t('fueradepista.homenaje_desc')}
                     </span>
                   </li>
-                  <li style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '0.6rem',
-                  }}>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                     <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
                     <span>
-                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.union')}</span>
-                      {' '}{t('fueradepista.union_desc')}
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.solidaridad_comunidad')}</span>
+                      {' '}{t('fueradepista.solidaridad_comunidad_desc')}
+                    </span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                    <span style={{ color: 'var(--magenta-bright)', fontSize: '1.1rem', lineHeight: 1.5 }}>◆</span>
+                    <span>
+                      <span style={{ color: 'var(--white)', fontWeight: 600 }}>{t('fueradepista.mensaje_union')}</span>
+                      {' '}{t('fueradepista.mensaje_union_desc')}
                     </span>
                   </li>
                 </ul>
 
-                {/* Placeholder cards for Bingo and Golf */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1.5rem' }}>
-                  {['Bingo', 'Golf'].map(item => (
-                    <div data-placeholder="true"
-                      onClick={e => e.preventDefault()}
-                      style={{ border: '1px dashed rgba(233,30,99,0.4)', cursor: 'not-allowed', padding: '1rem', textAlign: 'center', borderRadius: '4px' }}>
-                      <span style={{ fontFamily: 'Anton', color: 'var(--magenta-bright)' }}>
-                        {item === 'Bingo' ? t('fuera.cancer_bingo_placeholder') : t('fuera.cancer_golf_placeholder')}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <h3 style={{
+                  fontFamily: 'Anton, sans-serif',
+                  fontSize: 'clamp(1.3rem, 2.2vw, 1.6rem)',
+                  color: 'var(--white)',
+                  marginBottom: '1rem',
+                  marginTop: '1.8rem',
+                  letterSpacing: '0.02em',
+                }}>
+                  {t('fueradepista.sumate_heading')}
+                </h3>
 
-                <p style={{ marginTop: '1.2rem' }}>
-                  {t('fueradepista.color_cierre')}
+                <p>
+                  {t('fueradepista.sumate_texto')}
                 </p>
+
+                {/* Event cards */}
+                <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 768 ? '1fr' : '1fr 1fr', gap: '1rem', marginTop: '1.5rem' }}>
+                  {/* Golf card */}
+                  <a href="https://lafamiliainvitational.com/" target="_blank" rel="noopener noreferrer" style={{
+                    border: '1px solid rgba(233,30,99,0.4)',
+                    padding: '1.2rem',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    transition: 'border-color 0.2s, background 0.2s',
+                    background: 'rgba(233,30,99,0.03)',
+                  }}>
+                    <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--magenta-bright)', marginBottom: '0.5rem' }}>
+                      {t('fueradepista.golf_titulo')}
+                    </div>
+                    <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '0.9rem', color: 'var(--white-soft)', lineHeight: 1.5 }}>
+                      {t('fueradepista.golf_desc')}
+                    </div>
+                  </a>
+
+                  {/* Bingo card */}
+                  <a href="https://www.instagram.com/p/DQFUOKIksT3/" target="_blank" rel="noopener noreferrer" style={{
+                    border: '1px solid rgba(233,30,99,0.4)',
+                    padding: '1.2rem',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    transition: 'border-color 0.2s, background 0.2s',
+                    background: 'rgba(233,30,99,0.03)',
+                  }}>
+                    <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--magenta-bright)', marginBottom: '0.5rem' }}>
+                      {t('fueradepista.bingo_titulo')}
+                    </div>
+                    <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '0.9rem', color: 'var(--white-soft)', lineHeight: 1.5 }}>
+                      {t('fueradepista.bingo_desc')}
+                    </div>
+                  </a>
+                </div>
               </div>
 
               {/* Pink ribbon closer */}
@@ -430,7 +460,7 @@ export default function FueraDePista() {
                   height: '2px',
                   background: 'var(--magenta)',
                 }} />
-                                  <img src="/lasorosa.png" alt={t('fueradepista.alt_lazo')} style={{ width: '32px', height: 'auto', display: 'block' }} />
+                                  <img src="/Logo_FckCancer.png" alt={t('fueradepista.alt_fckcancer')} style={{ width: '32px', height: 'auto', display: 'block' }} />
                 <div style={{
                   width: '40px',
                   height: '2px',
