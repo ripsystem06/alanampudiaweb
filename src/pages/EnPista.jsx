@@ -1151,7 +1151,7 @@ export default function EnPista() {
 
         {/* Spec infographic */}
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
             {[
               { label: 'Rines', value: 'KMC 17"' },
               { label: 'Llantas', value: '40" Toyo Tires' },
@@ -1167,6 +1167,8 @@ export default function EnPista() {
                 borderLeft: '3px solid var(--magenta)',
                 padding: '1rem 1.2rem',
                 borderRadius: '4px',
+                flex: '0 1 240px',
+                minWidth: '180px',
                 transition: 'border-color 0.3s, background 0.3s',
               }}>
                 <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--white-dim)', textTransform: 'uppercase', marginBottom: '0.25rem' }}>{s.label}</div>
