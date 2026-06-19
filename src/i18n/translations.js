@@ -45,6 +45,15 @@ const translations = {
     'common.ano_siguiente': 'Año siguiente',
     'common.imagen': 'Imagen',
 
+    // ── Socials (VideoSocialsBlock) ──
+    'socials.youtube_title': 'YouTube',
+    'socials.instagram_title': 'Instagram',
+    'socials.follow_us': 'Síguenos en redes',
+    'socials.video_placeholder': 'Video próximamente',
+    'socials.ver_youtube': 'Ver más en YouTube →',
+    'socials.seguir_ig': 'SEGUIR EN INSTAGRAM ↗',
+
+
     // ── Home — PistaSection ──
     'home.pista_title': 'EN\nPISTA',
     'home.fuera_title': 'FUERA\nDE PISTA',
@@ -56,6 +65,9 @@ const translations = {
     'home.tienda_label': '◉ TIENDA OFICIAL',
     'home.tienda_heading': 'LO MEJOR.',
     'home.tienda_cta': '→ Ver Tienda',
+    'home.video_socials_title': 'ÚLTIMO\nVIDEO',
+    'home.video_socials_placeholder': 'Video próximamente',
+    'home.video_socials_instagram': 'Síguenos en Instagram',
     'home.perfil_felicidad': 'FELICIDAD',
     'home.perfil_amor': 'AMOR',
     'home.perfil_adrenalina': 'ADRENALINA',
@@ -331,6 +343,9 @@ const translations = {
     'home.tienda_label': '◉ OFFICIAL SHOP',
     'home.tienda_heading': 'THE BEST.',
     'home.tienda_cta': '→ View Shop',
+    'home.video_socials_title': 'LATEST\nVIDEO',
+    'home.video_socials_placeholder': 'Video coming soon',
+    'home.video_socials_instagram': 'Follow us on Instagram',
     'home.perfil_felicidad': 'HAPPINESS',
     'home.perfil_amor': 'LOVE',
     'home.perfil_adrenalina': 'ADRENALINE',
