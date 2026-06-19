@@ -45,6 +45,14 @@ const translations = {
     'common.ano_siguiente': 'Año siguiente',
     'common.imagen': 'Imagen',
 
+    // ── Socials (VideoSocialsBlock) ──
+    'socials.youtube_title': 'YouTube',
+    'socials.instagram_title': 'Instagram',
+    'socials.follow_us': 'Síguenos en redes',
+    'socials.video_placeholder': 'Video próximamente',
+    'socials.ver_youtube': 'Ver más en YouTube →',
+    'socials.seguir_ig': 'SEGUIR EN INSTAGRAM ↗',
+
     // ── Home — PistaSection ──
     'home.pista_title': 'EN\nPISTA',
     'home.fuera_title': 'FUERA\nDE PISTA',
@@ -56,9 +64,13 @@ const translations = {
     'home.tienda_label': '◉ TIENDA OFICIAL',
     'home.tienda_heading': 'LO MEJOR.',
     'home.tienda_cta': '→ Ver Tienda',
+    'home.video_socials_title': 'ÚLTIMO\nVIDEO',
+    'home.video_socials_placeholder': 'Video próximamente',
+    'home.video_socials_instagram': 'Síguenos en Instagram',
     'home.perfil_felicidad': 'FELICIDAD',
     'home.perfil_amor': 'AMOR',
     'home.perfil_adrenalina': 'ADRENALINA',
+    // INACTIVE (refresh-portfolio-junio)
     'home.gallery_polvo': 'Donde otros ven\npolvo y ruido,\nnosotros vemos\nperfección.',
     'home.gallery_desierto': 'Cada desierto\nes una lección\nde humildad.',
     'home.gallery_velocidad': 'La velocidad\nse mide en\nsegundos, la\npasión en\nkilómetros.',
@@ -79,6 +91,16 @@ const translations = {
     'enpista.triple_corona': 'Triple Corona',
     'enpista.mph_record': 'mph Récord SF250',
     'enpista.baja1000_solitario': 'Baja 1000 solitario',
+    'enpista.records_2_campeones': '2 Campeonatos Mundiales',
+    'enpista.tts_potencia': 'Potencia',
+    'enpista.tts_torque': 'Torque',
+    'enpista.tts_peso': 'Peso',
+    'enpista.tts_categoria': 'Categoría',
+    'enpista.tts_mas_info': 'Más información',
+    'enpista.tts_motor': 'Motor',
+    'enpista.tts_suspension': 'Suspensión',
+    'enpista.tts_transmision': 'Transmisión',
+    'enpista.tts_frenos': 'Frenos',
     'enpista.temporada_curso': 'Temporada en curso',
     'enpista.carrera': 'Carrera',
     'enpista.posicion_absoluta': 'Posición Absoluta',
@@ -320,6 +342,14 @@ const translations = {
     'common.ano_siguiente': 'Next year',
     'common.imagen': 'Image',
 
+    // ── Socials (VideoSocialsBlock) ──
+    'socials.youtube_title': 'YouTube',
+    'socials.instagram_title': 'Instagram',
+    'socials.follow_us': 'Follow us on social media',
+    'socials.video_placeholder': 'Video coming soon',
+    'socials.ver_youtube': 'Watch more on YouTube →',
+    'socials.seguir_ig': 'FOLLOW ON INSTAGRAM ↗',
+
     // ── Home — PistaSection ──
     'home.pista_title': 'ON\nTRACK',
     'home.fuera_title': 'OFF\nTRACK',
@@ -331,6 +361,9 @@ const translations = {
     'home.tienda_label': '◉ OFFICIAL SHOP',
     'home.tienda_heading': 'THE BEST.',
     'home.tienda_cta': '→ View Shop',
+    'home.video_socials_title': 'LATEST\nVIDEO',
+    'home.video_socials_placeholder': 'Video coming soon',
+    'home.video_socials_instagram': 'Follow us on Instagram',
     'home.perfil_felicidad': 'HAPPINESS',
     'home.perfil_amor': 'LOVE',
     'home.perfil_adrenalina': 'ADRENALINE',
