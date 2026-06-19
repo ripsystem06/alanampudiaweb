@@ -168,7 +168,7 @@ export default function Footer() {
             src={CASCO}
             alt="Alan Ampudia"
             style={{
-              width: window.innerWidth < 768 ? '100%' : '400px',
+              width: window.innerWidth < 768 ? '100%' : '480px',
               maxWidth: '500px',
               height: 'auto',
               objectFit: 'contain',
