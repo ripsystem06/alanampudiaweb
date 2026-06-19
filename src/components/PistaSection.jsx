@@ -132,14 +132,10 @@ export default function PistaSection() {
             transform: translateY(0) !important;
             z-index: 5 !important;
           }
-          .pista-grid-inner {
-            flex-direction: column-reverse;
-          }
         }
       `}</style>
 
       <div className="pista-grid">
-        <div className="pista-grid-inner" style={{ display: 'flex', flexDirection: 'column' }}>
         {blocks.map((block, i) => (
           <div key={block.id}
             onClick={() => setSelected(selected === i ? null : i)}
@@ -253,7 +249,6 @@ export default function PistaSection() {
             </div>
           </div>
         ))}
-        </div>
       </div>
     </section>
   );
