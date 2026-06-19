@@ -76,12 +76,8 @@ export default function PistaSection() {
           align-items: center;
           justify-content: center;
           position: relative;
-          overflow: hidden;
           cursor: pointer;
           min-height: 600px;
-        }
-        .pista-card.active {
-          overflow: visible;
         }
 
         /* ===== MOBILE ONLY (max-width: 767px) ===== */
