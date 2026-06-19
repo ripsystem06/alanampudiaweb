@@ -94,6 +94,10 @@ const translations = {
     'enpista.baja1000_solitario': 'Baja 1000 solitario',
     'enpista.total_horas': 'TOTAL HORAS',
     'enpista.total_millas': 'TOTAL MILLAS',
+    'enpista.podiums': 'Podiums',
+    'enpista.ave_finish': 'AVE FINISH (RACE)',
+    'enpista.campeonatos_mundiales': 'Campeonatos Mundiales',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.records_2_campeones': '2 Campeonatos Mundiales',
     'enpista.tts_potencia': 'Potencia',
     'enpista.tts_torque': 'Torque',
@@ -434,6 +438,10 @@ const translations = {
     'enpista.baja1000_solitario': 'Solo Baja 1000',
     'enpista.total_horas': 'TOTAL HOURS',
     'enpista.total_millas': 'TOTAL MILES',
+    'enpista.podiums': 'Podiums',
+    'enpista.ave_finish': 'AVE FINISH (RACE)',
+    'enpista.campeonatos_mundiales': 'World Championships',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.records_2_campeones': '2 World Championships',
     'enpista.tts_potencia': 'Power',
     'enpista.tts_torque': 'Torque',
