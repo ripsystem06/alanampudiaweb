@@ -165,7 +165,7 @@ export default function HeroCanvas({ className }) {
     if (!gl) {
       // WebGL unavailable (GPU disabled, old browser, etc.) → show image fallback
       const fallback = document.createElement('img')
-      fallback.src = '/hero3.webp'
+      fallback.src = '/hero5.webp'
       fallback.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top center'
       canvas.parentNode?.replaceChild(fallback, canvas)
       return
@@ -237,7 +237,7 @@ export default function HeroCanvas({ className }) {
     }
 
     const imgBase = new Image()
-    imgBase.src = '/hero3.webp'
+    imgBase.src = '/hero5.webp'
     imgBase.onload = () => { loadTex(gl, imgBase, 0); tryStart(imgBase) }
 
     const imgReveal = new Image()
