@@ -1169,12 +1169,17 @@ export default function EnPista() {
             ))}
           </div>
 
+          <details style={{ marginTop: '1.5rem' }}>
+            <summary style={{ fontFamily: 'Anton', fontSize: '1.1rem', color: 'var(--magenta-bright)', cursor: 'pointer', padding: '0.5rem 0' }}>
+              {t('enpista.tts_mas_info')}
+            </summary>
+
           {/* Spec cards — original design */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1rem',
-            marginTop: '1.5rem',
+            marginTop: '1rem',
           }}>
             {[
               { title: 'CHASSIS & DIMENSIONS', rows: [['Builder', 'Mason Motorsports'],['Material', '4130 chromoly tube'],['Drivetrain', 'AWD'],['Wheelbase', '125–126"'],['Track', '92–94"'],['Weight', '~7000–7450 lbs'],['Body', 'Carbon fiber'],['Fuel', '110–140 gal']] },
@@ -1195,6 +1200,7 @@ export default function EnPista() {
               </div>
             ))}
           </div>
+          </details>
         </div>
         </div>
         {/* Mobile: drone video below specs */}
