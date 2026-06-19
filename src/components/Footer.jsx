@@ -160,6 +160,7 @@ export default function Footer() {
         display: 'flex',
         justifyContent: 'center',
         padding: '0 1rem 2rem 1rem',
+        position: 'relative',
       }}>
         <img
           src={CASCO}
@@ -171,6 +172,15 @@ export default function Footer() {
             objectFit: 'contain',
           }}
         />
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '40%',
+          background: 'linear-gradient(to top, #000 0%, transparent 100%)',
+          pointerEvents: 'none',
+        }} />
       </div>
 
       {/* Bottom bar */}
