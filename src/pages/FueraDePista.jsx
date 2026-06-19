@@ -461,7 +461,7 @@ export default function FueraDePista() {
                   height: '2px',
                   background: 'var(--magenta)',
                 }} />
-                <img src="/Logo_FckCancer.png" alt={t('fueradepista.alt_fckcancer')} style={{ width: '80px', height: 'auto', display: 'block' }} />
+                <img src="/Logo_FckCancer.png" alt={t('fueradepista.alt_fckcancer')} style={{ width: '120px', height: 'auto', display: 'block' }} />
                 <div style={{
                   width: '60px',
                   height: '2px',
