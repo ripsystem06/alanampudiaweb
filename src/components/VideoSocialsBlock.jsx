@@ -18,14 +18,7 @@ export default function VideoSocialsBlock({ videoId, instagramLinks = [], classN
 
   const showVideo = videoId && videoId.trim() !== '';
 
-  const gridItems = [];
-  for (let i = 0; i < 9; i++) {
-    if (instagramLinks && instagramLinks[i]) {
-      gridItems.push(instagramLinks[i]);
-    } else {
-      gridItems.push(null);
-    }
-  }
+  const gridItems = (instagramLinks || []).filter(Boolean);
 
   return (
     <div
@@ -50,9 +43,13 @@ export default function VideoSocialsBlock({ videoId, instagramLinks = [], classN
           border-bottom: 1px solid rgba(233,30,99,0.12);
         }
         .vsb-ig-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          display: flex;
+          flex-direction: row;
           gap: clamp(0.5rem, 1.5vw, 1rem);
+        }
+        .vsb-ig-grid > * {
+          flex: 1;
+          min-width: 0;
         }
         .vsb-placeholder-play {
           width: 64px;
@@ -95,7 +92,6 @@ export default function VideoSocialsBlock({ videoId, instagramLinks = [], classN
           <div style={{
             position: 'relative',
             width: '100%',
-            maxWidth: '800px',
             aspectRatio: '16/9',
             borderRadius: '4px',
             overflow: 'hidden',
@@ -121,7 +117,6 @@ export default function VideoSocialsBlock({ videoId, instagramLinks = [], classN
           <div style={{
             position: 'relative',
             width: '100%',
-            maxWidth: '800px',
             aspectRatio: '16/9',
             borderRadius: '4px',
             overflow: 'hidden',
