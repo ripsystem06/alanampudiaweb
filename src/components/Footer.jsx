@@ -60,24 +60,54 @@ export default function Footer() {
         }
       `}</style>
 
-      {/* Content area */}
+      {/* Main section: CASCO left, links right on desktop */}
       <div style={{
         maxWidth: '1300px',
         margin: '0 auto',
-        padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) clamp(2rem, 4vw, 3rem)',
+        padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) 0',
         display: 'flex',
-        flexDirection: 'column',
-        gap: 'clamp(2rem, 4vw, 3rem)',
+        flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 'clamp(2rem, 4vw, 4rem)',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
       }}>
-        {/* Top section: columns */}
+        {/* CASCO image — left on desktop, below on mobile */}
+        <div style={{
+          flex: '0 0 auto',
+          display: 'flex',
+          justifyContent: 'center',
+          position: 'relative',
+        }}>
+          <img
+            src={CASCO}
+            alt="Alan Ampudia"
+            style={{
+              width: window.innerWidth < 768 ? '100%' : '350px',
+              maxWidth: '500px',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '40%',
+            background: 'linear-gradient(to top, #000 0%, transparent 100%)',
+            pointerEvents: 'none',
+          }} />
+        </div>
+
+        {/* Links — right on desktop, top on mobile */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
           gap: 'clamp(3rem, 8vw, 8rem)',
           flexWrap: 'wrap',
-          opacity: visible ? 1 : 0,
-          transform: visible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
         }}>
           {/* Column 1 — Páginas + Tienda */}
           <div style={{
@@ -153,34 +183,6 @@ export default function Footer() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Runner image — full color, below links */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '0 1rem 2rem 1rem',
-        position: 'relative',
-      }}>
-        <img
-          src={CASCO}
-          alt="Alan Ampudia"
-          style={{
-            width: '100%',
-            maxWidth: '500px',
-            height: 'auto',
-            objectFit: 'contain',
-          }}
-        />
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '40%',
-          background: 'linear-gradient(to top, #000 0%, transparent 100%)',
-          pointerEvents: 'none',
-        }} />
       </div>
 
       {/* Bottom bar */}
