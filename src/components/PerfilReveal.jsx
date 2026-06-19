@@ -196,7 +196,7 @@ export default function PerfilReveal() {
         {/* Photo card — shrinks from large to card */}
         <div ref={cardRef} className="perfil-card" style={{ opacity: 0 }}>
           <img
-            src="/hero2.webp"
+            src="/hero5.webp"
             alt="Alan Ampudia"
             draggable="false"
           />
