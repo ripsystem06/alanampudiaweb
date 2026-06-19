@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function PistaSection() {
   const { t } = useLanguage();
   const [selected, setSelected] = useState(null);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const textRefs = useRef([]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -16,6 +21,27 @@ export default function PistaSection() {
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
   }, []);
+
+  // GSAP ScrollTrigger text entry animation
+  useEffect(() => {
+    if (!visible) return;
+    textRefs.current.forEach((el) => {
+      if (!el) return;
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    });
+  }, [visible]);
 
   const blocks = [
     {
@@ -106,10 +132,14 @@ export default function PistaSection() {
             transform: translateY(0) !important;
             z-index: 5 !important;
           }
+          .pista-grid-inner {
+            flex-direction: column-reverse;
+          }
         }
       `}</style>
 
       <div className="pista-grid">
+        <div className="pista-grid-inner" style={{ display: 'flex', flexDirection: 'column' }}>
         {blocks.map((block, i) => (
           <div key={block.id}
             onClick={() => setSelected(selected === i ? null : i)}
@@ -162,7 +192,7 @@ export default function PistaSection() {
             }} />
 
             {/* Text — aligned toward screen center on desktop */}
-            <div className="pista-text" style={{
+            <div ref={el => textRefs.current[i] = el} className="pista-text" style={{
               position: 'absolute',
               zIndex: 2,
               top: '50%',
@@ -223,6 +253,7 @@ export default function PistaSection() {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

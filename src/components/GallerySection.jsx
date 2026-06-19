@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { useLanguage } from '../context/LanguageContext'
 
 const allImages = [
   '01-alan-portrait.webp', '02-truck-action-side.webp', '03-cockpit-prep.webp',
@@ -14,18 +13,6 @@ const allImages = [
 ]
 
 const base = '/images/galeria1/'
-const phrases = [
-  'home.gallery_polvo',
-  'home.gallery_desierto',
-  'home.gallery_velocidad',
-  'home.gallery_miedo',
-  'home.gallery_baja',
-  'home.gallery_trophy',
-  'home.gallery_victorias',
-  'home.gallery_cinco',
-  'home.gallery_corazon',
-  'home.gallery_polvo2',
-]
 
 const spans = [
   { col: 2, row: 1 },
@@ -37,26 +24,12 @@ const spans = [
   { col: 1, row: 2 },
 ]
 
-const items = []
-let phraseIdx = 0
-allImages.forEach((img, i) => {
+const items = allImages.map((img, i) => {
   const s = spans[i % spans.length]
-  items.push({ type: 'image', src: base + img, col: s.col, row: s.row })
-  if ((i + 1) % 4 === 0 && phraseIdx < phrases.length) {
-    items.push({ type: 'phrase', col: 3, row: 1, text: phrases[phraseIdx] })
-    phraseIdx++
-  }
-  // Repeat phrases if needed
-  if (phraseIdx >= phrases.length) phraseIdx = 0
+  return { type: 'image', src: base + img, col: s.col, row: s.row }
 })
 
-// Ensure last item is not a phrase
-if (items.length > 0 && items[items.length - 1].type === 'phrase') {
-  items.pop()
-}
-
 export default function GallerySection() {
-  const { t } = useLanguage();
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -118,32 +91,6 @@ export default function GallerySection() {
           opacity: 0.2; pointer-events: none;
         }
 
-        .gallery-card.phrase {
-          display: flex; flex-direction: column;
-          justify-content: center; align-items: center;
-          padding: 1.2rem; text-align: center;
-          background: var(--black-mid);
-          overflow: visible;
-          width: fit-content;
-          min-width: 100%;
-          border: none;
-        }
-        @media (min-width: 768px) {
-          .gallery-card.phrase {
-            min-width: auto;
-            justify-self: center;
-            width: fit-content;
-            padding: 2rem 2.5rem;
-          }
-        }
-.gallery-card.phrase p {
-          font-family: 'Permanent Marker', cursive;
-          font-size: 13px; color: var(--white);
-          line-height: 1.4; white-space: pre-line; margin: 0;
-        }
-        @media (min-width: 768px) {
-          .gallery-card.phrase p { font-size: clamp(16px, 1.8vw, 20px); }
-        }
         @media (min-width: 768px) {
           .gallery-masonry {
             display: grid;
@@ -158,7 +105,6 @@ export default function GallerySection() {
             margin-bottom: 0;
             transform: translateX(60px);
           }
-          .gallery-card.phrase p { font-size: clamp(16px, 1.8vw, 20px); }
         }
         @media (min-width: 1200px) {
           .gallery-masonry { grid-auto-rows: 150px; gap: 2rem; }
@@ -186,12 +132,8 @@ export default function GallerySection() {
       <div className="gallery-inner">
         <div className="gallery-masonry">
           {items.map((item, i) => (
-            <div key={i} className={`gallery-card ${item.type} gc-${item.col}-${item.row}`}>
-              {item.type === 'image' ? (
-                <img src={item.src} alt="" loading="lazy" />
-              ) : (
-                <p>{t(item.text)}</p>
-              )}
+            <div key={i} className={`gallery-card image gc-${item.col}-${item.row}`}>
+              <img src={item.src} alt="" loading="lazy" />
             </div>
           ))}
         </div>
