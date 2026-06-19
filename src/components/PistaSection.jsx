@@ -1,17 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function PistaSection() {
   const { t } = useLanguage();
   const [selected, setSelected] = useState(null);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const textRefs = useRef([]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -21,27 +16,6 @@ export default function PistaSection() {
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
   }, []);
-
-  // GSAP ScrollTrigger text entry animation
-  useEffect(() => {
-    if (!visible) return;
-    textRefs.current.forEach((el) => {
-      if (!el) return;
-      gsap.fromTo(el,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      );
-    });
-  }, [visible]);
 
   const blocks = [
     {
@@ -184,7 +158,7 @@ export default function PistaSection() {
             }} />
 
             {/* Text — aligned toward screen center on desktop */}
-            <div ref={el => textRefs.current[i] = el} className="pista-text" style={{
+            <div className="pista-text" style={{
               position: 'absolute',
               zIndex: 2,
               top: '50%',
