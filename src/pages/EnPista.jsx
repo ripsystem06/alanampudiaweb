@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import TrackGlowSVG from '../components/TrackGlowSVG';
-import HelmetShowcase from '../components/HelmetScroll';
+import VideoSocialsBlock from '../components/VideoSocialsBlock';
 
 const temporadas = [
   {
@@ -382,7 +382,8 @@ function TeamSection() {
             </p>
           </div>
 
-          {/* Right: Stats & Protocol */}
+          {/* Right: Stats & Protocol — Kyle Craft stats removed, see Jira ticket */}
+          {/* Previous stats: 100% post-race teardown, 0 mechanical failures 2025, 03:30 AM San Felipe 250 emergency repair */}
           <div style={{
             display: 'flex',
             flexDirection: 'column',
@@ -390,44 +391,7 @@ function TeamSection() {
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateX(0)' : 'translateX(30px)',
             transition: 'all 0.8s ease 0.4s',
-          }}>
-            {[
-              { num: '100%', label: t('enpista.desarme'), desc: t('enpista.cada_componente') },
-              { num: '0', label: t('enpista.fallas'), desc: t('enpista.stat_perfecta') },
-              { num: '03:30', label: t('enpista.am_sf250'), desc: t('enpista.stat_emergencia') },
-            ].map((stat, i) => (
-              <div key={i} style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                padding: '1rem 1.2rem',
-                background: 'rgba(233,30,99,0.06)',
-                borderLeft: '3px solid var(--magenta)',
-              }}>
-                <span style={{
-                  fontFamily: 'Anton, sans-serif',
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                  color: 'var(--magenta)',
-                  lineHeight: 1,
-                  minWidth: '70px',
-                }}>{stat.num}</span>
-                <div>
-                  <div style={{
-                    fontFamily: 'Anton, sans-serif',
-                    fontSize: '0.9rem',
-                    color: 'var(--white)',
-                    letterSpacing: '0.04em',
-                    marginBottom: '0.15rem',
-                  }}>{stat.label}</div>
-                  <div style={{
-                    fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '0.8rem',
-                    color: 'var(--white-dim)',
-                  }}>{stat.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          }} />
         </div>
 
         {/* Gallery Grid */}
@@ -832,8 +796,8 @@ export default function EnPista() {
           flexWrap: 'wrap',
           opacity: headerVisible ? 1 : 0, transition: 'opacity 0.8s ease 0.4s',
         }}>
+          <h3 style={{ fontFamily: 'Anton', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--white)', marginBottom: '0.5rem' }}>{t('enpista.records_2_campeones')}</h3>
           {[
-            { num: '1', label: t('enpista.campeonato_mundial') },
             { num: '1', label: t('enpista.triple_corona') },
             { num: '70.71', label: t('enpista.mph_record') },
             { num: '18h', label: t('enpista.baja1000_solitario') },
@@ -1181,120 +1145,48 @@ export default function EnPista() {
           </div>
         </div>
 
-        {/* Spec Table */}
+        {/* Spec Table — simplified: 4 chips + accordion */}
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.5rem',
-          }}>
-            {/* Chassis & Dimensions */}
-            <div style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>CHASSIS & DIMENSIONS</div>
-              {[
-                ['Builder', 'Mason Motorsports'],
-                ['Material', '4130 chromoly tube'],
-                ['Drivetrain', 'AWD'],
-                ['Wheelbase', '125–126"'],
-                ['Track', '92–94"'],
-                ['Weight', '~7000–7450 lbs'],
-                ['Body', 'Carbon fiber'],
-                ['Fuel', '110–140 gal'],
-              ].map(([label, value], i) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: i % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
-                  <span style={{ color: 'var(--magenta)' }}>{label}</span>
-                  <span style={{ color: 'var(--white-soft)' }}>{value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Front Suspension */}
-            <div style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>FRONT SUSPENSION</div>
-              {[
-                ['Type', 'Independent'],
-                ['Travel', '24–25"'],
-                ['Shocks', '3.0" coilover + 4.0" bypass'],
-                ['Steering', 'Mason box'],
-                ['Diff', 'Mason AWD'],
-                ['Portals', 'Gen 2 billet'],
-              ].map(([label, value], i) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: i % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
-                  <span style={{ color: 'var(--magenta)' }}>{label}</span>
-                  <span style={{ color: 'var(--white-soft)' }}>{value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Rear Suspension */}
-            <div style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>REAR SUSPENSION</div>
-              {[
-                ['Type', '4-link solid axle'],
-                ['Travel', '30–32"'],
-                ['Shocks', '3.0" coilover + 4.5" bypass'],
-                ['Axles', '36-spline 300M'],
-                ['Housing', 'Mason twin-drive'],
-                ['Arms', 'Billet 7075/fab chromoly'],
-              ].map(([label, value], i) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: i % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
-                  <span style={{ color: 'var(--magenta)' }}>{label}</span>
-                  <span style={{ color: 'var(--white-soft)' }}>{value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Transmission */}
-            <div style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>TRANSMISSION</div>
-              {[
-                ['Type', 'Masonmatic Xtrac sequential'],
-                ['Speeds', '5'],
-                ['Transfer', 'Integrated AWD'],
-                ['Driveshafts', '1480 heavy-duty'],
-                ['Diffs', 'Mason billet'],
-              ].map(([label, value], i) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: i % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
-                  <span style={{ color: 'var(--magenta)' }}>{label}</span>
-                  <span style={{ color: 'var(--white-soft)' }}>{value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Brakes */}
-            <div style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>BRAKES</div>
-              {[
-                ['Calipers', 'Brembo 6-piston'],
-                ['Rotors', '15"'],
-                ['Wheels', '18" beadlocks'],
-                ['Tires', '40" BFGoodrich Toyo M/T'],
-              ].map(([label, value], i) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: i % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
-                  <span style={{ color: 'var(--magenta)' }}>{label}</span>
-                  <span style={{ color: 'var(--white-soft)' }}>{value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Electronics */}
-            <div style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.2rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>ELECTRONICS</div>
-              {[
-                ['Cooling', 'CBR/PWR'],
-                ['Wiring', 'James Lin Motorsports'],
-                ['ECU', 'MoTeC'],
-                ['Data', 'MoTeC'],
-                ['Radios', 'PCI'],
-                ['Fire', 'Safecraft'],
-              ].map(([label, value], i) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: i % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
-                  <span style={{ color: 'var(--magenta)' }}>{label}</span>
-                  <span style={{ color: 'var(--white-soft)' }}>{value}</span>
-                </div>
-              ))}
-            </div>
+          {/* OLD spec tables preserved as reference:
+            // Chassis: Builder: Mason Motorsports, Material: 4130 chromoly tube, Drivetrain: AWD, Wheelbase: 125-126", Track: 92-94", Weight: ~7000-7450 lbs, Body: Carbon fiber, Fuel: 110-140 gal
+            // Front Suspension: Type: Independent, Travel: 24-25", Shocks: 3.0" coilover + 4.0" bypass, Steering: Mason box, Diff: Mason AWD, Portals: Gen 2 billet
+            // Rear Suspension: Type: 4-link solid axle, Travel: 30-32", Shocks: 3.0" coilover + 4.5" bypass, Axles: 36-spline 300M, Housing: Mason twin-drive, Arms: Billet 7075/fab chromoly
+            // Transmission: Type: Masonmatic Xtrac sequential, Speeds: 5, Transfer: Integrated AWD, Driveshafts: 1480 heavy-duty, Diffs: Mason billet
+            // Brakes: Calipers: Brembo 6-piston, Rotors: 15", Wheels: 18" beadlocks, Tires: 40" BFGoodrich Toyo M/T
+            // Electronics: Cooling: CBR/PWR, Wiring: James Lin Motorsports, ECU: MoTeC, Data: MoTeC, Radios: PCI, Fire: Safecraft
+          */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+            {[
+              { label: t('enpista.tts_potencia'), value: '~900 hp' },
+              { label: t('enpista.tts_torque'), value: '~480 lb-ft' },
+              { label: t('enpista.tts_peso'), value: '~7,000 lbs' },
+              { label: t('enpista.tts_categoria'), value: 'Trophy Truck' },
+            ].map(s => (
+              <div key={s.label} style={{ background: 'var(--black-mid)', border: '1px solid rgba(233,30,99,0.3)', padding: '1rem', borderRadius: '4px' }}>
+                <div style={{ fontFamily: 'Anton', fontSize: '0.8rem', color: 'var(--magenta-bright)', letterSpacing: '0.1em', marginBottom: '0.3rem' }}>{s.label}</div>
+                <div style={{ fontFamily: 'Anton', fontSize: '1.4rem', color: 'var(--white)' }}>{s.value}</div>
+              </div>
+            ))}
           </div>
+
+          <details style={{ marginTop: '1rem' }}>
+            <summary style={{ fontFamily: 'Anton', fontSize: '1.1rem', color: 'var(--magenta-bright)', cursor: 'pointer', padding: '0.5rem 0' }}>
+              {t('enpista.tts_mas_info')}
+            </summary>
+            <div style={{ paddingTop: '1rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+              {[
+                { key: 'motor', label: 'Motor' },
+                { key: 'suspension', label: 'Suspensión' },
+                { key: 'transmision', label: 'Transmisión' },
+                { key: 'frenos', label: 'Frenos' },
+              ].map(d => (
+                <div key={d.key} style={{ background: 'var(--black-soft)', padding: '0.8rem', borderLeft: '2px solid var(--magenta)' }}>
+                  <div style={{ fontFamily: 'JetBrains Mono', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{d.label}</div>
+                  <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.9rem', color: 'var(--white-soft)', marginTop: '0.3rem' }}>{t(`enpista.tts_${d.key}`)}</div>
+                </div>
+              ))}
+            </div>
+          </details>
         </div>
         </div>
         {/* Mobile: drone video below specs */}
@@ -1442,6 +1334,18 @@ export default function EnPista() {
 
       {/* Team Section — before countdown */}
       <TeamSection />
+
+      {/* VideoSocialsBlock */}
+      <VideoSocialsBlock
+        videoId="v3wKjg6ZvX8"
+        instagramLinks={[
+          { post: 'https://www.instagram.com/p/C5y6U9OS2QK/', img: '/fueradepista/corriendo.webp', label: 'Competencia' },
+          { post: 'https://www.instagram.com/p/DY2owLGPc5m/', img: '/fueradepista/BAJA500-06072025-DSchenkelberg-1725.webp', label: 'Behind the Scenes' },
+          { post: 'https://www.instagram.com/p/DYz7-b4PIrG/', img: '/fueradepista/fiesta.webp', label: 'StreetParty' },
+          { post: 'https://www.instagram.com/p/DYf_qRfJV94/', img: '/fueradepista/BAJA400-2025-148.webp', label: 'Highlights' },
+          null, null, null, null, null,
+        ]}
+      />
 
       {/* Countdown Section — minimal inline, no boxes */}
       <CountdownInline targetDate="September 9, 2026 00:00:00" />
