@@ -1,19 +1,16 @@
-/* VideoSocialsBlock — responsive layout */
+/* VideoSocialsBlock — two separated full-width sections */
 .vsb-root {
-  background: var(--black-mid);
-  border-top: 1px solid rgba(233,30,99,0.08);
+  background: var(--black);
 }
 
-.vsb-inner {
+.vsb-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem);
 }
 
-.vsb-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+.vsb-section-youtube {
+  border-bottom: 1px solid rgba(233,30,99,0.12);
 }
 
 .vsb-ig-grid {
@@ -22,14 +19,8 @@
   gap: clamp(0.5rem, 1.5vw, 1rem);
 }
 
-.vsb-placeholder-play {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(233,30,99,0.15);
-  border: 2px solid var(--magenta);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+@media (max-width: 767px) {
+  .vsb-ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
