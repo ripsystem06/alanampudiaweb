@@ -62,7 +62,7 @@ const translations = {
     'home.patrocinadores_label': '◉ ALIADOS & PATROCINADORES',
     'home.patrocinadores_heading': 'MARCAS QUE\nRESPALDAN\nEL #1.',
     'home.patrocinadores_cta': '→ Ser Patrocinador',
-    'home.tienda_label': '◉ VISTO CON ESTILO FLAKAFAST',
+    'home.tienda_label': '◉ VISTE CON ESTILO FLAKAFAST',
     'home.tienda_heading': 'TIENDA OFICIAL',
     'home.tienda_cta': '→ Ver Tienda',
     'home.video_socials_title': 'ÚLTIMO\nVIDEO',
