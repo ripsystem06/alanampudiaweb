@@ -781,7 +781,6 @@ export default function EnPista() {
     <div style={{ paddingTop: '0', minHeight: '100vh', background: 'var(--black)' }}>
       {/* Hero Section */}
       <HeroSection />
-      <HelmetShowcase />
 
       {/* Stats Header */}
       <div ref={headerRef} style={{
