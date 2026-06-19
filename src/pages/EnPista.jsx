@@ -1169,24 +1169,32 @@ export default function EnPista() {
             ))}
           </div>
 
-          <details style={{ marginTop: '1rem' }}>
-            <summary style={{ fontFamily: 'Anton', fontSize: '1.1rem', color: 'var(--magenta-bright)', cursor: 'pointer', padding: '0.5rem 0' }}>
-              {t('enpista.tts_mas_info')}
-            </summary>
-            <div style={{ paddingTop: '1rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-              {[
-                { key: 'motor', label: t('enpista.tts_motor_label') },
-                { key: 'suspension', label: t('enpista.tts_suspension_label') },
-                { key: 'transmision', label: t('enpista.tts_transmision_label') },
-                { key: 'frenos', label: t('enpista.tts_frenos_label') },
-              ].map(d => (
-                <div key={d.key} style={{ background: 'var(--black-soft)', padding: '0.8rem', borderLeft: '2px solid var(--magenta)' }}>
-                  <div style={{ fontFamily: 'JetBrains Mono', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{d.label}</div>
-                  <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.9rem', color: 'var(--white-soft)', marginTop: '0.3rem' }}>{t(`enpista.tts_${d.key}`)}</div>
-                </div>
-              ))}
-            </div>
-          </details>
+          {/* Spec cards — original design */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1rem',
+            marginTop: '1.5rem',
+          }}>
+            {[
+              { title: 'CHASSIS & DIMENSIONS', rows: [['Builder', 'Mason Motorsports'],['Material', '4130 chromoly tube'],['Drivetrain', 'AWD'],['Wheelbase', '125–126"'],['Track', '92–94"'],['Weight', '~7000–7450 lbs'],['Body', 'Carbon fiber'],['Fuel', '110–140 gal']] },
+              { title: 'FRONT SUSPENSION', rows: [['Type', 'Independent'],['Travel', '24–25"'],['Shocks', '3.0" coilover + 4.0" bypass'],['Steering', 'Mason box'],['Diff', 'Mason AWD'],['Portals', 'Gen 2 billet']] },
+              { title: 'REAR SUSPENSION', rows: [['Type', '4-link solid axle'],['Travel', '30–32"'],['Shocks', '3.0" coilover + 4.5" bypass'],['Axles', '36-spline 300M'],['Housing', 'Mason twin-drive'],['Arms', 'Billet 7075/fab chromoly']] },
+              { title: 'TRANSMISSION', rows: [['Type', 'Masonmatic Xtrac sequential'],['Speeds', '5'],['Transfer', 'Integrated AWD'],['Driveshafts', '1480 heavy-duty'],['Diffs', 'Mason billet']] },
+              { title: 'BRAKES', rows: [['Calipers', 'Brembo 6-piston'],['Rotors', '15"'],['Wheels', '18" beadlocks'],['Tires', '40" BFGoodrich Toyo M/T']] },
+              { title: 'ELECTRONICS', rows: [['Cooling', 'CBR/PWR'],['Wiring', 'James Lin Motorsports'],['ECU', 'MoTeC'],['Data', 'MoTeC'],['Radios', 'PCI'],['Fire', 'Safecraft']] },
+            ].map((spec, i) => (
+              <div key={spec.title} style={{ background: 'var(--black-mid)', border: '1px solid var(--magenta)', borderRadius: '4px', overflow: 'hidden' }}>
+                <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.1rem', color: 'var(--magenta)', padding: '1rem 1.5rem', background: 'rgba(233,30,99,0.1)', borderBottom: '1px solid rgba(233,30,99,0.3)', letterSpacing: '0.05em' }}>{spec.title}</div>
+                {spec.rows.map(([label, value], j) => (
+                  <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', padding: '0.75rem 1.5rem', background: j % 2 === 0 ? 'var(--black-soft)' : 'var(--black-mid)', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem' }}>
+                    <span style={{ color: 'var(--magenta)' }}>{label}</span>
+                    <span style={{ color: 'var(--white-soft)' }}>{value}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
         </div>
         {/* Mobile: drone video below specs */}
