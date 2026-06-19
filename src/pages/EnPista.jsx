@@ -811,7 +811,6 @@ export default function EnPista() {
             { num: '8', label: t('enpista.podiums') },
             { num: '290:54', label: t('enpista.total_horas') },
             { num: '16,267', label: t('enpista.total_millas') },
-            { num: '5.26', label: t('enpista.ave_finish') },
           ].map(s => (
             <div key={s.label} style={isMobile ? {} : { display: 'flex', alignItems: 'baseline', gap: '0.6rem' }}>
               <div style={{ fontFamily: 'Anton, sans-serif', fontSize: isMobile ? '2.2rem' : '2.42rem', color: 'var(--magenta-bright)', lineHeight: 1 }}>{s.num}</div>
