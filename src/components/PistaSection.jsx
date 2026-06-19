@@ -93,26 +93,22 @@ export default function PistaSection() {
           .pista-card {
             min-height: 50vh !important;
           }
-          .pista-card.active {
-            overflow: visible !important;
-          }
           .pista-img {
-            left: 50% !important;
-            right: auto !important;
-            transform: translate(-50%, -50%) !important;
-            transition: transform 0.5s ease, opacity 0.4s ease !important;
             object-fit: contain !important;
             height: 100% !important;
+            opacity: 0.5 !important;
           }
-          /* En pista: slide LEFT on tap */
-          .pista-card--en.active .pista-img {
+          /* En pista: imagen a la izquierda */
+          .pista-card--en .pista-img {
+            left: 50% !important;
+            right: auto !important;
             transform: translate(calc(-50% - 25vw), -50%) scale(0.9) !important;
-            opacity: 0.5 !important;
           }
-          /* Fuera de pista: slide RIGHT on tap */
-          .pista-card--fuera.active .pista-img {
+          /* Fuera de pista: imagen a la derecha */
+          .pista-card--fuera .pista-img {
+            left: 50% !important;
+            right: auto !important;
             transform: translate(calc(-50% + 25vw), -50%) scale(0.9) !important;
-            opacity: 0.5 !important;
           }
           .pista-text {
             position: relative !important;
