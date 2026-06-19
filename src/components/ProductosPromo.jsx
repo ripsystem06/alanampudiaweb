@@ -6,24 +6,28 @@ const productos = [
     name: 'Gorra Calaverita',
     tagline: 'Edición Limited — Snapback',
     img: '/images/productosPromo/GORRA-CALAVERITA2-FRONT.webp',
+    img2: '/images/productosPromo/GORRA-CALAVERITA2-BACK.webp',
     tag: 'NEW',
   },
   {
     name: 'Gorra WDC',
     tagline: 'World Desert Champion 2025',
     img: '/images/productosPromo/GORRA-WDC.webp',
+    img2: '/images/productosPromo/GORRA-WDC-BACK.webp',
     tag: 'TOP',
   },
   {
     name: 'Jersey WDC',
     tagline: 'Champion Edition — Back Print',
     img: '/images/productosPromo/WDC-2526-BACK.webp',
+    img2: '/images/productosPromo/WDC-2526-FRONT.webp',
     tag: 'LIMITED',
   },
   {
     name: 'Sponsors 2025',
     tagline: 'Colección Oficial — Team Papas',
     img: '/images/productosPromo/AA-SPONSORS-2026.webp',
+    img2: '/images/productosPromo/AA-SPONSORS-2026-FRONT.webp',
     tag: 'EXCLUSIVE',
   },
 ];
@@ -172,8 +176,10 @@ export default function ProductosPromo() {
                 display: 'block',
               }}
             >
-              {/* Image */}
+              {/* Images — 1 on desktop, 2 on mobile */}
               <div style={{
+                display: 'flex',
+                flexDirection: 'row',
                 aspectRatio: '1/1',
                 position: 'relative',
                 overflow: 'hidden',
@@ -181,11 +187,18 @@ export default function ProductosPromo() {
               }}>
                 <img src={producto.img} alt={producto.name}
                   style={{
-                    width: '100%',
+                    width: window.innerWidth < 601 ? '50%' : '100%',
                     height: '100%',
                     objectFit: 'cover',
                     transform: hovered === i ? 'scale(1.08)' : 'scale(1)',
                     transition: 'transform 0.5s ease',
+                  }} />
+                <img src={producto.img2} alt={`${producto.name} back`}
+                  style={{
+                    width: '50%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: window.innerWidth < 601 ? 'block' : 'none',
                   }} />
 
                 {/* Tag */}
