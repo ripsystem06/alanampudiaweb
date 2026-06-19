@@ -70,6 +70,8 @@ export default function PistaSection() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           min-height: 600px;
+          align-items: stretch;
+          overflow: visible;
         }
         .pista-card {
           display: flex;
@@ -78,6 +80,7 @@ export default function PistaSection() {
           position: relative;
           cursor: pointer;
           min-height: 600px;
+          height: 100%;
         }
 
         /* ===== MOBILE ONLY (max-width: 767px) ===== */
