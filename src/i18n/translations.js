@@ -177,6 +177,9 @@ const translations = {
     'fueradepista.alt_mama': 'Alan y su mamá',
     'fueradepista.alt_familia': 'Alan Ampudia familia',
     'fueradepista.alt_lazo': 'Lazo rosa',
+    // INACTIVE (refresh-portfolio-junio) (misspelled — not used; inline placeholders in FueraDePista)
+    'fuera.cancer_bingo_placeholder': 'Bingo: próximoamente',
+    'fuera.cancer_golf_placeholder': 'Golf: próximoamente',
     'fueradepista.palabras_label': 'En sus propias palabras',
     'fueradepista.mentalidad_heading': 'LA MENTALIDAD\nDEL CAMPEÓN',
     'fueradepista.lema_label': 'El lema del campeón',
@@ -200,6 +203,7 @@ const translations = {
     'fueradepista.cita_inspirar': 'Inspirar a México',
     'fueradepista.cita_inspirar_text': 'Quiero ser una inspiración para los jóvenes. Que vean que trabajando duro, sabiendo trabajar en equipo y nunca rindiéndose, es posible. Que se sepa que se puede luchar, nada es imposible si te lo pones como meta.',
     'fueradepista.cita_alan': '— ALAN AMPUDIA',
+    // INACTIVE (refresh-portfolio-junio)
     'fueradepista.filosofia_felicidad': 'Felicidad',
     'fueradepista.filosofia_adrenalina': 'Adrenalina',
     'fueradepista.filosofia_amor': 'Amor',
@@ -465,6 +469,8 @@ const translations = {
     'fueradepista.alt_mama': 'Alan and his mom',
     'fueradepista.alt_familia': 'Alan Ampudia family',
     'fueradepista.alt_lazo': 'Pink ribbon',
+    'fuera.cancer_bingo_placeholder': 'Bingo: coming soon',
+    'fuera.cancer_golf_placeholder': 'Golf: coming soon',
     'fueradepista.palabras_label': 'In his own words',
     'fueradepista.mentalidad_heading': 'THE CHAMPION\'S\nMINDSET',
     'fueradepista.lema_label': 'The champion\'s motto',
@@ -488,6 +494,7 @@ const translations = {
     'fueradepista.cita_inspirar': 'Inspiring Mexico',
     'fueradepista.cita_inspirar_text': 'I want to be an inspiration for young people. So they see that by working hard, knowing how to work as a team and never giving up, it\'s possible. Let it be known that you can fight, nothing is impossible if you set it as a goal.',
     'fueradepista.cita_alan': '— ALAN AMPUDIA',
+    // INACTIVE (refresh-portfolio-junio)
     'fueradepista.filosofia_felicidad': 'Happiness',
     'fueradepista.filosofia_adrenalina': 'Adrenaline',
     'fueradepista.filosofia_amor': 'Love',
