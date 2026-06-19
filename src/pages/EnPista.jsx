@@ -7,78 +7,78 @@ const temporadas = [
   {
     year: '2026',
     carreras: [
-      { nombre: 'SCORE BAJA 500', fecha: 'Jun 2026', posicion: '2°', clase: 'Trophy Truck', tiempo: '9:11:06.665', estado: 'Completada', nota: '—' },
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2026', posicion: '10°', clase: '4WD Vehicles - Pro', tiempo: '6:48:20.865', estado: 'Completada', nota: '281.85 mi — 43.50 MPH' },
+      { nombre: 'SCORE BAJA 500', fecha: 'Jun 2026', posicion: '2°', clase: 'Trophy Truck', tiempo: '9:11:06.665', estado: 'Completada', millas: '—', mph: '—' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2026', posicion: '10°', clase: '4WD Vehicles - Pro', tiempo: '6:48:20.865', estado: 'Completada', millas: '281.85', mph: '43.50' },
     ],
   },
   {
     year: '2025',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2025', posicion: '1°', clase: '1° TT', tiempo: '3:55:13.133', estado: 'Victoria', nota: '250.06 mi — 70.44 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2025', posicion: '1°', clase: '1° TT', tiempo: '8:39:34.422', estado: 'Victoria', nota: '461.03 mi — 54.95 MPH' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2025', posicion: '1°', clase: '1° TT', tiempo: '8:12:29', estado: 'Victoria', nota: '400.00 mi — 49.26 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2025', posicion: '6°', clase: '1° TT', tiempo: '17:30:51.297', estado: 'Completada', nota: '854.00 mi — 49.36 MPH' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2025', posicion: '1°', clase: '1° TT', tiempo: '3:55:13.133', estado: 'Victoria', millas: '250.06', mph: '70.44' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2025', posicion: '1°', clase: '1° TT', tiempo: '8:39:34.422', estado: 'Victoria', millas: '461.03', mph: '54.95' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2025', posicion: '1°', clase: '1° TT', tiempo: '8:12:29', estado: 'Victoria', millas: '400.00', mph: '49.26' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2025', posicion: '6°', clase: '1° TT', tiempo: '17:30:51.297', estado: 'Completada', millas: '854.00', mph: '49.36' },
     ],
   },
   {
     year: '2024',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2024', posicion: '1°', clase: '1° TT', tiempo: '4:02:20.708', estado: 'Victoria', nota: '285.62 mi — 71.05 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2024', posicion: '10°', clase: '2° TT', tiempo: '10:30:47', estado: 'Completada', nota: '473.00 mi — 45.92 MPH' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2024', posicion: '2°', clase: '1° TT', tiempo: '7:56:51.317', estado: 'Victoria', nota: '424.00 mi — 56.08 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2024', posicion: '3°', clase: '1° TT', tiempo: '17:12:58.161', estado: 'Victoria', nota: '864.13 mi — 50.47 MPH' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2024', posicion: '1°', clase: '1° TT', tiempo: '4:02:20.708', estado: 'Victoria', millas: '285.62', mph: '71.05' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2024', posicion: '10°', clase: '2° TT', tiempo: '10:30:47', estado: 'Completada', millas: '473.00', mph: '45.92' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2024', posicion: '2°', clase: '1° TT', tiempo: '7:56:51.317', estado: 'Victoria', millas: '424.00', mph: '56.08' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2024', posicion: '3°', clase: '1° TT', tiempo: '17:12:58.161', estado: 'Victoria', millas: '864.13', mph: '50.47' },
     ],
   },
   {
     year: '2023',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2023', posicion: '2°', clase: '1° TT', tiempo: '5:51:46.755', estado: 'Victoria', nota: '286.00 mi — 51.91 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2023', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', nota: '473.67 mi — DNF' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2023', posicion: '4°', clase: '2° TT', tiempo: '8:01:01.388', estado: 'Completada', nota: '417.00 mi — 52.06 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2023', posicion: '10°', clase: '', tiempo: '26:37:14.098', estado: 'Completada', nota: '1,310.94 mi — 49.71 MPH' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2023', posicion: '2°', clase: '1° TT', tiempo: '5:51:46.755', estado: 'Victoria', millas: '286.00', mph: '51.91' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2023', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', millas: '473.67', mph: '—' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2023', posicion: '4°', clase: '2° TT', tiempo: '8:01:01.388', estado: 'Completada', millas: '417.00', mph: '52.06' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2023', posicion: '10°', clase: '', tiempo: '26:37:14.098', estado: 'Completada', millas: '1,310.94', mph: '49.71' },
     ],
   },
   {
     year: '2022',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2022', posicion: '7°', clase: '', tiempo: '4:42:03.589', estado: 'Completada', nota: '277.00 mi — 62.67 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2022', posicion: '5°', clase: '', tiempo: '9:45:09.024', estado: 'Completada', nota: '463.72 mi — 49.07 MPH' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2022', posicion: '4°', clase: '', tiempo: '8:11:06.566', estado: 'Completada', nota: '394.00 mi — 48.58 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2022', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', nota: '828.25 mi — DNF' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2022', posicion: '7°', clase: '', tiempo: '4:42:03.589', estado: 'Completada', millas: '277.00', mph: '62.67' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2022', posicion: '5°', clase: '', tiempo: '9:45:09.024', estado: 'Completada', millas: '463.72', mph: '49.07' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2022', posicion: '4°', clase: '', tiempo: '8:11:06.566', estado: 'Completada', millas: '394.00', mph: '48.58' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2022', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', millas: '828.25', mph: '—' },
     ],
   },
   {
     year: '2021',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2021', posicion: '4°', clase: '', tiempo: '4:36:55.643', estado: 'Completada', nota: '280.00 mi — 64.22 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2021', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', nota: '466.00 mi — DNF' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2021', posicion: '4°', clase: '', tiempo: '8:41:54.288', estado: 'Completada', nota: '400.00 mi — 47.56 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2021', posicion: '4°', clase: '', tiempo: '22:45:50.078', estado: 'Completada', nota: '1,226.35 mi — 54.63 MPH' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2021', posicion: '4°', clase: '', tiempo: '4:36:55.643', estado: 'Completada', millas: '280.00', mph: '64.22' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2021', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', millas: '466.00', mph: '—' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2021', posicion: '4°', clase: '', tiempo: '8:41:54.288', estado: 'Completada', millas: '400.00', mph: '47.56' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2021', posicion: '4°', clase: '', tiempo: '22:45:50.078', estado: 'Completada', millas: '1,226.35', mph: '54.63' },
     ],
   },
   {
     year: '2020',
     carreras: [
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2020', posicion: '4°', clase: '', tiempo: '8:47:05.130', estado: 'Completada', nota: '493.00 mi — 58.21 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2020', posicion: '6°', clase: '', tiempo: '20:53:45.887', estado: 'Completada', nota: '898.40 mi — 43.76 MPH' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2020', posicion: '4°', clase: '', tiempo: '8:47:05.130', estado: 'Completada', millas: '493.00', mph: '58.21' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2020', posicion: '6°', clase: '', tiempo: '20:53:45.887', estado: 'Completada', millas: '898.40', mph: '43.76' },
     ],
   },
   {
     year: '2019',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2019', posicion: '14°', clase: '', tiempo: '6:47:13.779', estado: 'Completada', nota: '349.91 mi — 54.08 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2019', posicion: '4°', clase: '', tiempo: '10:38:18.319', estado: 'Completada', nota: '496.00 mi — 47.78 MPH' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2019', posicion: '5°', clase: '', tiempo: '8:30:47.564', estado: 'Completada', nota: '400.00 mi — 48.19 MPH' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2019', posicion: '1°', clase: '', tiempo: '16:10:35.879', estado: 'Victoria', nota: '846.00 mi — 52.55 MPH' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2019', posicion: '14°', clase: '', tiempo: '6:47:13.779', estado: 'Completada', millas: '349.91', mph: '54.08' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2019', posicion: '4°', clase: '', tiempo: '10:38:18.319', estado: 'Completada', millas: '496.00', mph: '47.78' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2019', posicion: '5°', clase: '', tiempo: '8:30:47.564', estado: 'Completada', millas: '400.00', mph: '48.19' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2019', posicion: '1°', clase: '', tiempo: '16:10:35.879', estado: 'Victoria', millas: '846.00', mph: '52.55' },
     ],
   },
   {
     year: '2018',
     carreras: [
-      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2018', posicion: '8°', clase: '', tiempo: '5:40:16.008', estado: 'Completada', nota: '319.00 mi — 59.07 MPH' },
-      { nombre: 'SCORE Baja 500', fecha: 'Jun 2018', posicion: '12°', clase: '', tiempo: '12:12:08.426', estado: 'Completada', nota: '542.12 mi — 44.73 MPH' },
-      { nombre: 'SCORE Baja 400', fecha: 'Sep 2018', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', nota: '—' },
-      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2018', posicion: '9°', clase: '', tiempo: '17:11:59.357', estado: 'Completada', nota: '806.76 mi — 47.15 MPH' },
+      { nombre: 'SCORE San Felipe 250', fecha: 'Mar 2018', posicion: '8°', clase: '', tiempo: '5:40:16.008', estado: 'Completada', millas: '319.00', mph: '59.07' },
+      { nombre: 'SCORE Baja 500', fecha: 'Jun 2018', posicion: '12°', clase: '', tiempo: '12:12:08.426', estado: 'Completada', millas: '542.12', mph: '44.73' },
+      { nombre: 'SCORE Baja 400', fecha: 'Sep 2018', posicion: 'DNF', clase: '', tiempo: 'DNF', estado: 'DNF', millas: '—', mph: '—' },
+      { nombre: 'SCORE Baja 1000', fecha: 'Nov 2018', posicion: '9°', clase: '', tiempo: '17:11:59.357', estado: 'Completada', millas: '806.76', mph: '47.15' },
     ],
   },
 ];
@@ -1019,10 +1019,16 @@ export default function EnPista() {
                       <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.estado')}</div>
                       <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: estadoColor[carrera.estado] }}>{estadoT(carrera.estado)}</div>
                     </div>
-                    {carrera.nota && (
-                      <div style={{ gridColumn: '1 / -1' }}>
-                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.notas')}</div>
-                        <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', color: 'var(--white-soft)', lineHeight: 1.5 }}>{carrera.nota}</div>
+                    {carrera.millas && (
+                      <div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.millas')}</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1rem', color: 'var(--white-soft)' }}>{carrera.millas}</div>
+                      </div>
+                    )}
+                    {carrera.mph && (
+                      <div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{t('enpista.mph')}</div>
+                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1rem', color: 'var(--white-soft)' }}>{carrera.mph}</div>
                       </div>
                     )}
                     {carrera.estado === 'DNF' && (
