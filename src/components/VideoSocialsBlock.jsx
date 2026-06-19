@@ -66,16 +66,6 @@ export default function VideoSocialsBlock({ videoId, instagramLinks = [], classN
 
       {/* ── YouTube Section ── */}
       <div className="vsb-section vsb-section-youtube">
-        <div style={{
-          fontFamily: 'JetBrains Mono, monospace',
-          fontSize: '0.7rem',
-          letterSpacing: '0.35em',
-          color: 'var(--magenta-bright)',
-          textTransform: 'uppercase',
-          marginBottom: '0.5rem',
-        }}>
-          {t('socials.youtube_title')}
-        </div>
         <h2 style={{
           fontFamily: 'Anton, sans-serif',
           fontSize: 'clamp(2rem, 4vw, 3rem)',
