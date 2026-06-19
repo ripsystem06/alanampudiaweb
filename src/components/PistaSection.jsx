@@ -123,6 +123,12 @@ export default function PistaSection() {
             transform: none !important;
             z-index: 2 !important;
           }
+          .pista-glow {
+            opacity: 1 !important;
+          }
+          .pista-title {
+            text-shadow: 0 4px 30px rgba(233,30,99,0.5), 0 2px 10px rgba(0,0,0,0.8) !important;
+          }
         }
       `}</style>
 
@@ -140,7 +146,7 @@ export default function PistaSection() {
             }}
           >
             {/* Glow */}
-            <div style={{
+            <div className="pista-glow" style={{
               position: 'absolute',
               inset: '-10%',
               background: 'radial-gradient(ellipse at 50% 50%, rgba(233,30,99,0.3) 0%, transparent 50%)',
@@ -192,7 +198,7 @@ export default function PistaSection() {
               alignItems: 'center',
               maxWidth: '55%',
             }}>
-              <h2 style={{
+              <h2 className="pista-title" style={{
                 fontFamily: 'Anton, sans-serif',
                 fontSize: 'clamp(3rem, 6vw, 7.2rem)',
                 lineHeight: 1.15,
