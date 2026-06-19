@@ -69,7 +69,7 @@ export default function Footer() {
         flexDirection: 'column',
         gap: 'clamp(2rem, 4vw, 3rem)',
       }}>
-        {/* Top section: logo watermark + columns */}
+        {/* Top section: columns */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -155,6 +155,24 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Runner image — full color, below links */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '0 1rem 2rem 1rem',
+      }}>
+        <img
+          src={CASCO}
+          alt="Alan Ampudia"
+          style={{
+            width: '100%',
+            maxWidth: '500px',
+            height: 'auto',
+            objectFit: 'contain',
+          }}
+        />
+      </div>
+
       {/* Bottom bar */}
       <div style={{
         maxWidth: '1300px',
@@ -206,26 +224,6 @@ export default function Footer() {
         onMouseLeave={e => e.currentTarget.style.color = 'var(--white)'}
       >{t('footer.terminos')}</Link>
       </div>
-
-      {/* Runner image */}
-      <img
-        src={CASCO}
-        alt="Alan Ampudia"
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '85%',
-          maxWidth: '500px',
-          height: 'auto',
-          opacity: 0.15,
-          objectFit: 'contain',
-          objectPosition: 'bottom center',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
     </footer>
   );
 }
