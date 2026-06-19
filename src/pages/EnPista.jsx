@@ -1175,10 +1175,10 @@ export default function EnPista() {
             </summary>
             <div style={{ paddingTop: '1rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
               {[
-                { key: 'motor', label: 'Motor' },
-                { key: 'suspension', label: 'Suspensión' },
-                { key: 'transmision', label: 'Transmisión' },
-                { key: 'frenos', label: 'Frenos' },
+                { key: 'motor', label: t('enpista.tts_motor_label') },
+                { key: 'suspension', label: t('enpista.tts_suspension_label') },
+                { key: 'transmision', label: t('enpista.tts_transmision_label') },
+                { key: 'frenos', label: t('enpista.tts_frenos_label') },
               ].map(d => (
                 <div key={d.key} style={{ background: 'var(--black-soft)', padding: '0.8rem', borderLeft: '2px solid var(--magenta)' }}>
                   <div style={{ fontFamily: 'JetBrains Mono', fontSize: '0.65rem', color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{d.label}</div>
