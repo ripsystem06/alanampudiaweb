@@ -448,21 +448,22 @@ export default function FueraDePista() {
                 </div>
               </div>
 
-              {/* Pink ribbon closer */}
+              {/* F*CK Cancer logo */}
               <div style={{
                 marginTop: 'clamp(1.5rem, 3vw, 2.5rem)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.6rem',
+                justifyContent: 'center',
+                gap: '1rem',
               }}>
                 <div style={{
-                  width: '40px',
+                  width: '60px',
                   height: '2px',
                   background: 'var(--magenta)',
                 }} />
-                                  <img src="/Logo_FckCancer.png" alt={t('fueradepista.alt_fckcancer')} style={{ width: '32px', height: 'auto', display: 'block' }} />
+                <img src="/Logo_FckCancer.png" alt={t('fueradepista.alt_fckcancer')} style={{ width: '80px', height: 'auto', display: 'block' }} />
                 <div style={{
-                  width: '40px',
+                  width: '60px',
                   height: '2px',
                   background: 'var(--magenta)',
                 }} />
