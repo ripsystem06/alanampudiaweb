@@ -1151,28 +1151,26 @@ export default function EnPista() {
 
         {/* Spec infographic */}
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
             {[
-              { label: t('enpista.tts_potencia'), value: '~900 hp', detail: 'V8 Chevrolet LS3' },
-              { label: t('enpista.tts_torque'), value: '~480 lb-ft', detail: 'Xtrac secuencial 5 vel.' },
-              { label: t('enpista.tts_peso'), value: '~7,000 lbs', detail: 'Fibra de carbono' },
-              { label: 'Combustible', value: '110–140 gal', detail: 'Autonomía extrema' },
-              { label: 'Suspensión', value: '24–32"', detail: 'Recorrido independiente' },
-              { label: 'Frenos', value: 'Brembo 6-pistón', detail: 'Rotores 15"' },
-              { label: t('enpista.tts_categoria'), value: 'Trophy Truck', detail: 'Mason Motorsports' },
-              { label: 'Electrónica', value: 'MoTeC', detail: 'ECU + Data + PCI' },
+              { label: 'Rines', value: 'KMC 17"' },
+              { label: 'Llantas', value: '40" Toyo Tires' },
+              { label: 'Gasolina', value: '100 galones' },
+              { label: 'Material', value: 'Fibra de Carbono' },
+              { label: 'Transmisión', value: '5 speed' },
+              { label: 'Motor', value: '1200 HP' },
+              { label: 'Suspensión', value: '30"' },
             ].map(s => (
               <div key={s.label} style={{
                 background: 'var(--black-mid)',
                 border: '1px solid rgba(233,30,99,0.2)',
                 borderLeft: '3px solid var(--magenta)',
-                padding: '1.2rem 1.5rem',
+                padding: '1rem 1.2rem',
                 borderRadius: '4px',
                 transition: 'border-color 0.3s, background 0.3s',
               }}>
                 <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--white-dim)', textTransform: 'uppercase', marginBottom: '0.25rem' }}>{s.label}</div>
-                <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.5rem', color: 'var(--white)', lineHeight: 1.1 }}>{s.value}</div>
-                <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '0.8rem', color: 'var(--magenta-bright)', marginTop: '0.2rem' }}>{s.detail}</div>
+                <div style={{ fontFamily: 'Anton, sans-serif', fontSize: '1.4rem', color: 'var(--white)', lineHeight: 1.1 }}>{s.value}</div>
               </div>
             ))}
           </div>
