@@ -808,8 +808,9 @@ export default function EnPista() {
           {[
             { num: '2', label: t('enpista.records_2_campeones') },
             { num: '1', label: t('enpista.triple_corona') },
-            { num: '70.71', label: t('enpista.mph_record') },
             { num: '18h', label: t('enpista.baja1000_solitario') },
+            { num: '290:54', label: t('enpista.total_horas') },
+            { num: '16,267', label: t('enpista.total_millas') },
           ].map(s => (
             <div key={s.label} style={isMobile ? {} : { display: 'flex', alignItems: 'baseline', gap: '0.6rem' }}>
               <div style={{ fontFamily: 'Anton, sans-serif', fontSize: isMobile ? '2.2rem' : '2.42rem', color: 'var(--magenta-bright)', lineHeight: 1 }}>{s.num}</div>

@@ -89,8 +89,11 @@ const translations = {
     'enpista.sub': 'Resultados, victorias y momentos definitorios en la máxima categoría del off-road mundial.',
     'enpista.campeonato_mundial': 'Campeonato Mundial',
     'enpista.triple_corona': 'Triple Corona',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.mph_record': 'mph Récord SF250',
     'enpista.baja1000_solitario': 'Baja 1000 solitario',
+    'enpista.total_horas': 'TOTAL HORAS',
+    'enpista.total_millas': 'TOTAL MILLAS',
     'enpista.records_2_campeones': '2 Campeonatos Mundiales',
     'enpista.tts_potencia': 'Potencia',
     'enpista.tts_torque': 'Torque',
@@ -426,8 +429,11 @@ const translations = {
     'enpista.sub': 'Results, victories and defining moments in the highest category of world off-road.',
     'enpista.campeonato_mundial': 'World Championship',
     'enpista.triple_corona': 'Triple Crown',
+    // INACTIVE (refresh-portfolio-junio)
     'enpista.mph_record': 'mph Record SF250',
     'enpista.baja1000_solitario': 'Solo Baja 1000',
+    'enpista.total_horas': 'TOTAL HOURS',
+    'enpista.total_millas': 'TOTAL MILES',
     'enpista.records_2_campeones': '2 World Championships',
     'enpista.tts_potencia': 'Power',
     'enpista.tts_torque': 'Torque',
