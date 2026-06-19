@@ -428,11 +428,8 @@ function TeamSection() {
           ))}
         </div>
 
-        {/* Pit Crew Heroes + Anecdote */}
+        {/* Pit Crew Heroes */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: window.innerWidth < 768 ? '1fr' : '1fr 1fr',
-          gap: 'clamp(1.5rem, 4vw, 3rem)',
           padding: 'clamp(1.5rem, 3vw, 2.5rem)',
           background: 'rgba(233,30,99,0.05)',
           border: '1px solid rgba(233,30,99,0.2)',
@@ -441,61 +438,73 @@ function TeamSection() {
           transform: visible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.9s ease 0.6s',
         }}>
-          <div>
-            <div style={{
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: '0.65rem',
-              letterSpacing: '0.25em',
-              color: 'var(--magenta-bright)',
-              textTransform: 'uppercase',
-              marginBottom: '0.8rem',
-            }}>
-              {t('enpista.heroes_label')}
-            </div>
-            <h3 style={{
-              fontFamily: 'Anton, sans-serif',
-              fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
-              color: 'var(--white)',
-              lineHeight: 1.1,
-              margin: 0,
-              marginBottom: '1rem',
-            }}>
-              {t('enpista.mecanicos_heading')}
-            </h3>
-            <p style={{
-              fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: '1.05rem',
-              color: 'var(--white-soft)',
-              lineHeight: 1.7,
-            }}>
-              {t('enpista.mecanicos_desc')}
-            </p>
-          </div>
-
           <div style={{
-            padding: 'clamp(1rem, 2vw, 1.5rem)',
-            background: 'var(--black)',
-            borderLeft: '4px solid var(--magenta)',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.65rem',
+            letterSpacing: '0.25em',
+            color: 'var(--magenta-bright)',
+            textTransform: 'uppercase',
+            marginBottom: '0.8rem',
           }}>
-            <div style={{
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: '0.6rem',
-              letterSpacing: '0.2em',
-              color: 'var(--magenta-bright)',
-              marginBottom: '0.6rem',
-              textTransform: 'uppercase',
-            }}>
-              {t('enpista.anecdota_label')}
-            </div>
-            <p style={{
-              fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: '0.95rem',
-              color: 'var(--white-soft)',
-              lineHeight: 1.6,
-              fontStyle: 'italic',
-            }}>
-              {t('enpista.mecanicos_anecdota')}
-            </p>
+            {t('enpista.heroes_label')}
+          </div>
+          <h3 style={{
+            fontFamily: 'Anton, sans-serif',
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            color: 'var(--white)',
+            lineHeight: 1.1,
+            margin: 0,
+            marginBottom: '1rem',
+          }}>
+            {t('enpista.heroes_heading')}
+          </h3>
+          <p style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '1.05rem',
+            color: 'var(--white-soft)',
+            lineHeight: 1.7,
+            marginBottom: '1rem',
+          }}>
+            {t('enpista.heroes_desc')}
+          </p>
+          <p style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '1rem',
+            color: 'var(--magenta-bright)',
+            lineHeight: 1.6,
+            fontWeight: 600,
+            marginBottom: '1.5rem',
+          }}>
+            {t('enpista.heroes_mission')}
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: '0.6rem',
+          }}>
+            {[
+              'Jesús Fabián Lara',
+              'Miguel Castelán',
+              'David Echeverría',
+              'Jesús Ferniza',
+              'Ulises Meneces',
+              'Geovanny Mozo',
+              'Edzon Bojorjes',
+            ].map(name => (
+              <div key={name} style={{
+                background: 'var(--black-mid)',
+                border: '1px solid rgba(233,30,99,0.15)',
+                borderLeft: '3px solid var(--magenta)',
+                padding: '0.8rem 1rem',
+                borderRadius: '3px',
+                fontFamily: 'Anton, sans-serif',
+                fontSize: '0.9rem',
+                color: 'var(--white)',
+                letterSpacing: '0.03em',
+              }}>
+                {name}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1285,7 +1294,7 @@ export default function EnPista() {
                   color: 'var(--white)',
                   WebkitTextStroke: '1.5px var(--magenta)',
                   letterSpacing: '0.05em',
-                }}>KYLE "EL K"</div>
+                }}>KYLE CRAFT</div>
               </div>
             </div>
 
