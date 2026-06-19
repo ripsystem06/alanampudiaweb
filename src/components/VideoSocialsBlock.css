@@ -12,14 +12,8 @@
 
 .vsb-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-@media (max-width: 767px) {
-  .vsb-grid {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: 1fr;
+  gap: 3rem;
 }
 
 .vsb-ig-grid {

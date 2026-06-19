@@ -46,8 +46,8 @@ const translations = {
     'common.imagen': 'Imagen',
 
     // ── Socials (VideoSocialsBlock) ──
-    'socials.youtube_title': 'YouTube',
-    'socials.instagram_title': 'Instagram',
+    'socials.youtube_title': 'MI MAS RECIENTE\nVIDEO',
+    'socials.instagram_title': 'SIGUEME EN REDES',
     'socials.follow_us': 'Síguenos en redes',
     'socials.video_placeholder': 'Video próximamente',
     'socials.ver_youtube': 'Ver más en YouTube →',
@@ -345,6 +345,14 @@ const translations = {
     'common.ano_anterior': 'Previous year',
     'common.ano_siguiente': 'Next year',
     'common.imagen': 'Image',
+
+    // ── Socials (VideoSocialsBlock) ──
+    'socials.youtube_title': 'MY LATEST\nVIDEO',
+    'socials.instagram_title': 'FOLLOW ME',
+    'socials.follow_us': 'Follow us on social',
+    'socials.video_placeholder': 'Video coming soon',
+    'socials.ver_youtube': 'Watch more on YouTube →',
+    'socials.seguir_ig': 'FOLLOW ON INSTAGRAM ↗',
 
     // ── Home — PistaSection ──
     'home.pista_title': 'ON\nTRACK',
