@@ -115,9 +115,6 @@ export default function PistaSection() {
             opacity: 0.5 !important;
           }
           .pista-text {
-            opacity: 0 !important;
-            transform: translateY(30px) !important;
-            transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s !important;
             position: relative !important;
             top: auto !important;
             left: 0 !important;
@@ -126,11 +123,9 @@ export default function PistaSection() {
             align-items: center !important;
             max-width: 100% !important;
             padding: 2rem 1rem;
-          }
-          .pista-card.active .pista-text {
             opacity: 1 !important;
-            transform: translateY(0) !important;
-            z-index: 5 !important;
+            transform: none !important;
+            z-index: 2 !important;
           }
         }
       `}</style>
