@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debug Firma Animada</title>
+<style>
+  body { margin:0; background:#000; color:#fff; font-family:monospace; }
+  #panel { position:fixed; top:0; left:0; right:0; background:rgba(0,0,0,.9); padding:1rem; z-index:10; border-bottom:1px solid #E91E8C; }
+  #panel input { width:100%; margin:.5rem 0; accent-color:#E91E8C; }
+  #panel label { font-size:.8rem; color:#aaa; }
+  #panel .val { color:#E91E8C; font-weight:bold; }
+  svg { width:100vw; height:100vh; display:block; }
+  path { fill:none; stroke:#fff; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; }
+</style>
+</head>
+<body>
+<div id="panel">
+  <label>Progress: <span class="val" id="prog">0.00</span> | DashOffset: <span class="val" id="off">0</span> / <span class="val" id="len">0</span></label>
+  <input type="range" id="slider" min="0" max="1000" value="0" step="1">
+  <div style="display:flex;gap:.5rem;margin-top:.3rem;">
+    <button onclick="play()">▶ Play</button>
+    <button onclick="pause()">⏸ Pause</button>
+    <button onclick="reset()">↺ Reset</button>
+    <span style="color:#aaa;font-size:.8rem;align-self:center;">Usá el slider para ver parte por parte</span>
+  </div>
+</div>
+<svg viewBox="0 0 2961 2822" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <path id="firma"/>
+</svg>
+<script>
+  const FIRMA_D = `$(cat /tmp/firma_path.txt)`;
+  
+  const path = document.getElementById('firma');
+  path.setAttribute('d', FIRMA_D);
+  
+  let totalLen = 0;
+  let animId = null;
+  
+  window.onload = () => {
+    totalLen = path.getTotalLength();
+    document.getElementById('len').textContent = Math.round(totalLen);
+    path.setAttribute('stroke-dasharray', totalLen);
+    path.setAttribute('stroke-dashoffset', totalLen);
+  };
+  
+  const slider = document.getElementById('slider');
+  slider.oninput = () => {
+    const p = slider.value / 1000;
+    const eased = 1 - Math.pow(1 - p, 2.5);
+    const off = totalLen * (1 - eased);
+    path.setAttribute('stroke-dashoffset', off);
+    document.getElementById('prog').textContent = p.toFixed(2);
+    document.getElementById('off').textContent = Math.round(off);
+  };
+  
+  function play() {
+    if (animId) return;
+    let p = parseFloat(slider.value) / 1000;
+    const start = performance.now();
+    const duration = 6000; // 6 segundos
+    const startVal = p;
+    function tick(now) {
+      const elapsed = now - start;
+      p = Math.min(1, startVal + elapsed / duration);
+      slider.value = Math.round(p * 1000);
+      slider.oninput();
+      if (p < 1) animId = requestAnimationFrame(tick);
+      else animId = null;
+    }
+    animId = requestAnimationFrame(tick);
+  }
+  
+  function pause() {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+  }
+  
+  function reset() {
+    pause();
+    slider.value = 0;
+    slider.oninput();
+  }
+</script>
+</body>
+</html>
