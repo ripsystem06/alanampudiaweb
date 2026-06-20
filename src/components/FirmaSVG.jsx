@@ -7,11 +7,11 @@ const PATHS = [
   'M1275.55 1519.9c23.98,-40.99 47.97,-81.98 71.08,-105.75 23.11,-23.76 45.35,-30.31 61.05,-27.69 15.7,2.62 24.86,14.39 31.18,32.92 6.32,18.54 9.81,43.83 13.95,66.5 4.14,22.68 8.94,42.74 20.28,47.97 11.33,5.23 29.22,-4.36 49.93,-33.8 20.71,-29.43 44.26,-78.71 70.65,-127.12 26.38,-48.4 55.6,-95.94 77.62,-119.05 22.02,-23.11 36.85,-21.8 51.24,-11.56 14.39,10.25 28.35,29.43 46.22,71.08 17.88,41.65 39.69,105.75 54.51,169.2 14.83,63.45 22.67,126.24 22.24,184.89 -0.43,58.65 -9.15,113.17 -20.49,145.22 -11.34,32.05 -25.29,41.65 -28.35,2.4 -3.05,-39.24 4.8,-127.33 6.32,-240.28 1.53,-112.94 -3.27,-250.74 -3.27,-337.74 0,-87 4.8,-123.19 20.05,-213.19 15.25,-90 40.96,-233.8 73.31,-352.48 32.35,-118.69 71.33,-212.26 123.96,-289.74 52.63,-77.49 118.91,-138.89 185.67,-175.93 66.77,-37.04 134.02,-49.71 196.4,-43.86 62.38,5.85 119.89,30.22 166.18,72.61 46.3,42.4 81.39,102.83 104.78,171.55 23.39,68.71 35.09,145.71 26.31,216.37 -8.77,70.67 -38.01,134.99 -82.85,199.81 -44.83,64.81 -105.27,130.12 -191.04,195.91 -85.77,65.79 -196.88,132.07 -302.15,186.65 -105.26,54.58 -204.68,97.47 -288.02,130.12 -83.33,32.65 -150.59,55.07 -259.75,88.21 -109.16,33.14 -260.24,77 -411.31,120.86',
 ]
 
-// Sequential timeline: trazo 1: 0-20%, trazo 2: 25-70%, trazo 3: 75-100%
+// Timeline sin pausas: trazos encadenados, proporcionales a su longitud
 const TIMELINE = [
-  { start: 0.00, end: 0.20 },
-  { start: 0.25, end: 0.70 },
-  { start: 0.75, end: 1.00 },
+  { start: 0.00, end: 0.10 },
+  { start: 0.10, end: 0.65 },
+  { start: 0.65, end: 1.00 },
 ]
 
 /**
@@ -23,6 +23,7 @@ const TIMELINE = [
 export default function FirmaSVG({ progress }) {
   const pathRefs = useRef([])
   const [lengths, setLengths] = useState([0, 0, 0])
+  const ready = lengths[0] > 0
 
   useEffect(() => {
     const lens = pathRefs.current
@@ -32,19 +33,24 @@ export default function FirmaSVG({ progress }) {
   }, [])
 
   const getOffset = (i) => {
+    if (!ready) return 0
     const t = TIMELINE[i]
     const localP = Math.max(0, Math.min(1, (progress - t.start) / (t.end - t.start)))
-    const eased = 1 - Math.pow(1 - localP, 2.5)
     if (progress >= t.end) return 0
     if (progress < t.start) return lengths[i]
-    return lengths[i] * (1 - eased)
+    return lengths[i] * (1 - localP)
+  }
+
+  const getDasharray = (i) => {
+    if (!ready) return 'none'
+    return lengths[i]
   }
 
   return (
     <svg
       viewBox="0 0 3125 2604.17"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ width: '100%', height: '100%', display: 'block' }}
+      style={{ width: '100%', height: '100%', display: 'block', opacity: ready ? 1 : 0 }}
       preserveAspectRatio="xMidYMid meet"
     >
       {PATHS.map((d, i) => (
@@ -53,11 +59,11 @@ export default function FirmaSVG({ progress }) {
           ref={el => pathRefs.current[i] = el}
           d={d}
           fill="none"
-          stroke="white"
-          strokeWidth="10"
+          stroke="#E91E8C"
+          strokeWidth="48"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeDasharray={lengths[i] || 'none'}
+          strokeDasharray={getDasharray(i)}
           strokeDashoffset={getOffset(i)}
         />
       ))}
