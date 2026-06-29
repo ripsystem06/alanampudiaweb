@@ -3,7 +3,7 @@ import translations from '../i18n/translations';
 
 const LanguageContext = createContext(null);
 
-const LANGS = ['es', 'en'];
+const LANGS = ['en', 'es'];
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {

@@ -33,16 +33,16 @@ export default function LanguageToggle() {
       }}
     >
       <span style={{
-        fontWeight: lang === 'es' ? 700 : 400,
-        color: lang === 'es' ? 'var(--magenta-bright)' : 'var(--white-dim)',
-        transition: 'all 0.2s',
-      }}>MX</span>
-      <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.55rem' }}>|</span>
-      <span style={{
         fontWeight: lang === 'en' ? 700 : 400,
         color: lang === 'en' ? 'var(--magenta-bright)' : 'var(--white-dim)',
         transition: 'all 0.2s',
       }}>US</span>
+      <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.55rem' }}>|</span>
+      <span style={{
+        fontWeight: lang === 'es' ? 700 : 400,
+        color: lang === 'es' ? 'var(--magenta-bright)' : 'var(--white-dim)',
+        transition: 'all 0.2s',
+      }}>MX</span>
     </button>
   );
 }
