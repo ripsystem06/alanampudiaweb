@@ -8,7 +8,6 @@ const pages = [
   { key: 'nav.en_pista', to: '/en-pista' },
   { key: 'nav.fuera_de_pista', to: '/fuera-de-pista' },
   { key: 'nav.calendario', to: '/calendario' },
-  { key: 'nav.equipo', to: '/equipo' },
 ];
 
 const socials = [

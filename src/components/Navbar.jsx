@@ -8,7 +8,6 @@ const navKeys = [
   { key: 'nav.en_pista', to: '/en-pista', num: '02' },
   { key: 'nav.fuera_de_pista', to: '/fuera-de-pista', num: '03' },
   { key: 'nav.calendario', to: '/calendario', num: '04' },
-  { key: 'nav.equipo', to: '/equipo', num: '05' },
 ];
 
 export default function Navbar() {
