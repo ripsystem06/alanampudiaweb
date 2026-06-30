@@ -35,6 +35,7 @@ yarn-error.log*
 .pi/
 .pi-lens/
 .claude/
+.codegraph/
 
 # Docs
 DESIGN.md
